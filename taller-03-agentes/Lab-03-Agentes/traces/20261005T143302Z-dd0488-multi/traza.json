@@ -1,0 +1,375 @@
+{
+  "question": "¿Cuál fue la mediana del importe por venta de los clientes del segmento educación en 2025?",
+  "answer": "La mediana del importe por venta de los clientes del segmento educación en 2025 fue de 1.166,85 (valor exacto: 1.166,8517).\n\nEl cálculo se basa en 934 ventas de ese segmento con fecha entre el 2025-01-01 y el 2025-12-31, donde el importe de cada venta es cantidad × precio_unitario × (1 − descuento). Como referencia: la media fue 2.302,83, el mínimo 69,69 y el máximo 21.446,85.",
+  "trace": [
+    {
+      "step": 1,
+      "agente": "supervisor",
+      "tipo": "guarda",
+      "model": "código",
+      "tokens_entrada": 0,
+      "tokens_salida": 0,
+      "latencia_s": 0.0,
+      "error": null,
+      "detectado": null,
+      "action": null,
+      "observation": null
+    },
+    {
+      "step": 2,
+      "agente": "clasificador",
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 179,
+      "tokens_salida": 108,
+      "latencia_s": 0.599,
+      "error": null,
+      "thought": "{\"ruta\": \"datos\", \"motivo\": \"Solicita un cálculo de lectura (mediana de importes por segmento y año) sin crear ni modificar datos.\"}",
+      "action": null,
+      "observation": null,
+      "ruta": "datos",
+      "motivo": "Solicita un cálculo de lectura (mediana de importes por segmento y año) sin crear ni modificar datos."
+    },
+    {
+      "step": 3,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1143,
+      "tokens_salida": 70,
+      "latencia_s": 0.621,
+      "razonamiento_chars": 253,
+      "thought": "",
+      "action": {
+        "name": "describir_base",
+        "args": {}
+      },
+      "observation": {
+        "tablas": {
+          "clientes": {
+            "filas": 320,
+            "columnas": {
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT"
+              },
+              "region": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Amazonía",
+                  "Costa",
+                  "Galápagos",
+                  "Sierra"
+                ]
+              },
+              "segmento": {
+                "tipo": "TEXT",
+                "valores": [
+                  "corporativo",
+                  "educación",
+                  "pyme",
+                  "sector público"
+                ]
+              },
+              "fecha_alta": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2023-01-02",
+                  "2025-06-18"
+                ]
+              }
+            }
+          },
+          "productos": {
+            "filas": 13,
+            "columnas": {
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Bolsa de horas de consultoría",
+                  "Capacitación Avanzada",
+                  "Capacitación Fundamentos",
+                  "Certificación de analistas",
+                  "Licencia Analítica Básica",
+                  "Licencia Analítica Enterprise",
+                  "Licencia Analítica Pro",
+                  "Licencia Integración API",
+                  "Licencia Visualización",
+                  "Soporte Dedicado (mes)",
+                  "Soporte Estándar (mes)",
+                  "Soporte Prioritario (mes)",
+                  "Taller in situ (día)"
+                ]
+              },
+              "categoria": {
+                "tipo": "TEXT",
+                "valores": [
+                  "capacitación",
+                  "licencia",
+                  "soporte"
+                ]
+              },
+              "precio_lista": {
+                "tipo": "REAL",
+                "rango": [
+                  85.0,
+                  4200.0
+                ]
+              }
+            }
+          },
+          "ventas": {
+            "filas": 6000,
+            "columnas": {
+              "venta_id": {
+                "tipo": "INTEGER"
+              },
+              "fecha": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2025-01-01",
+                  "2026-08-31"
+                ]
+              },
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "cantidad": {
+                "tipo": "INTEGER",
+                "rango": [
+                  1,
+                  12
+                ]
+              },
+              "precio_unitario": {
+                "tipo": "REAL",
+                "rango": [
+                  78.23,
+                  4408.34
+                ]
+              },
+              "descuento": {
+                "tipo": "REAL",
+                "rango": [
+                  0.0,
+                  0.15
+                ]
+              }
+            }
+          }
+        },
+        "notas": [
+          "El importe de una venta es cantidad * precio_unitario * (1 - descuento). No existe una columna 'importe', 'total' ni 'monto': hay que calcularlo.",
+          "descuento es una fracción entre 0 y 1 (0.15 = 15 %).",
+          "Las fechas son texto ISO 'AAAA-MM-DD': para un mes usa fecha LIKE '2026-03%'; para un rango, fecha BETWEEN '2026-01-01' AND '2026-06-30'.",
+          "ventas.cliente_id → clientes.cliente_id y ventas.producto_id → productos.producto_id.",
+          "No hay datos de costos, márgenes, ganancias, inventario ni satisfacción de clientes."
+        ]
+      },
+      "latencia_herramienta_s": 0.016,
+      "error": null,
+      "agente": "datos"
+    },
+    {
+      "step": 4,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1793,
+      "tokens_salida": 146,
+      "latencia_s": 0.754,
+      "razonamiento_chars": 256,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT v.venta_id, v.cantidad * v.precio_unitario * (1 - v.descuento) AS importe FROM ventas v JOIN clientes c ON v.cliente_id = c.cliente_id WHERE c.segmento = 'educación' AND v.fecha BETWEEN '2025-01-01' AND '2025-12-31'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "venta_id",
+          "importe"
+        ],
+        "filas": 934,
+        "vista": [
+          {
+            "venta_id": 5,
+            "importe": 3178.396
+          },
+          {
+            "venta_id": 14,
+            "importe": 1856.51
+          },
+          {
+            "venta_id": 17,
+            "importe": 976.28
+          },
+          {
+            "venta_id": 21,
+            "importe": 825.18
+          },
+          {
+            "venta_id": 22,
+            "importe": 862.98
+          },
+          {
+            "venta_id": 28,
+            "importe": 604.162
+          },
+          {
+            "venta_id": 37,
+            "importe": 1117.86
+          },
+          {
+            "venta_id": 38,
+            "importe": 924.06
+          },
+          {
+            "venta_id": 48,
+            "importe": 771.426
+          },
+          {
+            "venta_id": 52,
+            "importe": 431.148
+          },
+          {
+            "venta_id": 59,
+            "importe": 1984.325
+          },
+          {
+            "venta_id": 71,
+            "importe": 925.5
+          },
+          {
+            "venta_id": 74,
+            "importe": 482.163
+          },
+          {
+            "venta_id": 75,
+            "importe": 931.98
+          },
+          {
+            "venta_id": 82,
+            "importe": 1112.328
+          },
+          {
+            "venta_id": 85,
+            "importe": 472.32
+          },
+          {
+            "venta_id": 87,
+            "importe": 1727.149
+          },
+          {
+            "venta_id": 88,
+            "importe": 446.82
+          },
+          {
+            "venta_id": 92,
+            "importe": 1576.525
+          },
+          {
+            "venta_id": 98,
+            "importe": 303.22
+          }
+        ],
+        "aviso": "Solo se muestran 20 de 934 filas. Agrega en SQL o usa estadisticas/grafico con 'ds1'."
+      },
+      "latencia_herramienta_s": 0.069,
+      "error": null,
+      "agente": "datos"
+    },
+    {
+      "step": 5,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 2274,
+      "tokens_salida": 25,
+      "latencia_s": 0.294,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "estadisticas",
+        "args": {
+          "columnas": [
+            "importe"
+          ],
+          "dataset_id": "ds1"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "estadisticas": {
+          "importe": {
+            "n": 934,
+            "media": 2302.8336,
+            "mediana": 1166.8517,
+            "desviacion_estandar": 3016.0375,
+            "minimo": 69.6915,
+            "q1": 612.2487,
+            "q3": 2789.6475,
+            "maximo": 21446.85,
+            "suma": 2150846.543
+          }
+        }
+      },
+      "latencia_herramienta_s": 0.006,
+      "error": null,
+      "agente": "datos"
+    },
+    {
+      "step": 6,
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 2424,
+      "tokens_salida": 149,
+      "latencia_s": 0.85,
+      "razonamiento_chars": 86,
+      "fin": "stop",
+      "error": null,
+      "thought": "La mediana del importe por venta de los clientes del segmento **educación** en 2025 fue de **1.166,85** (1.166,8517 exactamente).\n\n- Se basa en 934 ventas de ese segmento con fecha entre 2025-01-01 y 2025-12-31.\n- Importe calculado como cantidad × precio_unitario × (1 − descuento).\n- Como referencia: media 2.302,83; mínimo 69,69; máximo 21.446,85.",
+      "action": null,
+      "observation": null,
+      "agente": "datos"
+    },
+    {
+      "step": 7,
+      "agente": "redaccion",
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1616,
+      "tokens_salida": 446,
+      "latencia_s": 2.053,
+      "error": null,
+      "thought": "La mediana del importe por venta de los clientes del segmento educación en 2025 fue de 1.166,85 (valor exacto: 1.166,8517).\n\nEl cálculo se basa en 934 ventas de ese segmento con fecha entre el 2025-01-01 y el 2025-12-31, donde el importe de cada venta es cantidad × precio_unitario × (1 − descuento). Como referencia: la media fue 2.302,83, el mínimo 69,69 y el máximo 21.446,85.",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "completed",
+  "model": "zai-org/GLM-5.3-Flash",
+  "usage": {
+    "tokens_entrada": 9429,
+    "tokens_salida": 944
+  },
+  "ruta": "datos",
+  "error": null,
+  "totales": {
+    "model": "zai-org/GLM-5.3-Flash",
+    "llamadas_llm": 6,
+    "llamadas_herramienta": 3,
+    "errores_herramienta": 0,
+    "tokens_entrada": 9429,
+    "tokens_salida": 944,
+    "segundos": 5.267
+  },
+  "trace_path": "traces/20261005T143302Z-dd0488-multi/traza.json"
+}

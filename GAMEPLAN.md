@@ -178,6 +178,13 @@ Pick it **after** having the 2.b numbers, and measure it with the same golden se
 
 Commit: `parte4: mejora + resultados_mejora.csv`.
 
+Status (2026-10-05): ✅ done with **option A**, aimed at the 2.c weakness. The plain code fix isn't one of the four allowed options, so it lives inside option A.
+- **Design:** the supervisor runs a code guard plus a JSON classifier, then hands off to MiAgente (data) and a tool-less writing agent. Code enforces the abstention phrase.
+- **Golden set ×3:** 45/45 answerable in both agents. Abstention went 19/21 → 21/21. Input tokens +9 %, output +35 %, time +50–150 %.
+- **Stress set:** 8 adversarials (S1–S4 never seen by the guard) ×3: 22/24 → 24/24. The guard stopped 18/18 and the classifier 12/12. Adversarial cost was 762 tokens against ~36k.
+- **Caveat:** 4/33 vs 0/33 is not conclusive alone (one-sided Fisher p ≈ 0.057). What changed is the mechanism, which is now deterministic.
+- **Notes:** `Lab-03-Agentes/entregables/parte4/NOTAS.md`.
+
 ## Phase 6 — Part 5 and the report (≈1.5 h)
 Part 5, 100–150 words each:
 1. **PEAS / goal-based:** where the goal lives (question plus system prompt) and who decides it's met (the model when it emits a final answer; the code through the brakes). Point to the lines in the code.

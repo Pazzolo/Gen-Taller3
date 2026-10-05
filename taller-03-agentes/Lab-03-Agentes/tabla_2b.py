@@ -3,6 +3,7 @@ Taller 03 — La tabla de la 2.b, calculada desde los CSV que escribe evaluar.py
 
     python tabla_2b.py                       # resultados_base.csv vs resultados_mi_agente*.csv
     python tabla_2b.py a.csv b.csv ...       # cualquier conjunto de CSV
+    python tabla_2b.py --salida X.md a.csv … # escribe la tabla en X.md (Parte 4)
 
 Reproduce las métricas de `evaluar.resumen()` leyendo los CSV, y escribe la tabla en markdown
 en entregables/parte2/tabla_2b.md.
@@ -60,10 +61,13 @@ def tabla(rutas: list[Path]) -> str:
 
 
 if __name__ == "__main__":
-    rutas = [Path(a) for a in sys.argv[1:]] or \
+    args = sys.argv[1:]
+    destino = Path("entregables/parte2/tabla_2b.md")
+    if args[:1] == ["--salida"]:
+        destino, args = Path(args[1]), args[2:]
+    rutas = [Path(a) for a in args] or \
         [Path("resultados_base.csv"), *sorted(Path(".").glob("resultados_mi_agente*.csv"))]
     md = tabla(rutas)
-    destino = Path("entregables/parte2/tabla_2b.md")
     destino.parent.mkdir(parents=True, exist_ok=True)
     destino.write_text("<!-- generado por tabla_2b.py desde los CSV de evaluar.py -->\n" + md + "\n",
                        encoding="utf-8")

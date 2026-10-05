@@ -1,0 +1,6 @@
+Estimación con una pregunta (G13) antes de correr todo el golden set — zai-org/GLM-5.3-Flash
+  MiAgente:   {'tokens_entrada': 7265, 'tokens_salida': 581}  total=7846  status=completed  respuesta='La mediana del importe facturado por mes en 2026 fue **650.732,53** (650732.53).\n\nSupuesto'
+  Supervisor: {'tokens_entrada': 8925, 'tokens_salida': 1077}  total=10002  status=completed ruta=datos  respuesta='La mediana del importe facturado por mes en 2026 fue 650732.53.\n\nDetalles:\n- El importe po'
+  sobrecosto por pregunta: +2156 tokens (+27%)
+  extrapolado a 22 preguntas × 3 corridas: ~660,132 tokens (MiAgente: ~517,836); en la H200 el costo en dinero es 0
+  pasos por agente: [('supervisor', 'guarda', 0), ('clasificador', 'llm', 175), ('datos', 'herramienta', 1139), ('datos', 'herramienta', 1789), ('datos', 'herramienta', 2088), ('datos', 'llm', 2249), ('redaccion', 'llm', 1485)]
