@@ -1,0 +1,9 @@
+{
+  "ruta": "H200 de la USFQ (vLLM, GlobalProtect)",
+  "base_url": "http://172.28.230.10:12555/v1",
+  "modelo": "zai-org/GLM-5.3-Flash",
+  "modelos_servidos": [
+    "zai-org/GLM-5.3-Flash"
+  ],
+  "fecha": "2026-10-05T13:26:40+00:00"
+}

@@ -81,7 +81,7 @@ Don't modify `agent.py` or `tools.py` in this part.
 | 0.b | `python guion.py ataque` | **What saved the table:** sqlite3/`pd.read_sql_query` only runs one statement, so it fails on `;drop` (not the filter). **What crashed the run:** the uncaught exception. **Why there's no trace:** `_write_trace` is only called on the `return` paths (`agent.py:90` and `:106`). |
 | 0.c | `python guion.py limite` | The 3 output lines plus the rule: *a limit the model can change through tool arguments is not a limit.* Then **delete `../fuera_del_lab/`**. |
 
-Status: ✅ 0.b and 0.c done 2026-10-05 (evidence in `Lab-03-Agentes/entregables/parte0/`, see `NOTAS.md`); ⏳ 0.a needs the H200.
+Status: ✅ 0.b and 0.c done 2026-10-05 (evidence in `Lab-03-Agentes/entregables/parte0/`, see `NOTAS.md`); ✅ 0.a done (P1 invents read_data/query_data, P3 zero steps; both `completed`).
 
 Compare with `mini-opencode/demo_ataque.py` and `guardia.py` to see how the reference solves the same problems.
 Commit: `parte0: salidas y trazas de 0.a, 0.b, 0.c`.
@@ -118,7 +118,7 @@ Use **native function calling** (`tools=` in `chat.completions`), following the 
 
 Commits: one per tool, then the loop, then the trace, then two sample runs.
 
-Status (2026-10-05): ✅ code done and tested offline. `mis_tools.py`, `mi_agente.py` (the 3 brakes are already in the loop), `modelo_guion.py`, `test_mi_agente.py` (11/11 pass, no network; SDK path also checked against a fake vLLM server). Report notes in `Lab-03-Agentes/entregables/parte1/NOTAS.md` (tools table, rule → line map, rule 4 justification, loop diagram). ⏳ The two real runs need the VPN (see below).
+Status (2026-10-05): ✅ code done and tested offline. `mis_tools.py`, `mi_agente.py` (the 3 brakes are already in the loop), `modelo_guion.py`, `test_mi_agente.py` (11/11 pass, no network; SDK path also checked against a fake vLLM server). Report notes in `Lab-03-Agentes/entregables/parte1/NOTAS.md` (tools table, rule → line map, rule 4 justification, loop diagram). ✅ Real runs done on the H200 (`zai-org/GLM-5.3-Flash`): tool calling works natively, both runs `completed`. Sanity check on the template: 7/8, P8 adversarial fails (no abstention phrase), so it goes to 2.c.
 
 ### ▶ When GlobalProtect is connected
 From `taller-03-agentes/Lab-03-Agentes/`:

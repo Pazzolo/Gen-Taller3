@@ -3,8 +3,27 @@
 Corrido el 2026-10-05 con `agent.py` y `tools.py` sin modificar (Python 3.11.3, versiones de
 `requirements.txt`). 0.b y 0.c usan el modelo de guion de `guion.py`: no llaman a ningún LLM.
 
-## 0.a — pendiente
-Requiere la H200 (GlobalProtect): `python evaluar.py --solo P1 P3 --salida parte0.csv`.
+## 0.a — El agente que no conoce sus herramientas
+Corrido el 2026-10-05 en la H200 con `zai-org/GLM-5.3-Flash` (ver `../modelo.json`):
+`python evaluar.py --solo P1 P3 --salida parte0.csv`. Salida: [0a_resumen.txt](0a_resumen.txt) ·
+CSV: [0a_parte0.csv](0a_parte0.csv) · trazas: [0a_trace_1.json](0a_trace_1.json),
+[0a_trace_2.json](0a_trace_2.json)
+
+| Pregunta | status | pasos | acciones |
+|---|---|---|---|
+| P1 importe de marzo 2026 | completed | 2 | `read_data`, `query_data`: **inventadas**, ninguna existe (`{"error": "Tool no registrada"}`) |
+| P3 categoría top 1.er semestre 2026 | completed | **0** | ninguna: responde que «no tiene acceso a ninguna fuente de datos» |
+
+Las dos variantes que anticipa el enunciado aparecieron, una en cada pregunta. Resumen del
+evaluador: exactitud 0,0, 2 errores de herramienta, «la traza no trae tokens».
+
+Hechos para las dos frases:
+- **Por qué `completed` con cero pasos es peor que un error:** la traza dice que la corrida terminó
+  bien; nada salta, nada se reintenta y nadie mira. Un error, en cambio, se ve y se corrige. Aquí el
+  agente tenía la base al lado y respondió que no hay datos.
+- **Qué necesita saber el modelo para no adivinar:** el nombre, la descripción y el esquema de
+  argumentos de cada herramienta (el prompt de `agent.py:27-35` no nombra ninguna), y qué hay en la
+  base (tablas, columnas y la fórmula del importe).
 
 ## 0.b — El ataque que pasa el filtro
 Salida: [0b_ataque.txt](0b_ataque.txt)
