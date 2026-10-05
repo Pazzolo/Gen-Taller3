@@ -118,6 +118,21 @@ Use **native function calling** (`tools=` in `chat.completions`), following the 
 
 Commits: one per tool, then the loop, then the trace, then two sample runs.
 
+Status (2026-10-05): ✅ code done and tested offline. `mis_tools.py`, `mi_agente.py` (the 3 brakes are already in the loop), `modelo_guion.py`, `test_mi_agente.py` (11/11 pass, no network; SDK path also checked against a fake vLLM server). Report notes in `Lab-03-Agentes/entregables/parte1/NOTAS.md` (tools table, rule → line map, rule 4 justification, loop diagram). ⏳ The two real runs need the VPN (see below).
+
+### ▶ When GlobalProtect is connected
+From `taller-03-agentes/Lab-03-Agentes/`:
+```
+.venv/bin/python correr_con_vpn.py todo
+```
+This runs, in order:
+- `modelo`: writes `AGENT_MODEL` into `.env` and `entregables/modelo.json` (route + model + date).
+- `humo`: one `tools=` call. If it fails, the server has no tool calling and we switch to schemas in the prompt.
+- `parte0a`: Part 0.a evidence into `entregables/parte0/`.
+- `parte1`: the two Part 1 runs into `entregables/parte1/`.
+
+Each step can also run on its own. Then review the outputs, `git add entregables`, and commit.
+
 ## Phase 3 — Part 2: evaluation (≈2 h, 30%)
 **2.a Golden set (10–12 questions, minimum 8).** The design itself is graded, and if the agent misses none, the set is too easy.
 - **Simple (≥2):** a count by region, a monthly total.
