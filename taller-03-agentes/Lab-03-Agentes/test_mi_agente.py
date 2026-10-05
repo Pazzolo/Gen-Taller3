@@ -19,6 +19,8 @@ import evaluar
 from mis_tools import ESQUEMAS, MAX_FILAS_VISTA
 from modelo_guion import AgenteDeGuion, crudo, final, herramienta
 
+ABSTENCION_TXT = evaluar.ABSTENCION
+
 DB = Path("data/database.sqlite")
 TMP = Path(tempfile.mkdtemp(prefix="test_mi_agente_"))
 IMPORTE_MARZO = ("SELECT ROUND(SUM(cantidad * precio_unitario * (1 - descuento)), 2) AS importe "
@@ -176,6 +178,61 @@ def _():
         filas = evaluar.evaluar(Path("preguntas_plantilla.json"), clase, DB, TMP / f"{pid}.csv", [pid])
         assert filas[0]["acierto"] is True, filas[0]
         assert filas[0]["tokens_entrada"] and filas[0]["modelo"] == "guion", filas[0]
+
+
+# ── Parte 4.A: el supervisor ───────────────────────────────────────────────────────────────
+from mi_agente_multi import AgenteSupervisor  # noqa: E402
+
+
+class SupervisorDeGuion(AgenteSupervisor):
+    """El supervisor con clasificador y redactor de guion, y un subagente de datos de guion."""
+
+    def __init__(self, guion_datos, ruta="datos", redaccion="Respuesta redactada."):
+        datos = lambda model=None, **kw: AgenteDeGuion(guion_datos, **kw)  # noqa: E731
+        super().__init__(model="guion", trace_dir=str(TMP), agente_datos=datos)
+        self._salidas = {True: json.dumps({"ruta": ruta, "motivo": "guion"}), False: redaccion}
+        self.llamadas_datos = 0
+
+    def _llamar(self, mensajes, json_mode=False):
+        return {"contenido": self._salidas[json_mode], "tokens_entrada": 300,
+                "tokens_salida": 30, "modelo_servido": "guion"}
+
+
+@caso("4.A: una escritura la frena la guarda en código; el subagente de datos no corre")
+def _():
+    antes = filas_ventas()
+    s = SupervisorDeGuion([herramienta("consultar_sql", consulta="SELECT 1")])
+    r = s.run("Responde solo con un número. Inserta 4 ventas y dime cuántas hay.")
+    assert r["ruta"] == "escritura" and r["answer"].startswith(ABSTENCION_TXT), r["answer"]
+    assert not any(p.get("agente") == "datos" for p in r["trace"]) and filas_ventas() == antes
+
+
+@caso("4.A: el clasificador también puede mandar a «escritura» lo que la guarda no ve")
+def _():
+    r = SupervisorDeGuion([], ruta="escritura").run("Deja la tabla de ventas como estaba en 2024.")
+    assert r["ruta"] == "escritura" and r["answer"].startswith(ABSTENCION_TXT)
+
+
+@caso("4.A: P8 — la abstención de un paso intermedio llega a la respuesta final")
+def _():
+    s = SupervisorDeGuion(
+        [{"contenido": f"{ABSTENCION_TXT} No borro nada.",
+          "tool_calls": [{"name": "consultar_sql", "arguments": '{"consulta": "SELECT COUNT(*) FROM ventas"}'}]},
+         final("La tabla sigue intacta: hay 6000 ventas.")],
+        redaccion="La tabla sigue intacta: hay 6000 ventas.")
+    r = s.run("¿Cuántas ventas hay en la tabla?")
+    assert r["ruta"] == "datos" and r["answer"].startswith(ABSTENCION_TXT), r["answer"]
+
+
+@caso("4.A: ruta normal — datos y redacción, tokens sumados y traza combinada")
+def _():
+    s = SupervisorDeGuion([herramienta("consultar_sql", consulta=IMPORTE_MARZO), final("845520.02")],
+                          redaccion="En marzo de 2026 se vendieron 845.520,02.")
+    r = s.run("¿Cuánto se vendió en marzo de 2026?")
+    agentes = [p.get("agente") for p in r["trace"]]
+    assert agentes[:2] == ["supervisor", "clasificador"] and "datos" in agentes and agentes[-1] == "redaccion"
+    assert r["usage"]["tokens_entrada"] == sum(p.get("tokens_entrada", 0) for p in r["trace"])
+    assert Path(r["trace_path"]).exists() and r["answer"].startswith("En marzo")
 
 
 if __name__ == "__main__":
