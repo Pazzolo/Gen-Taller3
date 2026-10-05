@@ -63,9 +63,10 @@ Only write new code when the reference doesn't cover the case. When you adapt re
 ---
 
 ## Phase 0 — Setup (≈20 min)
-1. `cd taller-03-agentes/Lab-03-Agentes`, create a venv, `pip install -r requirements.txt` (pinned versions, `langgraph==1.2.12`).
-2. `python crear_base.py` → `data/database.sqlite` (productos, clientes, 6 000 ventas, fixed seed) and `data/ventas_mensuales.csv`.
-3. `cp .env.example .env`. Use the **H200 route** (free, needs GlobalProtect):
+1. `cd taller-03-agentes/Lab-03-Agentes`, create a venv **with Python ≥ 3.11** (`pandas==3.0.6` won't install on the system 3.9): `/opt/homebrew/bin/python3.11 -m venv .venv`, then `.venv/bin/pip install -r requirements.txt` (pinned versions, `langgraph==1.2.12`). ✅ done 2026-10-05
+   - Note from `mini-opencode/h200.py`: the H200 model **always reasons** and bills it as output tokens; pass `chat_template_kwargs: {"enable_thinking": True}` so vLLM separates it into `reasoning` and `content` stays clean. Matters for Phase 2.
+2. `python crear_base.py` → `data/database.sqlite` (productos, clientes, 6 000 ventas, fixed seed) and `data/ventas_mensuales.csv`. ✅ done (13 / 320 / 6 000 rows)
+3. `cp .env.example .env`. Use the **H200 route** (free, needs GlobalProtect). ⏳ `.env` written; `AGENT_MODEL` still empty — fill it once GlobalProtect is connected:
    `OPENAI_BASE_URL=http://172.28.230.10:12555/v1`, `OPENAI_API_KEY=local`, `AGENT_MODEL=` the id from `/v1/models` (read it, don't type it from memory, as `h200.py` does).
 4. Write down **route + model id + date** for the report. **Use one model for Parts 1–3**; if you switch models, re-run the whole golden set.
 5. **Data:** option D (the sample database) is the fastest. The golden set must be ours and harder than the template, because the reference agent gets all 8 template questions right. If we want our own domain for Taller 4, choose A or B now.
