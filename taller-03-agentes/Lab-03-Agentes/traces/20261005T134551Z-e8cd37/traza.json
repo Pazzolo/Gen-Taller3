@@ -1,0 +1,321 @@
+{
+  "question": "Revisa los productos.",
+  "answer": "[INCOMPLETO — presupuesto de tokens: 10,000 gastados + ~2,615 de la próxima llamada > 12,000] No pude completar la tarea con los recursos asignados. No puedo responder con los datos disponibles.",
+  "trace": [
+    {
+      "step": 1,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 2080,
+      "tokens_salida": 300,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "describir_base",
+        "args": {}
+      },
+      "observation": {
+        "tablas": {
+          "clientes": {
+            "filas": 320,
+            "columnas": {
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT"
+              },
+              "region": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Amazonía",
+                  "Costa",
+                  "Galápagos",
+                  "Sierra"
+                ]
+              },
+              "segmento": {
+                "tipo": "TEXT",
+                "valores": [
+                  "corporativo",
+                  "educación",
+                  "pyme",
+                  "sector público"
+                ]
+              },
+              "fecha_alta": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2023-01-02",
+                  "2025-06-18"
+                ]
+              }
+            }
+          },
+          "productos": {
+            "filas": 13,
+            "columnas": {
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Bolsa de horas de consultoría",
+                  "Capacitación Avanzada",
+                  "Capacitación Fundamentos",
+                  "Certificación de analistas",
+                  "Licencia Analítica Básica",
+                  "Licencia Analítica Enterprise",
+                  "Licencia Analítica Pro",
+                  "Licencia Integración API",
+                  "Licencia Visualización",
+                  "Soporte Dedicado (mes)",
+                  "Soporte Estándar (mes)",
+                  "Soporte Prioritario (mes)",
+                  "Taller in situ (día)"
+                ]
+              },
+              "categoria": {
+                "tipo": "TEXT",
+                "valores": [
+                  "capacitación",
+                  "licencia",
+                  "soporte"
+                ]
+              },
+              "precio_lista": {
+                "tipo": "REAL",
+                "rango": [
+                  85.0,
+                  4200.0
+                ]
+              }
+            }
+          },
+          "ventas": {
+            "filas": 6000,
+            "columnas": {
+              "venta_id": {
+                "tipo": "INTEGER"
+              },
+              "fecha": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2025-01-01",
+                  "2026-08-31"
+                ]
+              },
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "cantidad": {
+                "tipo": "INTEGER",
+                "rango": [
+                  1,
+                  12
+                ]
+              },
+              "precio_unitario": {
+                "tipo": "REAL",
+                "rango": [
+                  78.23,
+                  4408.34
+                ]
+              },
+              "descuento": {
+                "tipo": "REAL",
+                "rango": [
+                  0.0,
+                  0.15
+                ]
+              }
+            }
+          }
+        },
+        "notas": [
+          "El importe de una venta es cantidad * precio_unitario * (1 - descuento). No existe una columna 'importe', 'total' ni 'monto': hay que calcularlo.",
+          "descuento es una fracción entre 0 y 1 (0.15 = 15 %).",
+          "Las fechas son texto ISO 'AAAA-MM-DD': para un mes usa fecha LIKE '2026-03%'; para un rango, fecha BETWEEN '2026-01-01' AND '2026-06-30'.",
+          "ventas.cliente_id → clientes.cliente_id y ventas.producto_id → productos.producto_id.",
+          "No hay datos de costos, márgenes, ganancias, inventario ni satisfacción de clientes."
+        ]
+      },
+      "latencia_herramienta_s": 0.008,
+      "error": null
+    },
+    {
+      "step": 2,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 2160,
+      "tokens_salida": 300,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT * FROM productos WHERE producto_id <= 2"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "producto_id",
+          "nombre",
+          "categoria",
+          "precio_lista"
+        ],
+        "filas": 2,
+        "vista": [
+          {
+            "producto_id": 1,
+            "nombre": "Licencia Analítica Básica",
+            "categoria": "licencia",
+            "precio_lista": 480.0
+          },
+          {
+            "producto_id": 2,
+            "nombre": "Licencia Analítica Pro",
+            "categoria": "licencia",
+            "precio_lista": 1250.0
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 3,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 2240,
+      "tokens_salida": 300,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT * FROM productos WHERE producto_id <= 3"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds2",
+        "columnas": [
+          "producto_id",
+          "nombre",
+          "categoria",
+          "precio_lista"
+        ],
+        "filas": 3,
+        "vista": [
+          {
+            "producto_id": 1,
+            "nombre": "Licencia Analítica Básica",
+            "categoria": "licencia",
+            "precio_lista": 480.0
+          },
+          {
+            "producto_id": 2,
+            "nombre": "Licencia Analítica Pro",
+            "categoria": "licencia",
+            "precio_lista": 1250.0
+          },
+          {
+            "producto_id": 3,
+            "nombre": "Licencia Analítica Enterprise",
+            "categoria": "licencia",
+            "precio_lista": 4200.0
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 4,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 2320,
+      "tokens_salida": 300,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT * FROM productos WHERE producto_id <= 4"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds3",
+        "columnas": [
+          "producto_id",
+          "nombre",
+          "categoria",
+          "precio_lista"
+        ],
+        "filas": 4,
+        "vista": [
+          {
+            "producto_id": 1,
+            "nombre": "Licencia Analítica Básica",
+            "categoria": "licencia",
+            "precio_lista": 480.0
+          },
+          {
+            "producto_id": 2,
+            "nombre": "Licencia Analítica Pro",
+            "categoria": "licencia",
+            "precio_lista": 1250.0
+          },
+          {
+            "producto_id": 3,
+            "nombre": "Licencia Analítica Enterprise",
+            "categoria": "licencia",
+            "precio_lista": 4200.0
+          },
+          {
+            "producto_id": 4,
+            "nombre": "Licencia Visualización",
+            "categoria": "licencia",
+            "precio_lista": 690.0
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 4,
+      "tipo": "freno",
+      "motivo": "presupuesto de tokens: 10,000 gastados + ~2,615 de la próxima llamada > 12,000",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "budget_exceeded",
+  "model": "guion",
+  "usage": {
+    "tokens_entrada": 8800,
+    "tokens_salida": 1200
+  },
+  "totales": {
+    "model": "guion",
+    "llamadas_llm": 4,
+    "llamadas_herramienta": 4,
+    "errores_herramienta": 0,
+    "tokens_entrada": 8800,
+    "tokens_salida": 1200,
+    "latencia_llm_s": 0.0,
+    "segundos": 0.012
+  },
+  "error": null,
+  "trace_path": "traces/20261005T134551Z-e8cd37/traza.json"
+}

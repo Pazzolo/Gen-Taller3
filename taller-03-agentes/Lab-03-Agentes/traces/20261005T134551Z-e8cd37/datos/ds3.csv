@@ -1,0 +1,5 @@
+producto_id,nombre,categoria,precio_lista
+1,Licencia Analítica Básica,licencia,480.0
+2,Licencia Analítica Pro,licencia,1250.0
+3,Licencia Analítica Enterprise,licencia,4200.0
+4,Licencia Visualización,licencia,690.0

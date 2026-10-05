@@ -169,6 +169,8 @@ Implement them in `MiAgente` (reference: `s3-mar` Parts 2–3, `mini-opencode/ag
 Our agent can't write data, so a 4th brake isn't required.
 Commit: `parte3: tres frenos + frenos_demo.py con sus trazas`.
 
+Status (2026-10-05): ✅ done. `frenos_demo.py --real` triggers each brake. There are 4 scripted runs (max steps, budget, repetition, plus a loop the repetition detector misses) and 2 runs on the real H200 model (max steps on G13, budget of 3 000). Traces and notes are in `Lab-03-Agentes/entregables/parte3/`. The real runs show per-call input growing 1 139 → 1 789, which feeds Part 5 Q2.
+
 ## Phase 5 — Part 4: one improvement (≈1.5 h, 5%)
 Pick it **after** having the 2.b numbers, and measure it with the same golden set. Estimate tokens from one question first and put that estimate in the report.
 - **Recommended: A, multiple agents.** A supervisor plus a data subagent (SQL, stats, charts) and a writing subagent (formats the number, handles abstention). Base it on `Sesion` / the hand-off in `mini-opencode/agentes.py`. It plugs straight into `evaluar.py`. It may gain nothing, and that's an acceptable result.
