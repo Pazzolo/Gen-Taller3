@@ -1,0 +1,9 @@
+# Course reference material (professor's notebooks, mini-opencode): read-only, not ours to commit
+202610.*/
+202610.*.zip
+# Original downloads
+*.zip
+.DS_Store
+.env
+.venv/
+__pycache__/
