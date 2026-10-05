@@ -201,6 +201,12 @@ Final commit: `informe: PDF y tablas desde resultados*.csv`.
 
 ---
 
+Status (2026-10-05): ✅ done.
+- **Part 5:** `entregables/parte5/respuestas.md`, at 133 / 146 / 149 words (counted with code). Q2 numbers come from `calculo_q2.py`.
+- **Report:** `entregables/informe/informe.md`, built into a 9-page `informe.pdf` by `construir_pdf.py` plus Chrome headless.
+- **Repo:** root README added; full scan found no credentials.
+- ⏳ **Left for the group:** fill in names (`[completar]`), read the report in your own voice, push or submit.
+
 ## Suggested split (2–3 people)
 - **A:** Part 0 + `mi_agente.py` (loop, trace).
 - **B:** `mis_tools.py` (rules 2–5, guard tests) + Part 3.

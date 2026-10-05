@@ -1,0 +1,3 @@
+incremento mediano (D=481): 8 pasos → 22,604 · 16 pasos → 75,992 · razón 3.36x
+peor incremento observado (D=707): 8 pasos → 28,932 · 16 pasos → 103,112 · razón 3.56x
+presupuesto por corrida (freno 2): 120,000 tokens de entrada + salida
