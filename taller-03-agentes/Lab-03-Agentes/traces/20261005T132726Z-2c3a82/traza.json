@@ -1,0 +1,224 @@
+{
+  "question": "¿Qué categoría de producto facturó más en el primer semestre de 2026, y cuánto facturó?",
+  "answer": "La categoría que más facturó en el primer semestre de 2026 (01/01/2026–30/06/2026) fue **licencia**, con **2.235.879,55** (importe = cantidad × precio_unitario × (1 − descuento)).\n\nLe siguieron soporte (1.103.754,18) y capacitación (798.628,94).",
+  "trace": [
+    {
+      "step": 1,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1146,
+      "tokens_salida": 53,
+      "latencia_s": 0.438,
+      "razonamiento_chars": 204,
+      "thought": "",
+      "action": {
+        "name": "describir_base",
+        "args": {}
+      },
+      "observation": {
+        "tablas": {
+          "clientes": {
+            "filas": 320,
+            "columnas": {
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT"
+              },
+              "region": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Amazonía",
+                  "Costa",
+                  "Galápagos",
+                  "Sierra"
+                ]
+              },
+              "segmento": {
+                "tipo": "TEXT",
+                "valores": [
+                  "corporativo",
+                  "educación",
+                  "pyme",
+                  "sector público"
+                ]
+              },
+              "fecha_alta": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2023-01-02",
+                  "2025-06-18"
+                ]
+              }
+            }
+          },
+          "productos": {
+            "filas": 13,
+            "columnas": {
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Bolsa de horas de consultoría",
+                  "Capacitación Avanzada",
+                  "Capacitación Fundamentos",
+                  "Certificación de analistas",
+                  "Licencia Analítica Básica",
+                  "Licencia Analítica Enterprise",
+                  "Licencia Analítica Pro",
+                  "Licencia Integración API",
+                  "Licencia Visualización",
+                  "Soporte Dedicado (mes)",
+                  "Soporte Estándar (mes)",
+                  "Soporte Prioritario (mes)",
+                  "Taller in situ (día)"
+                ]
+              },
+              "categoria": {
+                "tipo": "TEXT",
+                "valores": [
+                  "capacitación",
+                  "licencia",
+                  "soporte"
+                ]
+              },
+              "precio_lista": {
+                "tipo": "REAL",
+                "rango": [
+                  85.0,
+                  4200.0
+                ]
+              }
+            }
+          },
+          "ventas": {
+            "filas": 6000,
+            "columnas": {
+              "venta_id": {
+                "tipo": "INTEGER"
+              },
+              "fecha": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2025-01-01",
+                  "2026-08-31"
+                ]
+              },
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "cantidad": {
+                "tipo": "INTEGER",
+                "rango": [
+                  1,
+                  12
+                ]
+              },
+              "precio_unitario": {
+                "tipo": "REAL",
+                "rango": [
+                  78.23,
+                  4408.34
+                ]
+              },
+              "descuento": {
+                "tipo": "REAL",
+                "rango": [
+                  0.0,
+                  0.15
+                ]
+              }
+            }
+          }
+        },
+        "notas": [
+          "El importe de una venta es cantidad * precio_unitario * (1 - descuento). No existe una columna 'importe', 'total' ni 'monto': hay que calcularlo.",
+          "descuento es una fracción entre 0 y 1 (0.15 = 15 %).",
+          "Las fechas son texto ISO 'AAAA-MM-DD': para un mes usa fecha LIKE '2026-03%'; para un rango, fecha BETWEEN '2026-01-01' AND '2026-06-30'.",
+          "ventas.cliente_id → clientes.cliente_id y ventas.producto_id → productos.producto_id.",
+          "No hay datos de costos, márgenes, ganancias, inventario ni satisfacción de clientes."
+        ]
+      },
+      "latencia_herramienta_s": 0.018,
+      "error": null
+    },
+    {
+      "step": 2,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1796,
+      "tokens_salida": 139,
+      "latencia_s": 0.811,
+      "razonamiento_chars": 128,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT p.categoria, SUM(v.cantidad * v.precio_unitario * (1 - v.descuento)) AS facturacion\nFROM ventas v\nJOIN productos p ON p.producto_id = v.producto_id\nWHERE v.fecha BETWEEN '2026-01-01' AND '2026-06-30'\nGROUP BY p.categoria\nORDER BY facturacion DESC"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "categoria",
+          "facturacion"
+        ],
+        "filas": 3,
+        "vista": [
+          {
+            "categoria": "licencia",
+            "facturacion": 2235879.549
+          },
+          {
+            "categoria": "soporte",
+            "facturacion": 1103754.178
+          },
+          {
+            "categoria": "capacitación",
+            "facturacion": 798628.9365
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.012,
+      "error": null
+    },
+    {
+      "step": 3,
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1981,
+      "tokens_salida": 120,
+      "latencia_s": 0.557,
+      "razonamiento_chars": 91,
+      "fin": "stop",
+      "error": null,
+      "thought": "La categoría que más facturó en el primer semestre de 2026 (01/01/2026–30/06/2026) fue **licencia**, con **2.235.879,55** (importe = cantidad × precio_unitario × (1 − descuento)).\n\nLe siguieron soporte (1.103.754,18) y capacitación (798.628,94).",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "completed",
+  "model": "zai-org/GLM-5.3-Flash",
+  "usage": {
+    "tokens_entrada": 4923,
+    "tokens_salida": 312
+  },
+  "totales": {
+    "model": "zai-org/GLM-5.3-Flash",
+    "llamadas_llm": 3,
+    "llamadas_herramienta": 2,
+    "errores_herramienta": 0,
+    "tokens_entrada": 4923,
+    "tokens_salida": 312,
+    "latencia_llm_s": 1.805,
+    "segundos": 1.837
+  },
+  "error": null,
+  "trace_path": "traces/20261005T132726Z-2c3a82/traza.json"
+}

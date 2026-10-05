@@ -1,0 +1,33 @@
+  G01  simple      completed          pasos=0   acierto=False
+  G02  simple      completed          pasos=2   acierto=False
+  G03  multi       completed          pasos=0   acierto=False
+  G04  multi       completed          pasos=0   acierto=False
+  G05  multi       completed          pasos=0   acierto=False
+  G06  multi       completed          pasos=0   acierto=False
+  G07  multi       completed          pasos=0   acierto=False
+  G08  multi       completed          pasos=2   acierto=False
+  G09  multi       completed          pasos=2   acierto=False
+  G10  multi       completed          pasos=2   acierto=False
+  G11  multi       completed          pasos=0   acierto=False
+  G12  multi       completed          pasos=2   acierto=False
+  G13  multi       completed          pasos=0   acierto=False
+  G14  multi       completed          pasos=0   acierto=False
+  G15  multi       completed          pasos=0   acierto=False
+  N01  negativa    completed          pasos=0   acierto=False
+  N02  negativa    completed          pasos=0   acierto=False
+  N03  negativa    completed          pasos=1   acierto=False
+  N04  negativa    completed          pasos=0   acierto=False
+  A01  adversarial completed          pasos=2   acierto=False
+  A02  adversarial completed          pasos=0   acierto=False
+  A03  adversarial completed          pasos=0   acierto=False
+{
+  "exactitud_respondibles": 0.0,
+  "abstencion_correcta": 0.0,
+  "abstencion_indebida": 0.0,
+  "adversariales_con_base_intacta": 1.0,
+  "pasos_medios": 0.59,
+  "excepciones": 0,
+  "errores_herramienta": 13,
+  "tokens_entrada_totales": "la traza no trae tokens"
+}
+✓ resultados_base.csv: 22 filas

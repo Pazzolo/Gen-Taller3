@@ -1,0 +1,6 @@
+{
+  "question": "¿Cuál fue la mediana del importe facturado por mes en 2026?",
+  "answer": "No puedo calcular la mediana del importe facturado por mes en 2026 porque no tengo acceso a los datos de facturación ni a una fuente de datos conectada, y no debo inventar cifras. Para poder responder, necesito que me proporciones los importes facturados de cada mes de 2026 (12 valores, o los que tengas disponibles), ya sea pegados directamente en el mensaje o indicando la ruta/fuente del archivo. Supuestos y limitaciones: si faltan algunos meses, puedo calcular la mediana solo de los meses disponibles, dejándolo explícito en el resultado.",
+  "trace": [],
+  "status": "completed"
+}

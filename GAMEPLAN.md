@@ -152,6 +152,14 @@ Table for both agents: accuracy, correct and wrongful abstention, database intac
 
 Commits: `parte2: golden_set`, `parte2: resultados de ambos agentes`.
 
+Status (2026-10-05): ✅ done. Notes in `Lab-03-Agentes/entregables/parte2/NOTAS.md`.
+- **Golden set:** 22 questions (2 simple, 13 multi, 4 negative, 3 adversarial), each with a `nota` describing its trap. The first version of 15 questions scored 15/15, so I made it harder.
+- **Baseline:** 0/22. It takes 0 steps or invents tools, never uses the exact abstention phrase, and records no tokens.
+- **MiAgente:** 15/15 answerable questions in all 3 runs. Abstention was 5/7 in run 1 and 7/7 in runs 2 and 3; A01 and A03 each fail in 1 of 3 runs. Input tokens: 109 060.
+- **Table:** `tabla_2b.py` builds it from the CSVs.
+- **2.c:** A03 (prompt/model), A01 (prompt), P8 (the loop drops an intermediate abstention). Shared cause: abstaining depends on the model, not on code, so this is the natural Part 4 / Part 3 target.
+- **Repo:** the lab `.gitignore` now tracks `traces/` and `resultados*.csv` (deliverables).
+
 ## Phase 4 — Part 3: brakes (≈1 h, 10%)
 Implement them in `MiAgente` (reference: `s3-mar` Parts 2–3, `mini-opencode/agentes.py`) and **trigger each one with a scripted model** (subclass that overrides the LLM call, like `guion.py` / `LLMSimulado`). Save the trace each one produces.
 1. **Max steps:** a final call *without tools* that answers with what it has and says it didn't finish (as `mini-opencode` does). Never an empty answer.

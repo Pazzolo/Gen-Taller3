@@ -1,0 +1,6 @@
+{
+  "question": "¿Cuántas ventas hubo en diciembre de 2026?",
+  "answer": "No puedo responder cuántas ventas hubo en diciembre de 2026 porque no tengo acceso a ninguna fuente de datos en esta sesión: no hay herramientas de lectura de datos disponibles ni un archivo o base de datos cargado. No quiero inventar una cifra.\n\nPara poder ayudarte, necesito que:\n1. Indiques la fuente de datos (por ejemplo, un archivo CSV/Excel con registros de ventas, o el nombre de la tabla/base de datos), y\n2. Me confirmes el formato de las fechas y el campo que identifica cada venta.\n\nCon esa información podré filtrar los registros de diciembre de 2026 y darte el conteo exacto, junto con cualquier supuesto que aplique (por ejemplo, cómo se define una 'venta': transacciones confirmadas vs. todos los registros).",
+  "trace": [],
+  "status": "completed"
+}

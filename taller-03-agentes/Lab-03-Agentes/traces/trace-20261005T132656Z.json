@@ -1,0 +1,6 @@
+{
+  "question": "¿Qué categoría de producto facturó más en el primer semestre de 2026, y cuánto facturó?",
+  "answer": "No puedo responder con datos concretos porque no tengo acceso a ninguna fuente de datos de ventas (no hay archivos, bases de datos ni herramientas conectadas en esta sesión), y no debo inventar cifras. Para responder a tu pregunta necesito que me proporciones los datos de facturación del primer semestre de 2026, por ejemplo: un archivo CSV/Excel con columnas como fecha, categoría de producto y monto facturado, o acceso a la base de datos correspondiente. Supuestos y limitaciones: (1) asumo que 'primer semestre de 2026' abarca del 1 de enero al 30 de junio de 2026; (2) la respuesta dependerá de la moneda y del criterio de facturación (con o sin impuestos) que contengan los datos; (3) sin esos datos, cualquier cifra que diera sería inventada.",
+  "trace": [],
+  "status": "completed"
+}

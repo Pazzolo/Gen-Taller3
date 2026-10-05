@@ -1,0 +1,6 @@
+{
+  "question": "¿Cuánto se facturó en el tercer trimestre de 2025?",
+  "answer": "No puedo responder cuánto se facturó en el tercer trimestre de 2025 porque no tengo acceso a ningún conjunto de datos ni fuente de facturación especificada. Para poder calcularlo, necesito que indiques: (1) la fuente de datos (por ejemplo, un archivo CSV, Excel o base de datos con las ventas), (2) el campo que representa la facturación y (3) la moneda y criterio de fecha a utilizar (por ejemplo, trimestre calendario julio-septiembre 2025). Sin esa evidencia, no puedo dar una cifra, ya que no debo inventar datos.",
+  "trace": [],
+  "status": "completed"
+}

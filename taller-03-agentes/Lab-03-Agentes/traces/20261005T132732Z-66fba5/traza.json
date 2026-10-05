@@ -1,0 +1,216 @@
+{
+  "question": "¿En qué mes de 2025 se facturó más, y cuánto se facturó ese mes?",
+  "answer": "El mes de 2025 con mayor facturación fue **septiembre de 2025 (2025-09)**, con un total facturado de **982,313.41**.\n\nSupuestos: la facturación se calculó como cantidad × precio_unitario × (1 − descuento), sumada sobre todas las ventas con fecha en 2025, agrupadas por mes.",
+  "trace": [
+    {
+      "step": 1,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1144,
+      "tokens_salida": 83,
+      "latencia_s": 0.546,
+      "razonamiento_chars": 310,
+      "thought": "",
+      "action": {
+        "name": "describir_base",
+        "args": {}
+      },
+      "observation": {
+        "tablas": {
+          "clientes": {
+            "filas": 320,
+            "columnas": {
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT"
+              },
+              "region": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Amazonía",
+                  "Costa",
+                  "Galápagos",
+                  "Sierra"
+                ]
+              },
+              "segmento": {
+                "tipo": "TEXT",
+                "valores": [
+                  "corporativo",
+                  "educación",
+                  "pyme",
+                  "sector público"
+                ]
+              },
+              "fecha_alta": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2023-01-02",
+                  "2025-06-18"
+                ]
+              }
+            }
+          },
+          "productos": {
+            "filas": 13,
+            "columnas": {
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Bolsa de horas de consultoría",
+                  "Capacitación Avanzada",
+                  "Capacitación Fundamentos",
+                  "Certificación de analistas",
+                  "Licencia Analítica Básica",
+                  "Licencia Analítica Enterprise",
+                  "Licencia Analítica Pro",
+                  "Licencia Integración API",
+                  "Licencia Visualización",
+                  "Soporte Dedicado (mes)",
+                  "Soporte Estándar (mes)",
+                  "Soporte Prioritario (mes)",
+                  "Taller in situ (día)"
+                ]
+              },
+              "categoria": {
+                "tipo": "TEXT",
+                "valores": [
+                  "capacitación",
+                  "licencia",
+                  "soporte"
+                ]
+              },
+              "precio_lista": {
+                "tipo": "REAL",
+                "rango": [
+                  85.0,
+                  4200.0
+                ]
+              }
+            }
+          },
+          "ventas": {
+            "filas": 6000,
+            "columnas": {
+              "venta_id": {
+                "tipo": "INTEGER"
+              },
+              "fecha": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2025-01-01",
+                  "2026-08-31"
+                ]
+              },
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "cantidad": {
+                "tipo": "INTEGER",
+                "rango": [
+                  1,
+                  12
+                ]
+              },
+              "precio_unitario": {
+                "tipo": "REAL",
+                "rango": [
+                  78.23,
+                  4408.34
+                ]
+              },
+              "descuento": {
+                "tipo": "REAL",
+                "rango": [
+                  0.0,
+                  0.15
+                ]
+              }
+            }
+          }
+        },
+        "notas": [
+          "El importe de una venta es cantidad * precio_unitario * (1 - descuento). No existe una columna 'importe', 'total' ni 'monto': hay que calcularlo.",
+          "descuento es una fracción entre 0 y 1 (0.15 = 15 %).",
+          "Las fechas son texto ISO 'AAAA-MM-DD': para un mes usa fecha LIKE '2026-03%'; para un rango, fecha BETWEEN '2026-01-01' AND '2026-06-30'.",
+          "ventas.cliente_id → clientes.cliente_id y ventas.producto_id → productos.producto_id.",
+          "No hay datos de costos, márgenes, ganancias, inventario ni satisfacción de clientes."
+        ]
+      },
+      "latencia_herramienta_s": 0.018,
+      "error": null
+    },
+    {
+      "step": 2,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1794,
+      "tokens_salida": 115,
+      "latencia_s": 0.493,
+      "razonamiento_chars": 188,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT substr(fecha, 1, 7) AS mes, SUM(cantidad * precio_unitario * (1 - descuento)) AS facturacion FROM ventas WHERE fecha LIKE '2025%' GROUP BY mes ORDER BY facturacion DESC LIMIT 1"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "mes",
+          "facturacion"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "mes": "2025-09",
+            "facturacion": 982313.406
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.006,
+      "error": null
+    },
+    {
+      "step": 3,
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1913,
+      "tokens_salida": 208,
+      "latencia_s": 0.973,
+      "razonamiento_chars": 446,
+      "fin": "stop",
+      "error": null,
+      "thought": "El mes de 2025 con mayor facturación fue **septiembre de 2025 (2025-09)**, con un total facturado de **982,313.41**.\n\nSupuestos: la facturación se calculó como cantidad × precio_unitario × (1 − descuento), sumada sobre todas las ventas con fecha en 2025, agrupadas por mes.",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "completed",
+  "model": "zai-org/GLM-5.3-Flash",
+  "usage": {
+    "tokens_entrada": 4851,
+    "tokens_salida": 406
+  },
+  "totales": {
+    "model": "zai-org/GLM-5.3-Flash",
+    "llamadas_llm": 3,
+    "llamadas_herramienta": 2,
+    "errores_herramienta": 0,
+    "tokens_entrada": 4851,
+    "tokens_salida": 406,
+    "latencia_llm_s": 2.012,
+    "segundos": 2.038
+  },
+  "error": null,
+  "trace_path": "traces/20261005T132732Z-66fba5/traza.json"
+}

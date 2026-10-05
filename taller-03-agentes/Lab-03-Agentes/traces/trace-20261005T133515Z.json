@@ -1,0 +1,6 @@
+{
+  "question": "¿El importe total de 2026 hasta la fecha es mayor o menor que el de 2025 en el mismo periodo, y en qué porcentaje?",
+  "answer": "No puedo responder a esta pregunta porque no tengo acceso a ningún conjunto de datos en esta conversación: no se ha proporcionado un archivo, una fuente de datos ni herramientas disponibles para consultar los importes de 2025 y 2026. No inventaré cifras.\n\nPara poder responder, necesito que indiques:\n1. La fuente de datos (por ejemplo, un archivo CSV/Excel, una base de datos o una tabla pegada en el chat).\n2. Qué campo contiene el importe y qué campo contiene la fecha.\n3. Qué se considera 'hasta la fecha' (la fecha de corte exacta para comparar el mismo periodo en ambos años).\n\nCon esa información podré calcular el total de 2026 YTD, el total de 2025 en el mismo rango de fechas, y la variación porcentual: ((Total_2026 − Total_2025) / Total_2025) × 100.",
+  "trace": [],
+  "status": "completed"
+}

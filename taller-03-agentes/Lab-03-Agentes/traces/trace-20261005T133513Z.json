@@ -1,0 +1,6 @@
+{
+  "question": "¿Qué porcentaje del importe total de 2025 corresponde a clientes de la región Sierra?",
+  "answer": "No puedo calcular ese porcentaje porque no tengo acceso a los datos necesarios: no se ha proporcionado ningún archivo o fuente con los importes de 2025 ni la región de los clientes, y no inventaré cifras.\n\nPara responder necesito un dataset (por ejemplo, CSV o Excel) que incluya al menos:\n- Región del cliente (Sierra, Costa, Oriente/Insular, etc.)\n- Año de la transacción (2025)\n- Importe o monto facturado\n\nCon esos datos, el cálculo sería: (suma de importes de clientes de la Sierra en 2025 ÷ importe total de 2025) × 100.\n\nLimitación actual: sin evidencia de datos, cualquier porcentaje que entregue sería inventado. Comparte el archivo o los datos y ejecutaré el cálculo de inmediato.",
+  "trace": [],
+  "status": "completed"
+}

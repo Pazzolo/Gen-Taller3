@@ -1,0 +1,26 @@
+{
+  "question": "¿Cuál es la edad promedio de los clientes del segmento corporativo?",
+  "answer": "No puedo calcular la edad promedio de los clientes del segmento corporativo porque la herramienta de lectura de datos no está disponible (error: 'Tool no registrada: read_data'). No tengo acceso a los datos de clientes y no inventaré cifras. Para responder, necesito que se registre o habilite la herramienta correcta de acceso a datos, o que me proporciones directamente el dataset (por ejemplo, una lista de edades del segmento corporativo). Limitación: sin evidencia de datos, cualquier valor que diera sería especulativo.",
+  "trace": [
+    {
+      "step": 1,
+      "thought": "Necesito consultar los datos de clientes filtrando por el segmento corporativo para calcular la edad promedio. No tengo estos datos de antemano, así que debo leerlos con la herramienta correspondiente.",
+      "action": {
+        "name": "read_data",
+        "args": {
+          "source": "clientes",
+          "filters": {
+            "segmento": "corporativo"
+          },
+          "fields": [
+            "edad"
+          ]
+        }
+      },
+      "observation": {
+        "error": "Tool no registrada: read_data"
+      }
+    }
+  ],
+  "status": "completed"
+}
