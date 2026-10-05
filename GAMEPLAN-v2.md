@@ -143,7 +143,18 @@ comentado, tabla 2.b, tres peores casos, cuatro frenos, mejora medida y Parte 5.
 
 ---
 
-## Decisiones pendientes del grupo
-1. **¿Se entrega el v2 en lugar del Taller 03?** (son excluyentes).
-2. **Las dos tareas reales de la maestría** (PDF, con permiso).
-3. **La Tarea D** (`hackathon3_student`) no vino en el kit: pedirla o excluirla.
+## Decisiones (2026-10-05)
+1. **El v2 se hace para estudiar**, no para entregar en lugar del Taller 03, así que la fecha no presiona.
+2. **Tareas propias provisionales:** mientras llegan las dos tareas reales de la maestría, se escriben
+   dos tareas propias (E y F) con el mismo formato del kit, marcadas `"provisional": true` en el golden
+   set. Cuando lleguen las reales, se sustituyen.
+3. **La Tarea D queda fuera** hasta que aparezca `hackathon3_student/`.
+
+## Estado
+- **Fase 0 ✅** Python 3.14.7 con `uv`, porque `numpy==2.5.3` exige ≥ 3.12 y el 3.11 de Homebrew no
+  sirve: `uv venv --python 3.14 solver-v2/.venv`. Además de los pines del kit se instalaron
+  `ipykernel` y `matplotlib` (para notebooks y figuras). H200 verificada: LLM `zai-org/GLM-5.3-Flash`
+  en 12555 y 12559, `bge-m3` (1024 dim.) en 11434, `gemma3:27b` disponible (opción E de la Parte 4).
+- **Fase 1 ✅** Parte 0 reproducida. 0.a: 26 cifras, 0 con origen; el cruce inventado (20–40
+  ejemplos) contra el medido (~100–200). 0.b: 0/3 → 3/3. 0.c: APROBADO → RECHAZADO. Evidencia y notas
+  en `mi-solver/entregables/parte0/`.

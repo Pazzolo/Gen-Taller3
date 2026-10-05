@@ -7,3 +7,5 @@
 .env
 .venv/
 __pycache__/
+# venvs de cualquier subcarpeta (el v2 usa Python 3.14 en solver-v2/.venv)
+**/.venv/
