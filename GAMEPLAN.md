@@ -78,8 +78,10 @@ Don't modify `agent.py` or `tools.py` in this part.
 | Item | Command | What to capture and explain |
 |---|---|---|
 | 0.a | `python evaluar.py --solo P1 P3 --salida parte0.csv` | From each `traces/trace-*.json`: status, number of steps, actions. Expect `completed` with 0 steps or made-up tools. Two sentences: why `completed` with 0 steps is worse than an error, and what the model needs to know (tool names, descriptions, schemas, DB schema). |
-| 0.b | `python guion.py ataque` | **What saved the table:** sqlite3/`pd.read_sql_query` only runs one statement, so it fails on `;drop` (not the filter). **What crashed the run:** the uncaught exception. **Why there's no trace:** `_write_trace` is only called on the `return` paths (`agent.py:354` and `:370`). |
+| 0.b | `python guion.py ataque` | **What saved the table:** sqlite3/`pd.read_sql_query` only runs one statement, so it fails on `;drop` (not the filter). **What crashed the run:** the uncaught exception. **Why there's no trace:** `_write_trace` is only called on the `return` paths (`agent.py:90` and `:106`). |
 | 0.c | `python guion.py limite` | The 3 output lines plus the rule: *a limit the model can change through tool arguments is not a limit.* Then **delete `../fuera_del_lab/`**. |
+
+Status: ✅ 0.b and 0.c done 2026-10-05 (evidence in `Lab-03-Agentes/entregables/parte0/`, see `NOTAS.md`); ⏳ 0.a needs the H200.
 
 Compare with `mini-opencode/demo_ataque.py` and `guardia.py` to see how the reference solves the same problems.
 Commit: `parte0: salidas y trazas de 0.a, 0.b, 0.c`.
