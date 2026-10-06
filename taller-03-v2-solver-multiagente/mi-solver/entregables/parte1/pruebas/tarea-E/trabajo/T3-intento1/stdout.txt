@@ -1,0 +1,14 @@
+=== Subtarea T3: evaluacion unica en el conjunto de prueba ===
+Datos: sklearn.datasets.load_diabetes
+Entrenamiento: 331 ejemplos | Prueba: 111 ejemplos (usada una sola vez, aqui)
+Alpha re-elegido con el mismo procedimiento de T2 (solo entrenamiento):
+  alpha = 0.3162 | R2 medio de CV (5 folds) = 0.4724
+
+Resultados sobre el conjunto de prueba:
+  Ridge (alpha=0.3162):                R2 = 0.5037 | RMSE = 54.3838
+  LinearRegression (mismo escalado): R2 = 0.5028 | RMSE = 54.4331
+
+Diferencia R2   (Ridge - Lineal):   0.0009
+Diferencia RMSE (Lineal - Ridge):   0.0493
+Mejor R2 en prueba: ridge
+Cifras guardadas en resultados.json

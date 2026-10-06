@@ -60,7 +60,16 @@ def fuga_fit(codigo: str) -> list[str]:
                 ajustadas.add(n.args[0].id)
             elif n.func.attr in {"predict", "predict_proba", "score", "decision_function"}:
                 evaluadas.append(n.args[0].id)
-    return sorted({v for v in evaluadas if v in ajustadas})
+    # Evaluar sobre una variable que se llama de entrenamiento («X_train», «Xtr») es reportar el
+    # desempeño en entrenamiento, no una fuga: en la Tarea E el programador lo imprimía rotulado como
+    # «R2 en entrenamiento» y la regla lo rechazó (2026-10-05). La fuga de la 0.c es otra: ajustar y
+    # evaluar sobre «X» y presentarlo como la exactitud del modelo.
+    return sorted({v for v in evaluadas if v in ajustadas and not _es_de_entrenamiento(v)})
+
+
+def _es_de_entrenamiento(nombre: str) -> bool:
+    n = nombre.lower()
+    return any(m in n for m in ("train", "entren")) or n.endswith(("tr", "_tr", "trn"))
 
 
 def fuga_escala(codigo: str) -> list[str]:

@@ -1,0 +1,15 @@
+=== T3: ARI de k-means (k elegido en T2) contra clases reales del Wine ===
+Ejemplos: 178  Atributos: 13  Clases reales: 3
+k elegido en T2 (silueta mas alta, criterio interno): 3
+Silueta del k elegido: 0.2849
+ARI (adjusted_rand_score) contra clases reales: 0.8975
+Indice de Rand sin ajustar: 0.9543
+Pureza (clase mayoritaria por cluster): 0.9663
+Tabla de contingencia (clusters x clases reales):
+              class_0     class_1     class_2     total
+cluster_0     0           65          0           65
+cluster_1     0           3           48          51
+cluster_2     59          3           0           62
+Tamanos de clusters (k=3): [65, 51, 62]
+Tamanos de clases reales: [59, 71, 48]
+Resultados guardados en resultados.json

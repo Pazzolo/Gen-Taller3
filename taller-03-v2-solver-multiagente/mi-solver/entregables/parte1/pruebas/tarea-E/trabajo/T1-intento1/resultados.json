@@ -1,0 +1,10 @@
+{
+  "t1_n_ejemplos_total": 442.0,
+  "t1_n_atributos_total": 10.0,
+  "t1_n_ejemplos_entrenamiento": 331.0,
+  "t1_n_ejemplos_prueba": 111.0,
+  "t1_proporcion_entrenamiento": 0.748868778280543,
+  "t1_proporcion_prueba": 0.251131221719457,
+  "t1_random_state": 7.0,
+  "t1_test_size": 0.25
+}

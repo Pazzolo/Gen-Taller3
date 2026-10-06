@@ -1,0 +1,70 @@
+{
+  "subtarea": "T3_ari_kmeans_vs_clases_reales",
+  "n_ejemplos": 178,
+  "n_atributos": 13,
+  "random_state": 42,
+  "k_values_evaluados": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "silueta_por_k": {
+    "2": 0.2593169555318255,
+    "3": 0.2848589191898987,
+    "4": 0.26017035223704527,
+    "5": 0.20161908294074093,
+    "6": 0.23716725754166543,
+    "7": 0.2036275812271175,
+    "8": 0.1570139556393107
+  },
+  "inercia_por_k": {
+    "2": 1658.758852429095,
+    "3": 1277.9284888446423,
+    "4": 1175.428333103347,
+    "5": 1109.5127392938243,
+    "6": 1046.0023332143637,
+    "7": 981.5952326111658,
+    "8": 935.2012114738545
+  },
+  "k_elegido_en_T2": 3,
+  "silueta_k_elegido": 0.2848589191898987,
+  "n_clases_reales": 3,
+  "ari": 0.8974949815093207,
+  "rand_index_sin_ajustar": 0.9542944201104552,
+  "pares_mismo_cluster_misma_clase": 4925,
+  "pares_mismo_cluster_distinta_clase": 321,
+  "pares_distinto_cluster_misma_clase": 399,
+  "pares_distinto_cluster_distinta_clase": 10108,
+  "pureza_asignacion_mayoritaria": 0.9662921348314607,
+  "tabla_contingencia_clusters_x_clases": {
+    "cluster_0": {
+      "class_0": 0,
+      "class_1": 65,
+      "class_2": 0
+    },
+    "cluster_1": {
+      "class_0": 0,
+      "class_1": 3,
+      "class_2": 48
+    },
+    "cluster_2": {
+      "class_0": 59,
+      "class_1": 3,
+      "class_2": 0
+    }
+  },
+  "tamanos_clusters": {
+    "0": 65,
+    "1": 51,
+    "2": 62
+  },
+  "tamanos_clases_reales": {
+    "class_0": 59,
+    "class_1": 71,
+    "class_2": 48
+  }
+}

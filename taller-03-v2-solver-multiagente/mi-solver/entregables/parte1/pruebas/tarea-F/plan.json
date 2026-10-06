@@ -1,0 +1,89 @@
+{
+  "entregable": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 1
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar sklearn.datasets.load_wine; reportar número de ejemplos, atributos y clases; estandarizar los atributos con StandardScaler y guardar X escalado y y (etiquetas reales, sin usarlas para agrupar).",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Sobre los datos estandarizados de T1, para cada k en 2..8 ajustar KMeans(n_clusters=k, n_init=10, random_state=0) y calcular el coeficiente de silueta; construir la tabla silueta-por-k y elegir el k con silueta más alta (sin usar etiquetas reales).",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Con el k elegido en T2, comparar los grupos contra las clases reales del Wine mediante el índice de Rand ajustado (adjusted_rand_score) y reportar el ARI.",
+      "depende_de": [
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "calculo",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Experimento de control sin estandarizar: repetir el barrido k=2..8 con KMeans(n_clusters=k, n_init=10, random_state=0) sobre los datos crudos de T1, obtener siluetas, k elegido y ARI contra las clases reales, para cuantificar el efecto de omitir StandardScaler.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Redactar la discusión: explicar qué pasaría con la elección de k y con el ARI si no se estandarizaran los atributos y por qué (atributos con escalas grandes dominan las distancias euclídeas), apoyándose en las cifras del experimento sin escalar de T4.",
+      "depende_de": [
+        "T4"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T6",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Ensamblar reporte.pdf de una página máximo con las secciones Objetivo, Método, Resultados (tabla con la silueta de cada k=2..8, el k elegido y el ARI, todas las cifras de T1-T3) y Discusión (texto de T5), incluyendo el código usado.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T5"
+      ],
+      "figura": false
+    }
+  ]
+}

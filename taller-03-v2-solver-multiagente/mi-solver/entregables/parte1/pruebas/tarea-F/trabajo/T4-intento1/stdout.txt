@@ -1,0 +1,39 @@
+=== T4: Control sin estandarizar (datos crudos de Wine) ===
+n=178, d=13, clases reales=3
+
+Barrido k=2..8 sobre datos CRUDOS (sin StandardScaler):
+   k   silueta     ARI
+   2   0.6569    0.3694
+   3   0.5711    0.3711
+   4   0.5620    0.3034
+   5   0.5490    0.3116
+   6   0.5656    0.2909
+   7   0.5616    0.2263
+   8   0.5407    0.1984
+
+k elegido en crudo (max silueta): 2
+  silueta: 0.6569
+  ARI vs clases reales: 0.3694
+  tamanos de clusters: [123, 55]
+
+Referencia: mismo barrido con datos ESTANDARIZADOS:
+   k   silueta     ARI
+   2   0.2683    0.3887
+   3   0.2849    0.8975
+   4   0.2457    0.7070
+   5   0.2026    0.5993
+   6   0.1960    0.5445
+   7   0.1386    0.4159
+   8   0.1581    0.4064
+
+k elegido en escalado (max silueta): 3
+  silueta: 0.2849
+  ARI vs clases reales: 0.8975
+
+Efecto de omitir StandardScaler:
+  k elegido: 2 (crudo) vs 3 (escalado) -> cambia: True
+  ARI en k elegido: 0.3694 (crudo) vs 0.8975 (escalado) -> delta -0.5281
+  ARI en k=3:       0.3711 (crudo) vs 0.8975 (escalado) -> delta -0.5264
+  Silueta en k elegido: 0.6569 (crudo) vs 0.2849 (escalado) -> delta 0.3720
+
+Cifras guardadas en resultados.json

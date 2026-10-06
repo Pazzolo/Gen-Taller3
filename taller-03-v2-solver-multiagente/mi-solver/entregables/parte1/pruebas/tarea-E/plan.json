@@ -1,0 +1,77 @@
+{
+  "entregable": {
+    "formato": "ipynb",
+    "archivo": "tarea_e_ridge_cv.ipynb",
+    "secciones": [
+      "Parte 1",
+      "Parte 2",
+      "Parte 3",
+      "Parte 4",
+      "Parte 5"
+    ],
+    "max_palabras": null,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar sklearn.datasets.load_diabetes; reportar número de ejemplos y de atributos; dividir en entrenamiento (75%) y prueba (25%) con train_test_split(random_state=7), única división de la tarea; la prueba se reserva para la Parte 3.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Construir pipeline StandardScaler + Ridge; GridSearchCV sobre los 13 valores de numpy.logspace(-3, 3, 13) con KFold(n_splits=5, shuffle=True, random_state=7) y scoring='r2', ajustado solo con el conjunto de entrenamiento; reportar el alpha elegido y el R2 medio de validación cruzada.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Con el alpha elegido en T2, evaluar sobre el conjunto de prueba (usado una sola vez): R2 y RMSE del Ridge; comparar con LinearRegression con el mismo escalado (StandardScaler) evaluada sobre la misma prueba.",
+      "depende_de": [
+        "T1",
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "calculo",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Dibujar con matplotlib el R2 medio de validación cruzada (de T2) contra alpha, con el eje de alpha en escala logarítmica (semilogx); la figura queda visible como salida del notebook.",
+      "depende_de": [
+        "T2"
+      ],
+      "figura": true
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Responder la pregunta conceptual: por qué elegir alpha mirando el R2 de prueba daría una estimación optimista del desempeño, y discutir la diferencia entre el R2 de validación cruzada (T2) y el R2 de prueba (T3) obtenidos.",
+      "depende_de": [
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    }
+  ]
+}

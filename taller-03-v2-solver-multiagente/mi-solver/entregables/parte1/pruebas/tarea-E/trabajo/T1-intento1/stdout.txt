@@ -1,0 +1,9 @@
+=== Subtarea T1: carga de datos y única división entrenamiento/prueba ===
+Conjunto: sklearn.datasets.load_diabetes
+Numero de ejemplos (total): 442
+Numero de atributos (total): 10
+Entrenamiento (75%): 331 ejemplos (0.7489 del total)
+Prueba (25%): 111 ejemplos (0.2511 del total)
+Division: train_test_split(test_size=0.25, random_state=7)
+El conjunto de prueba queda reservado; solo se usara una vez, al final de la Parte 3.
+Cifras guardadas en resultados.json

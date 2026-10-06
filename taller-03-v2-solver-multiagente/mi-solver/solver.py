@@ -421,6 +421,22 @@ class Solver:
         }
 
 
+class SolverSinGrafo(Solver):
+    """Versión recortada de la 2.b: el investigador solo recibe los 3 fragmentos más parecidos (top-k
+    con bge-m3, como la 0.b) y el indexador no extrae entidades. Todo lo demás es igual."""
+
+    def __init__(self, **kw):
+        super().__init__(con_grafo=False, **kw)
+
+
+class SolverSinRevisor(Solver):
+    """La otra versión recortada que admite el enunciado: un solo intento por script y ninguna revisión
+    (la revisión estática del sandbox sigue, porque es seguridad, no revisión)."""
+
+    def __init__(self, **kw):
+        super().__init__(con_revisor=False, **kw)
+
+
 if __name__ == "__main__":
     pdf = sys.argv[1]
     salida = sys.argv[2] if len(sys.argv) > 2 else f"corridas/{Path(pdf).stem}"

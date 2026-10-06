@@ -1,0 +1,22 @@
+Figure(800x500)
+=== Subtarea T4: figura R2 medio de CV frente a alpha ===
+Alphas evaluados: 13 (np.logspace(-3, 3, 13))
+R2 medio de validación cruzada por alpha:
+  alpha=    0.0010 : R2 medio CV = 0.4724 (+/- 0.0703)
+  alpha=    0.0032 : R2 medio CV = 0.4724 (+/- 0.0703)
+  alpha=    0.0100 : R2 medio CV = 0.4724 (+/- 0.0703)
+  alpha=    0.0316 : R2 medio CV = 0.4724 (+/- 0.0703)
+  alpha=    0.1000 : R2 medio CV = 0.4724 (+/- 0.0705)
+  alpha=    0.3162 : R2 medio CV = 0.4724 (+/- 0.0709)  <-- mejor
+  alpha=    1.0000 : R2 medio CV = 0.4722 (+/- 0.0717)
+  alpha=    3.1623 : R2 medio CV = 0.4714 (+/- 0.0730)
+  alpha=   10.0000 : R2 medio CV = 0.4708 (+/- 0.0739)
+  alpha=   31.6228 : R2 medio CV = 0.4698 (+/- 0.0741)
+  alpha=  100.0000 : R2 medio CV = 0.4570 (+/- 0.0732)
+  alpha=  316.2278 : R2 medio CV = 0.3995 (+/- 0.0683)
+  alpha= 1000.0000 : R2 medio CV = 0.2790 (+/- 0.0514)
+
+Mejor alpha: 0.3162
+R2 medio de CV en el mejor alpha: 0.4724
+Figura guardada como t4_r2_vs_alpha.png y mostrada arriba
+Cifras guardadas en resultados.json

@@ -1,0 +1,16 @@
+=== T2: KMeans y silueta por k (datos estandarizados de T1) ===
+Ejemplos: 178  Atributos: 13
+Tabla silueta-por-k (criterio interno, sin etiquetas reales):
+  k    silueta    inercia
+  2   0.2683   1659.0080
+  3   0.2849   1277.9285
+  4   0.2457   1180.7376
+  5   0.2026   1110.3654
+  6   0.1960   1044.4698
+  7   0.1386   995.9946
+  8   0.1581   944.5589
+k elegido (silueta mas alta): 3
+Silueta del k elegido: 0.2849
+Tamanos de clusters (k=3): [65, 51, 62]
+ARI contra clases reales (solo al final, no para elegir k): 0.8975
+Resultados guardados en resultados.json

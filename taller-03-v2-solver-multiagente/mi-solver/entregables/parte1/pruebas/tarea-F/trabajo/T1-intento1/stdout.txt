@@ -1,0 +1,13 @@
+=== T1: Carga y estandarizacion del conjunto Wine ===
+Ejemplos: 178
+Atributos: 13
+Clases: 3 -> ['class_0', 'class_1', 'class_2']
+Ejemplos por clase: [59, 71, 48]
+Escalas antes de estandarizar:
+  medias por atributo: [0.3619, 746.8933]
+  desv. est. por atributo: [0.1241, 314.0217]
+Verificacion despues de estandarizar:
+  max |media| por atributo: 0.0000
+  desv. est. por atributo: [1.0000, 1.0000]
+X escalado (forma (178, 13)) y y guardados en 'datos_wine_escalado.npz'
+Cifras completas guardadas en 'resultados.json'
