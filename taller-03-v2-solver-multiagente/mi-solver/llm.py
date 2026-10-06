@@ -34,6 +34,8 @@ PUERTO_EMB = int(os.environ.get("H200_PUERTO_EMB", "11434"))
 MODELO_EMB = os.environ.get("H200_MODELO_EMB", "bge-m3:latest")
 MAX_TOKENS_INICIAL = 16_384
 MAX_TOKENS_TOPE = 49_152
+PLAZO_CHAT_S = 1_500       # tiempo TOTAL de una llamada (49k tokens tardaron ~400 s el 2026-10-05)
+PLAZO_EMB_S = 300
 
 
 class PresupuestoAgotado(Exception):
@@ -63,7 +65,31 @@ class Presupuesto:
             self.gastado += tokens
 
 
-def _pedir(puerto: int, ruta: str, cuerpo: dict | None = None, timeout: float = 900) -> dict:
+def _pedir(puerto: int, ruta: str, cuerpo: dict | None = None, timeout: float = 900,
+           plazo_total: float | None = None) -> dict:
+    """Una petición HTTP con un plazo TOTAL, no solo por lectura del socket.
+
+    El `timeout` de urlopen se aplica a cada operación del socket. El 2026-10-05 la VPN se cayó a
+    mitad de una llamada del redactor y el proceso quedó 75 minutos en `recv` sin que saltara. Con
+    `plazo_total`, la petición corre en un hilo daemon y, si no termina a tiempo, se abandona con un
+    error que el orquestador trata como el fallo de un intento."""
+    if plazo_total is not None:
+        caja: dict = {}
+
+        def hacer():
+            try:
+                caja["r"] = _pedir(puerto, ruta, cuerpo, timeout)
+            except Exception as err:          # se relanza en el hilo que espera
+                caja["e"] = err
+        hilo = threading.Thread(target=hacer, daemon=True)
+        hilo.start()
+        hilo.join(plazo_total)
+        if hilo.is_alive():
+            raise RuntimeError(f"la H200 ({HOST}:{puerto}) no completó la respuesta en {plazo_total:.0f} s "
+                               "(¿se cayó GlobalProtect?)")
+        if "e" in caja:
+            raise caja["e"]
+        return caja["r"]
     pet = urllib.request.Request(
         f"http://{HOST}:{puerto}/{ruta}",
         data=None if cuerpo is None else json.dumps(cuerpo).encode(),
@@ -106,7 +132,7 @@ class LLM:
                   "max_tokens": max_tokens, "chat_template_kwargs": {"enable_thinking": True}}
         if json_mode:
             cuerpo["response_format"] = {"type": "json_object"}
-        r = _pedir(self.puerto, "v1/chat/completions", cuerpo)
+        r = _pedir(self.puerto, "v1/chat/completions", cuerpo, plazo_total=PLAZO_CHAT_S)
         m = r["choices"][0]["message"]
         uso = r.get("usage", {})
         return {"contenido": m.get("content") or "", "fin": r["choices"][0].get("finish_reason"),
@@ -163,7 +189,7 @@ class LLM:
         salida: list[list[float]] = []
         for i in range(0, len(textos), lote):
             t0 = time.perf_counter()
-            r = _pedir(PUERTO_EMB, "v1/embeddings", {"model": MODELO_EMB, "input": textos[i:i + lote]})
+            r = _pedir(PUERTO_EMB, "v1/embeddings", {"model": MODELO_EMB, "input": textos[i:i + lote]}, plazo_total=PLAZO_EMB_S)
             for d in sorted(r["data"], key=lambda d: d["index"]):
                 v = d["embedding"]
                 n = sum(x * x for x in v) ** 0.5 or 1.0

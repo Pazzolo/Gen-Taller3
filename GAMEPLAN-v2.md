@@ -165,6 +165,11 @@ comentado, tabla 2.b, tres peores casos, cuatro frenos, mejora medida y Parte 5.
   Grafo de la Tarea A dibujado en `mi-solver/entregables/parte1/grafo_tarea_a.png`.
   Hallazgo: con `bge-m3`, el top-k plano también recupera la Parte 1 en la Tarea A (la 0.b falla con
   TF-IDF); la 2.b dirá si el grafo gana en otras tareas.
+- **Parte 3 ✅** `frenos_demo.py`: los cuatro frenos activados en corridas completas (traza en `mi-solver/entregables/parte3/`).
+- **2.b ⏳ interrumpida (2026-10-06 02:17 UTC):** la VPN se cayó durante la redacción de C (completo; A y B ya habían
+  terminado). El evaluador quedó 75 min en `recv`, porque el `timeout` de urlopen es por lectura y no total.
+  Arreglado con `PLAZO_CHAT_S` en `llm.py`. Hay que **reconectar GlobalProtect y repetir la evaluación completa**:
+  el evaluador escribe el CSV solo al final, así que A y B de esa pasada no quedaron registradas.
 - **Fase 1 ✅** Parte 0 reproducida. 0.a: 26 cifras, 0 con origen; el cruce inventado (20–40
   ejemplos) contra el medido (~100–200). 0.b: 0/3 → 3/3. 0.c: APROBADO → RECHAZADO. Evidencia y notas
   en `mi-solver/entregables/parte0/`.
