@@ -201,6 +201,85 @@ def _():
     assert any(x.startswith("resultados") for x in _revisar("print('hola')", "sinjson"))
 
 
+# ── Plan (REGLA 1) ──────────────────────────────────────────────────────────────────────────
+from agentes import validar_plan  # noqa: E402
+
+DOC_A = leer(KIT / "enunciados/tarea-a-generativo-discriminativo.pdf")
+ENT_A = {"formato": "md", "archivo": "reporte.md", "secciones": ["Introducción"], "max_palabras": 1200}
+
+
+def _sub(i, secs, deps=(), tipo="calculo"):
+    return {"id": i, "tipo": tipo, "secciones": list(secs), "descripcion": "d", "depende_de": list(deps)}
+
+
+PLAN_OK = {"entregable": ENT_A, "subtareas": [_sub("T1", ["S1"]), _sub("T2", ["S2"], ["T1"]), _sub("T3", ["S3"], ["T1"]),
+                                              _sub("T4", ["S4"], ["T2", "T3"], "redaccion")]}
+
+
+@caso("regla 1: un plan correcto pasa")
+def _():
+    assert validar_plan(PLAN_OK, DOC_A) == []
+
+
+@caso("regla 1: ids repetidos, dependencia inexistente, ciclo, sección sin cubrir y formato equivocado se detectan")
+def _():
+    malos = {
+        "ids repetidos": {"entregable": ENT_A, "subtareas": [_sub("T1", ["S1", "S2", "S3"]), _sub("T1", ["S4"])]},
+        "no existe": {"entregable": ENT_A, "subtareas": [_sub("T1", ["S1", "S2", "S3", "S4"], ["T9"])]},
+        "ciclo": {"entregable": ENT_A, "subtareas": [_sub("T1", ["S1", "S2"], ["T2"]), _sub("T2", ["S3", "S4"], ["T1"])]},
+        "no la cubre": {"entregable": ENT_A, "subtareas": [_sub("T1", ["S1", "S2"])]},
+        "pero el enunciado dice": {"entregable": {**ENT_A, "formato": "pdf"}, "subtareas": PLAN_OK["subtareas"]},
+    }
+    sin_detectar = [k for k, plan in malos.items() if not any(k in p for p in validar_plan(plan, DOC_A))]
+    assert not sin_detectar, sin_detectar
+
+
+# ── El orquestador de punta a punta con un modelo de guion ──────────────────────────────────
+from llm import LLMGuion  # noqa: E402
+from solver import Solver  # noqa: E402
+
+_FUGA = ("import json\nfrom sklearn.datasets import load_breast_cancer\nfrom sklearn.naive_bayes import GaussianNB\n"
+         "X, y = load_breast_cancer(return_X_y=True)\nacc = GaussianNB().fit(X, y).score(X, y)\n"
+         "json.dump({'nb_accuracy': acc}, open('resultados.json', 'w'))")
+_BIEN = ("import json\nfrom sklearn.datasets import load_breast_cancer\nfrom sklearn.naive_bayes import GaussianNB\n"
+         "from sklearn.model_selection import train_test_split\nX, y = load_breast_cancer(return_X_y=True)\n"
+         "Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)\n"
+         "acc = GaussianNB().fit(Xtr, ytr).score(Xte, yte)\njson.dump({'nb_accuracy': acc}, open('resultados.json', 'w'))\nprint(f'NB {acc:.4f}')")
+_PLAN = {"entregable": {"formato": "md", "archivo": "reporte.md", "secciones": ["Introducción", "Metodología", "Resultados", "Discusión", "Conclusiones"],
+                        "max_palabras": 1200, "max_paginas": None},
+         "subtareas": [_sub("T1", ["S1", "S2", "S3"]), _sub("T2", ["S4"], ["T1"], "redaccion")]}
+
+
+def _secciones(cuerpo_resultados: str) -> str:
+    return f"## Introducción\nx\n## Metodología\nx\n## Resultados\n{cuerpo_resultados}\n## Discusión\nx\n## Conclusiones\nx\n"
+
+
+def _guion(programas, redacciones):
+    return {"indexador": lambda m: {"entidades": []}, "planificador": [_PLAN],
+            "programador": [f"```python\n{p}\n```" for p in programas],
+            "revisor": lambda m: {"aprobado": True, "problemas": [], "correccion": ""}, "redactor": redacciones}
+
+
+@caso("orquestador: el revisor rechaza la fuga, el segundo script se aprueba, el reporte se publica")
+def _():
+    r = Solver(llm_factory=lambda t, p: LLMGuion(t, _guion([_FUGA, _BIEN], [_secciones("NB obtuvo 0.9474.")]), p)).solve(
+        str(KIT / "enunciados/tarea-a-generativo-discriminativo.pdf"), str(TMP / "e2e"))
+    import json as _j
+    revs = [_j.loads(l) for l in open(TMP / "e2e" / "traza.jsonl") if '"revision"' in l]
+    assert r["status"] == "completado" and r["subtareas"][0]["intentos"] == 2, (r["status"], r["subtareas"], r["error"])
+    assert [(x["aprobado"], x["decidio"]) for x in revs] == [(False, "codigo"), (True, "llm")], revs
+    assert (TMP / "e2e" / "plan.json").exists() and (TMP / "e2e" / "codigo" / "T1.py").exists()
+
+
+@caso("regla 5: una cifra inventada vuelve al redactor; la versión corregida se publica")
+def _():
+    r = Solver(llm_factory=lambda t, p: LLMGuion(t, _guion([_BIEN], [_secciones("NB obtuvo 0.9415."), _secciones("NB obtuvo 0.9474.")]), p)).solve(
+        str(KIT / "enunciados/tarea-a-generativo-discriminativo.pdf"), str(TMP / "e2e5"))
+    import json as _j
+    comp = [_j.loads(l)["problemas"] for l in open(TMP / "e2e5" / "traza.jsonl") if '"comprobacion"' in l]
+    assert len(comp) == 2 and "0.9415" in comp[0][0] and comp[1] == [] and r["status"] == "completado", comp
+
+
 if __name__ == "__main__":
     print(f"{len(fallos)} fallos" if fallos else "todas las pruebas pasaron")
     sys.exit(1 if fallos else 0)

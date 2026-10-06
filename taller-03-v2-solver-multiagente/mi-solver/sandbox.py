@@ -128,12 +128,19 @@ class Ejecucion:
         return d
 
 
-def _perfil(carpeta: Path, con_red: bool) -> str:
+def _perfil(carpeta: Path, con_red: bool, kernel_local: bool = False) -> str:
+    """Perfil de sandbox-exec. `kernel_local` abre SOLO localhost, para el kernel de Jupyter que
+    ejecuta el notebook (se comunica por TCP local). Probado el 2026-10-05: con estas tres reglas el
+    notebook corre y una conexión a 1.1.1.1 o a la H200 da PermissionError; la forma corta
+    `(allow network* (local ip "localhost:*"))` deja pasar conexiones externas, por eso no se usa."""
     c = str(carpeta.resolve()).replace('"', "")
     reglas = ["(version 1)", "(allow default)", "(deny file-write*)",
               f'(allow file-write* (subpath "{c}") (subpath "/private{c}") (literal "/dev/null") (literal "/dev/tty"))']
     if not con_red:
         reglas.append("(deny network*)")
+        if kernel_local:
+            reglas += ['(allow network-bind (local ip "localhost:*"))', '(allow network-inbound (local ip "localhost:*"))',
+                       '(allow network-outbound (remote ip "localhost:*"))']
     return " ".join(reglas)
 
 
@@ -147,7 +154,7 @@ def _foto(carpeta: Path) -> dict[str, float]:
 
 
 def ejecutar(codigo: str, carpeta: Path, timeout: float = TIMEOUT_S, con_red: bool = False,
-             nombre: str = "script.py") -> Ejecucion:
+             nombre: str = "script.py", kernel_local: bool = False) -> Ejecucion:
     """Corre un script YA revisado. No vuelve a revisarlo: eso lo decide quien llama (el orquestador)."""
     carpeta = Path(carpeta).resolve()
     carpeta.mkdir(parents=True, exist_ok=True)
@@ -158,10 +165,11 @@ def ejecutar(codigo: str, carpeta: Path, timeout: float = TIMEOUT_S, con_red: bo
     entorno = {"PATH": f"{Path(PYTHON).parent}:/usr/bin:/bin", "HOME": str(carpeta),
                "TMPDIR": str(carpeta / "tmp"), "MPLBACKEND": "Agg", "MPLCONFIGDIR": str(carpeta / ".mpl"),
                "PYTHONHASHSEED": "0", "PYTHONDONTWRITEBYTECODE": "1", "LANG": "en_US.UTF-8",
-               "OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2"}
+               "OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2",
+               "JUPYTER_RUNTIME_DIR": str(carpeta / "tmp" / "jupyter"), "IPYTHONDIR": str(carpeta / "tmp" / "ipython")}
     orden = [PYTHON, nombre]
     if SANDBOX_EXEC:
-        orden = [SANDBOX_EXEC, "-p", _perfil(carpeta, con_red), *orden]
+        orden = [SANDBOX_EXEC, "-p", _perfil(carpeta, con_red, kernel_local), *orden]
     t0 = time.perf_counter()
     p = subprocess.Popen(orden, cwd=carpeta, env=entorno, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                          stdin=subprocess.DEVNULL, start_new_session=True)

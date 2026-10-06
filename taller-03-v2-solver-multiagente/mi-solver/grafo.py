@@ -162,7 +162,10 @@ def indice_curso(llm: LLM, carpeta: Path = NOTAS, hilos: int = 8) -> dict:
 
 # ── El grafo ────────────────────────────────────────────────────────────────────────────────
 class Grafo:
-    def __init__(self, doc: Documento, llm: LLM, con_curso: bool = True, hilos: int = 8):
+    def __init__(self, doc: Documento, llm: LLM, con_curso: bool = True, hilos: int = 8,
+                 con_entidades: bool = True):
+        """`con_entidades=False` es la versión recortada «sin grafo» de la 2.b: no se gasta en extraer
+        entidades del enunciado, porque su investigador solo usa similitud (top-k)."""
         self.doc, self.llm = doc, llm
         self.g = nx.DiGraph()
         self.secciones = {s.id: s for s in doc.secciones}
@@ -174,8 +177,10 @@ class Grafo:
         for o, d, texto, rel in self.aristas_regla:
             self.g.add_edge(o, d, rel=rel, evidencia=texto)
         # capa 2: entidades del LLM, del enunciado (en paralelo) y del curso (con caché)
-        with ThreadPoolExecutor(hilos) as ex:
-            ents = list(ex.map(lambda s: entidades(self.llm, f"{s.titulo}\n{s.texto}"), doc.secciones))
+        ents: list[list[dict]] = [[] for _ in doc.secciones]
+        if con_entidades:
+            with ThreadPoolExecutor(hilos) as ex:
+                ents = list(ex.map(lambda s: entidades(self.llm, f"{s.titulo}\n{s.texto}"), doc.secciones))
         for s, es in zip(doc.secciones, ents):
             for e in es:
                 self._entidad(s.id, e)
