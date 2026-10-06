@@ -156,6 +156,15 @@ comentado, tabla 2.b, tres peores casos, cuatro frenos, mejora medida y Parte 5.
   `ipykernel` y `matplotlib` (para notebooks y figuras). H200 verificada: LLM `zai-org/GLM-5.3-Flash`
   en 12555 y 12559, `bge-m3` (1024 dim.) en 11434, `gemma3:27b` disponible (opción E de la Parte 4).
 - **Golden set ✅ (adelantado de la Fase 3)** `mi-solver/golden_tareas.json`: A–C del kit + E (notebook, trampa: alpha con la prueba) y F (PDF de 1 página, trampa: no estandarizar), provisionales. Validado con soluciones hechas a mano: correctas 8/8 y 6/6, trampas 4/8 y 4/6. Notas en `mi-solver/entregables/parte2/NOTAS_golden.md`.
+- **Fase 2 🔨 (en curso)** Piezas hechas y probadas sin red (`test_solver.py`, 19/19):
+  `lector.py` (secciones por tamaño de letra, tablas), `llm.py` (H200, reintento por `length`,
+  presupuesto con reserva), `grafo.py` (regla 2: `depende_de` por regex solo hacia atrás, entidades del
+  LLM, enlace con las notas por entidades específicas), `sandbox.py` (regla 3: AST + entorno mínimo +
+  `killpg` + `sandbox-exec` sin red), `revisor.py` (regla 4, incluida la fuga del escalador),
+  `agentes.py` (regla 1), `redactor.py` (regla 5, md/pdf/ipynb) y `solver.py` (LangGraph).
+  Grafo de la Tarea A dibujado en `mi-solver/entregables/parte1/grafo_tarea_a.png`.
+  Hallazgo: con `bge-m3`, el top-k plano también recupera la Parte 1 en la Tarea A (la 0.b falla con
+  TF-IDF); la 2.b dirá si el grafo gana en otras tareas.
 - **Fase 1 ✅** Parte 0 reproducida. 0.a: 26 cifras, 0 con origen; el cruce inventado (20–40
   ejemplos) contra el medido (~100–200). 0.b: 0/3 → 3/3. 0.c: APROBADO → RECHAZADO. Evidencia y notas
   en `mi-solver/entregables/parte0/`.

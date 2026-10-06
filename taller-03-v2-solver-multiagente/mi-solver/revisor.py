@@ -19,11 +19,23 @@ from __future__ import annotations
 
 import ast
 import math
+import re
 from pathlib import Path
 
 from sandbox import Ejecucion, leer_resultados
 
-METRICAS = ("acc", "exact", "f1", "r2", "auc", "precision", "recall", "hit", "mrr", "ari", "silueta", "silhouette")
+# Solo métricas de clasificación o regresión sobre un conjunto de prueba con ruido: ahí un 1,000 es
+# sospechoso. En recuperación (Hit, MRR por consulta) o en agrupamiento un 1,0 puede ser legítimo
+# (en la Tarea C, cuatro de las seis consultas tienen el relevante en el rango 1).
+METRICAS = ("acc", "exact", "f1", "r2", "auc", "precision", "recall")
+
+
+def es_metrica(ruta: str) -> bool:
+    """La clave nombra una métrica si alguna de sus PALABRAS empieza como una métrica.
+
+    Con subcadenas, «fracciones» contenía «acc» y la fracción 1,0 (el 100 % del entrenamiento) se
+    rechazó como «exactitud implausible» en la primera corrida real de la Tarea A (2026-10-05)."""
+    return any(p.startswith(METRICAS) for p in re.split(r"[^a-z0-9]+", ruta.lower()) if p)
 
 
 def _numeros(x, ruta=""):
@@ -87,7 +99,7 @@ def revisar_con_codigo(ejec: Ejecucion, carpeta: Path, codigo: str, pide_figura:
         if raros:
             motivos.append(f"nan: valores NaN o infinitos en {raros[:5]}")
         altos = [f"{r}={v}" for r, v in _numeros(resultados)
-                 if isinstance(v, float) and any(m in r.lower() for m in METRICAS) and 0.999 <= v <= 1.0]
+                 if isinstance(v, float) and es_metrica(r) and 0.999 <= v <= 1.0]
         if altos:
             motivos.append(f"plausible: métricas ≥ 0,999 en un problema con ruido: {altos[:5]}")
     if pide_figura and not any(p.stat().st_size > 0 for p in Path(carpeta).glob("*.png")):
