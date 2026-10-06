@@ -1,0 +1,14 @@
+=== T1: Línea base léxica (TF-IDF por defecto + coseno) ===
+Tamaño del vocabulario: 105
+----------------------------------------------------------------
+q1: relevante=d04  rank=1  top-3=[d04, d01, d06]  RR=1.0000
+q2: relevante=d03  rank=1  top-3=[d03, d01, d02]  RR=1.0000
+q3: relevante=d08  rank=1  top-3=[d08, d06, d04]  RR=1.0000
+q4: relevante=d05  rank=1  top-3=[d05, d01, d04]  RR=1.0000
+q5: relevante=d09  rank=6  top-3=[d03, d06, d04]  RR=0.1667
+q6: relevante=d02  rank=1  top-3=[d02, d06, d03]  RR=1.0000
+----------------------------------------------------------------
+Hit@1 = 0.8333
+Hit@3 = 0.8333
+MRR   = 0.8611
+Resultados guardados en resultados.json

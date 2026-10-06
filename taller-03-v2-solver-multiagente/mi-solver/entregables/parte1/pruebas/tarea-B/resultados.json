@@ -1,0 +1,217 @@
+{
+  "tokens": [
+    "t0",
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5"
+  ],
+  "logits": [
+    2.0,
+    1.0,
+    0.5,
+    0.2,
+    -1.0,
+    -3.0
+  ],
+  "temperaturas": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "distribuciones_softmax": {
+    "T=0.5": {
+      "t0": 0.8230654368889799,
+      "t1": 0.11138979402363647,
+      "t2": 0.04097801517761745,
+      "t3": 0.022489211553514077,
+      "t4": 0.002040175243227406,
+      "t5": 3.73671130246886e-05
+    },
+    "T=1.0": {
+      "t0": 0.5516226378718239,
+      "t1": 0.2029306277578035,
+      "t2": 0.12308364752983937,
+      "t3": 0.09118260875807133,
+      "t4": 0.02746367398498595,
+      "t5": 0.003716804097476065
+    },
+    "T=2.0": {
+      "t0": 0.3583353420072876,
+      "t1": 0.2173413713860323,
+      "t2": 0.16926563022925498,
+      "t3": 0.14568827807293414,
+      "t4": 0.07995542224892846,
+      "t5": 0.02941395605556251
+    }
+  },
+  "suma_distribuciones": {
+    "T=0.5": 1.0,
+    "T=1.0": 1.0,
+    "T=2.0": 1.0
+  },
+  "entropia_bits": {
+    "T=0.5": 0.9146817686293975,
+    "T=1.0": 1.7998355411039506,
+    "T=2.0": 2.288826165842212
+  },
+  "T2_top_p": {
+    "subtarea": "T2: top-p (nucleus) con p=0.9 sobre la distribucion de T=1",
+    "tokens": [
+      "t0",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5"
+    ],
+    "logits": [
+      2.0,
+      1.0,
+      0.5,
+      0.2,
+      -1.0,
+      -3.0
+    ],
+    "temperatura": 1.0,
+    "p": 0.9,
+    "distribucion_T1": {
+      "t0": 0.5516226378718239,
+      "t1": 0.2029306277578035,
+      "t2": 0.12308364752983937,
+      "t3": 0.09118260875807133,
+      "t4": 0.02746367398498595,
+      "t5": 0.003716804097476065
+    },
+    "tokens_ordenados_desc": [
+      "t0",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5"
+    ],
+    "probs_ordenadas_desc": [
+      0.5516226378718239,
+      0.2029306277578035,
+      0.12308364752983937,
+      0.09118260875807133,
+      0.02746367398498595,
+      0.003716804097476065
+    ],
+    "prob_acumulada_orden_desc": {
+      "t0": 0.5516226378718239,
+      "t1": 0.7545532656296273,
+      "t2": 0.8776369131594667,
+      "t3": 0.968819521917538,
+      "t4": 0.9962831959025239,
+      "t5": 1.0
+    },
+    "num_tokens_nucleo": 4,
+    "tokens_sobrevivientes": [
+      "t0",
+      "t1",
+      "t2",
+      "t3"
+    ],
+    "tokens_descartados": [
+      "t4",
+      "t5"
+    ],
+    "suma_prob_nucleo_antes_renorm": 0.968819521917538,
+    "distribucion_renormalizada": {
+      "t0": 0.5693760554907313,
+      "t1": 0.2094617451103304,
+      "t2": 0.12704497044632815,
+      "t3": 0.09411722895261025,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "suma_distribucion_renormalizada": 1.0000000000000002,
+    "entropia_bits_T1_original": 1.7998355411039506,
+    "entropia_bits_tras_top_p": 1.6340748427749392
+  },
+  "T3_comprobacion_empirica": {
+    "subtarea": "T3: comprobacion empirica — 10000 muestras de la distribucion renormalizada top-p (p=0.9 sobre T=1) con numpy.random.default_rng(0); comparacion de frecuencias observadas vs probabilidades teoricas y divergencia KL en bits",
+    "tokens": [
+      "t0",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5"
+    ],
+    "logits": [
+      2.0,
+      1.0,
+      0.5,
+      0.2,
+      -1.0,
+      -3.0
+    ],
+    "temperatura": 1.0,
+    "p_top_p": 0.9,
+    "distribucion_T1_original": {
+      "t0": 0.5516226378718239,
+      "t1": 0.2029306277578035,
+      "t2": 0.12308364752983937,
+      "t3": 0.09118260875807133,
+      "t4": 0.02746367398498595,
+      "t5": 0.003716804097476065
+    },
+    "tokens_nucleo": [
+      "t0",
+      "t1",
+      "t2",
+      "t3"
+    ],
+    "num_tokens_nucleo": 4,
+    "suma_prob_nucleo_antes_renorm": 0.968819521917538,
+    "distribucion_renormalizada_teorica": {
+      "t0": 0.5693760554907313,
+      "t1": 0.2094617451103304,
+      "t2": 0.12704497044632815,
+      "t3": 0.09411722895261025,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "n_muestras": 10000,
+    "semilla": 0,
+    "generador": "numpy.random.default_rng(0)",
+    "conteos_observados": {
+      "t0": 5682,
+      "t1": 2093,
+      "t2": 1296,
+      "t3": 929,
+      "t4": 0,
+      "t5": 0
+    },
+    "frecuencias_observadas": {
+      "t0": 0.5682,
+      "t1": 0.2093,
+      "t2": 0.1296,
+      "t3": 0.0929,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "diferencia_obs_menos_teorica": {
+      "t0": -0.0011760554907312981,
+      "t1": -0.00016174511033037464,
+      "t2": 0.002555029553671845,
+      "t3": -0.0012172289526102553,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "error_absoluto_maximo": 0.002555029553671845,
+    "suma_frecuencias_observadas": 1.0,
+    "tokens_sin_muestras": [
+      "t4",
+      "t5"
+    ],
+    "kl_empirica_respecto_teorica_bits": 5.006898814879229e-05,
+    "entropia_bits_distribucion_teorica": 1.6340748427749392,
+    "entropia_bits_distribucion_empirica": 1.6361596553054363,
+    "figura": "t3_frecuencias_vs_teoricas.png"
+  }
+}

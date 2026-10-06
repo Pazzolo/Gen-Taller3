@@ -1,0 +1,30 @@
+Top-p (nucleus sampling) con p = 0.9 sobre la distribucion de T = 1
+------------------------------------------------------------------
+ token     p(T=1)  acumulada   nucleo
+------------------------------------------------------------------
+    t0     0.5516     0.5516   si
+    t1     0.2029     0.7546   si
+    t2     0.1231     0.8776   si
+    t3     0.0912     0.9688   si
+    t4     0.0275     0.9963   no
+    t5     0.0037     1.0000   no
+------------------------------------------------------------------
+Tokens sobrevivientes (conjunto minimo con acumulada >= 0.9): ['t0', 't1', 't2', 't3']
+Probabilidad acumulada del nucleo antes de renormalizar: 0.9688
+Tokens descartados: ['t4', 't5']
+
+Distribucion renormalizada:
+  t0: 0.5694
+  t1: 0.2095
+  t2: 0.1270
+  t3: 0.0941
+  t4: 0.0000
+  t5: 0.0000
+Suma: 1.0000
+
+Cifras principales:
+  Nucleo (p=0.9): ['t0', 't1', 't2', 't3'] (k=4 tokens, acumulada original = 0.9688)
+  Distribucion renormalizada: t0=0.5694, t1=0.2095, t2=0.1270, t3=0.0941
+  Entropia T=1 original: 1.7998 bits | Entropia tras top-p: 1.6341 bits
+
+Resultados guardados en 'resultados.json'.

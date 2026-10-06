@@ -1,0 +1,11 @@
+=== T2: GaussianNB vs Regresion logistica (conjunto de prueba) ===
+Ejemplos de prueba: 171  (entrenamiento: 398)
+--------------------------------------------------------------
+Modelo                      Accuracy    F1 macro     Errores
+--------------------------------------------------------------
+GaussianNB                    0.9357      0.9307          11
+Regresion logistica           0.9883      0.9875           2
+--------------------------------------------------------------
+Diferencia accuracy (LR - NB): 0.0526
+Diferencia F1 macro (LR - NB): 0.0569
+Cifras guardadas en resultados.json

@@ -1,0 +1,1230 @@
+{
+  "subtarea": "T3_analisis_por_consulta",
+  "descripcion": "Análisis por consulta a partir de los rankings de T1 (TF-IDF + coseno) y T2 (LSA, TruncatedSVD k=4, random_state=0), recalculados de forma independiente: consultas donde cada método falla (relevante fuera del top 3) y términos que comparte cada consulta con su documento relevante según el vocabulario TF-IDF (pesos TF-IDF e IDF) para explicar los fallos. Incluye la tabla de la Parte 3.",
+  "parametros": {
+    "num_documentos": 10,
+    "num_consultas": 6,
+    "tamano_vocabulario": 105,
+    "n_componentes_lsa": 4,
+    "random_state_svd": 0,
+    "definicion_fallo": "documento relevante en puesto > 3 (fuera del top 3)",
+    "umbral_idf_generico": 2.7047480922384253,
+    "criterio_umbral_generico": "mediana del IDF del vocabulario TF-IDF"
+  },
+  "lsa_varianza_explicada_por_componente": [
+    0.034211619796853256,
+    0.12657480443196817,
+    0.11600387824885838,
+    0.11855186843101542
+  ],
+  "lsa_varianza_explicada_total": 0.39534217090869517,
+  "metricas_globales": {
+    "tfidf": {
+      "hit_at_1": 0.8333333333333334,
+      "hit_at_3": 0.8333333333333334,
+      "mrr": 0.8611111111111112
+    },
+    "lsa": {
+      "hit_at_1": 0.6666666666666666,
+      "hit_at_3": 0.8333333333333334,
+      "mrr": 0.75
+    }
+  },
+  "fallos_por_metodo": {
+    "tfidf": {
+      "consultas": [
+        "q5"
+      ],
+      "num_fallos": 1
+    },
+    "lsa": {
+      "consultas": [
+        "q5"
+      ],
+      "num_fallos": 1
+    },
+    "ambos_metodos": {
+      "consultas": [
+        "q5"
+      ],
+      "num_fallos": 1
+    }
+  },
+  "tabla_parte3": [
+    {
+      "consulta_id": "q1",
+      "consulta": "¿Qué función de ranking léxica pondera la frecuencia de términos?",
+      "relevante": "d04",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "num_terminos_compartidos": 8,
+      "terminos_compartidos_fmt": [
+        "de (q=0.4162, d=0.3142)",
+        "frecuencia (q=0.3504, d=0.2646)",
+        "léxica (q=0.3504, d=0.2646)",
+        "ranking (q=0.3504, d=0.2646)",
+        "términos (q=0.3504, d=0.2646)",
+        "función (q=0.2979, d=0.2249)",
+        "pondera (q=0.2979, d=0.2249)",
+        "la (q=0.1881, d=0.2841)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "de",
+          "peso_consulta": 0.41616626604586404,
+          "peso_documento": 0.31423567671878266,
+          "idf": 1.6061358035703155
+        },
+        {
+          "termino": "frecuencia",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "léxica",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "ranking",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "términos",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "función",
+          "peso_consulta": 0.29788390619311367,
+          "peso_documento": 0.22492392700544242,
+          "idf": 2.2992829841302607
+        },
+        {
+          "termino": "pondera",
+          "peso_consulta": 0.29788390619311367,
+          "peso_documento": 0.22492392700544242,
+          "idf": 2.2992829841302607
+        },
+        {
+          "termino": "la",
+          "peso_consulta": 0.1881121216397302,
+          "peso_documento": 0.2840765562480844,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "explicacion": "La consulta comparte 8 término(s) con d04: solapamiento de contenido: 'frecuencia', 'léxica', 'ranking', 'términos'; términos genéricos (idf < 2.7047): 'de', 'función', 'pondera', 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    {
+      "consulta_id": "q2",
+      "consulta": "¿Cómo se añaden fragmentos recuperados al prompt?",
+      "relevante": "d03",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "num_terminos_compartidos": 3,
+      "terminos_compartidos_fmt": [
+        "al (q=0.5774, d=0.2987)",
+        "fragmentos (q=0.5774, d=0.2987)",
+        "prompt (q=0.5774, d=0.2987)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "al",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "fragmentos",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "prompt",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        }
+      ],
+      "explicacion": "La consulta comparte 3 término(s) con d03: solapamiento de contenido: 'al', 'fragmentos', 'prompt'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    {
+      "consulta_id": "q3",
+      "consulta": "¿Qué técnica entrena matrices de bajo rango?",
+      "relevante": "d08",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "num_terminos_compartidos": 5,
+      "terminos_compartidos_fmt": [
+        "bajo (q=0.4322, d=0.2979)",
+        "entrena (q=0.4322, d=0.2979)",
+        "matrices (q=0.4322, d=0.2979)",
+        "rango (q=0.4322, d=0.2979)",
+        "de (q=0.2567, d=0.1769)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "bajo",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "entrena",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "matrices",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "rango",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "de",
+          "peso_consulta": 0.2566682232316953,
+          "peso_documento": 0.17689213153095973,
+          "idf": 1.6061358035703155
+        }
+      ],
+      "explicacion": "La consulta comparte 5 término(s) con d08: solapamiento de contenido: 'bajo', 'entrena', 'matrices', 'rango'; términos genéricos (idf < 2.7047): 'de'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    {
+      "consulta_id": "q4",
+      "consulta": "¿Cómo se compara la orientación de dos vectores de texto?",
+      "relevante": "d05",
+      "rank_tfidf": 1,
+      "rank_lsa": 3,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "num_terminos_compartidos": 4,
+      "terminos_compartidos_fmt": [
+        "compara (q=0.4613, d=0.3012)",
+        "orientación (q=0.4613, d=0.3012)",
+        "vectores (q=0.4613, d=0.3012)",
+        "la (q=0.2477, d=0.1617)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "compara",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "orientación",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "vectores",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "la",
+          "peso_consulta": 0.24765524618908155,
+          "peso_documento": 0.161700532512538,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "explicacion": "La consulta comparte 4 término(s) con d05: solapamiento de contenido: 'compara', 'orientación', 'vectores'; términos genéricos (idf < 2.7047): 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 3)."
+    },
+    {
+      "consulta_id": "q5",
+      "consulta": "¿Qué hace que el modelo sea más determinista al elegir la siguiente palabra?",
+      "relevante": "d09",
+      "rank_tfidf": 6,
+      "rank_lsa": 6,
+      "fallo_tfidf": true,
+      "fallo_lsa": true,
+      "num_terminos_compartidos": 1,
+      "terminos_compartidos_fmt": [
+        "la (q=0.2440, d=0.3238)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "la",
+          "peso_consulta": 0.24397961091537643,
+          "peso_documento": 0.32380709577396377,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "explicacion": "La consulta comparte 1 término(s) con d09: términos genéricos (idf < 2.7047): 'la'. Términos distintivos de la consulta ausentes en d09: 'al', 'modelo', 'que', 'qué'. Puesto del relevante: 6 (TF-IDF) y 6 (LSA). TF-IDF: FALLO (relevante en el puesto 6, fuera del top 3); LSA: FALLO (relevante en el puesto 6, fuera del top 3)."
+    },
+    {
+      "consulta_id": "q6",
+      "consulta": "¿Qué arquitectura combina autoatención con capas feed-forward?",
+      "relevante": "d02",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "num_terminos_compartidos": 5,
+      "terminos_compartidos_fmt": [
+        "autoatención (q=0.4322, d=0.3016)",
+        "capas (q=0.4322, d=0.3016)",
+        "feed (q=0.4322, d=0.3016)",
+        "forward (q=0.4322, d=0.3016)",
+        "con (q=0.2567, d=0.1791)"
+      ],
+      "terminos_compartidos": [
+        {
+          "termino": "autoatención",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "capas",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "feed",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "forward",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "con",
+          "peso_consulta": 0.2566682232316953,
+          "peso_documento": 0.1790972073248953,
+          "idf": 1.6061358035703155
+        }
+      ],
+      "explicacion": "La consulta comparte 5 término(s) con d02: solapamiento de contenido: 'autoatención', 'capas', 'feed', 'forward'; términos genéricos (idf < 2.7047): 'con'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    }
+  ],
+  "por_consulta": {
+    "q1": {
+      "consulta": "¿Qué función de ranking léxica pondera la frecuencia de términos?",
+      "documento_relevante": "d04",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "similitud_tfidf_con_relevante": 0.6890762406943802,
+      "similitud_lsa_con_relevante": 0.9542338764603773,
+      "top3_tfidf": [
+        "d04",
+        "d01",
+        "d06"
+      ],
+      "top3_lsa": [
+        "d04",
+        "d01",
+        "d06"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "de",
+        "frecuencia",
+        "función",
+        "la",
+        "léxica",
+        "pondera",
+        "qué",
+        "ranking",
+        "términos"
+      ],
+      "num_terminos_compartidos": 8,
+      "terminos_compartidos": [
+        {
+          "termino": "de",
+          "peso_consulta": 0.41616626604586404,
+          "peso_documento": 0.31423567671878266,
+          "idf": 1.6061358035703155
+        },
+        {
+          "termino": "frecuencia",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "léxica",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "ranking",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "términos",
+          "peso_consulta": 0.3504139910334365,
+          "peso_documento": 0.2645879461839569,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "función",
+          "peso_consulta": 0.29788390619311367,
+          "peso_documento": 0.22492392700544242,
+          "idf": 2.2992829841302607
+        },
+        {
+          "termino": "pondera",
+          "peso_consulta": 0.29788390619311367,
+          "peso_documento": 0.22492392700544242,
+          "idf": 2.2992829841302607
+        },
+        {
+          "termino": "la",
+          "peso_consulta": 0.1881121216397302,
+          "peso_documento": 0.2840765562480844,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "terminos_compartidos_de_contenido": [
+        "frecuencia",
+        "léxica",
+        "ranking",
+        "términos"
+      ],
+      "terminos_compartidos_genericos": [
+        "de",
+        "función",
+        "pondera",
+        "la"
+      ],
+      "terminos_consulta_ausentes_en_relevante": [
+        {
+          "termino": "qué",
+          "peso_consulta": 0.3504139910334365,
+          "idf": 2.7047480922384253
+        }
+      ],
+      "explicacion": "La consulta comparte 8 término(s) con d04: solapamiento de contenido: 'frecuencia', 'léxica', 'ranking', 'términos'; términos genéricos (idf < 2.7047): 'de', 'función', 'pondera', 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    "q2": {
+      "consulta": "¿Cómo se añaden fragmentos recuperados al prompt?",
+      "documento_relevante": "d03",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "similitud_tfidf_con_relevante": 0.517438736756843,
+      "similitud_lsa_con_relevante": 0.9753616198616091,
+      "top3_tfidf": [
+        "d03",
+        "d01",
+        "d02"
+      ],
+      "top3_lsa": [
+        "d03",
+        "d07",
+        "d09"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "al",
+        "fragmentos",
+        "prompt"
+      ],
+      "num_terminos_compartidos": 3,
+      "terminos_compartidos": [
+        {
+          "termino": "al",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "fragmentos",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "prompt",
+          "peso_consulta": 0.5773502691896257,
+          "peso_documento": 0.29874339395570315,
+          "idf": 2.7047480922384253
+        }
+      ],
+      "terminos_compartidos_de_contenido": [
+        "al",
+        "fragmentos",
+        "prompt"
+      ],
+      "terminos_compartidos_genericos": [],
+      "terminos_consulta_ausentes_en_relevante": [],
+      "explicacion": "La consulta comparte 3 término(s) con d03: solapamiento de contenido: 'al', 'fragmentos', 'prompt'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    "q3": {
+      "consulta": "¿Qué técnica entrena matrices de bajo rango?",
+      "documento_relevante": "d08",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "similitud_tfidf_con_relevante": 0.560429272422995,
+      "similitud_lsa_con_relevante": 0.9746239272656918,
+      "top3_tfidf": [
+        "d08",
+        "d06",
+        "d04"
+      ],
+      "top3_lsa": [
+        "d08",
+        "d02",
+        "d06"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "bajo",
+        "de",
+        "entrena",
+        "matrices",
+        "qué",
+        "rango"
+      ],
+      "num_terminos_compartidos": 5,
+      "terminos_compartidos": [
+        {
+          "termino": "bajo",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "entrena",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "matrices",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "rango",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.29788804547336384,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "de",
+          "peso_consulta": 0.2566682232316953,
+          "peso_documento": 0.17689213153095973,
+          "idf": 1.6061358035703155
+        }
+      ],
+      "terminos_compartidos_de_contenido": [
+        "bajo",
+        "entrena",
+        "matrices",
+        "rango"
+      ],
+      "terminos_compartidos_genericos": [
+        "de"
+      ],
+      "terminos_consulta_ausentes_en_relevante": [
+        {
+          "termino": "qué",
+          "peso_consulta": 0.43223174876056586,
+          "idf": 2.7047480922384253
+        }
+      ],
+      "explicacion": "La consulta comparte 5 término(s) con d08: solapamiento de contenido: 'bajo', 'entrena', 'matrices', 'rango'; términos genéricos (idf < 2.7047): 'de'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    },
+    "q4": {
+      "consulta": "¿Cómo se compara la orientación de dos vectores de texto?",
+      "documento_relevante": "d05",
+      "rank_tfidf": 1,
+      "rank_lsa": 3,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "similitud_tfidf_con_relevante": 0.45692453531459537,
+      "similitud_lsa_con_relevante": 0.898421713413974,
+      "top3_tfidf": [
+        "d05",
+        "d01",
+        "d04"
+      ],
+      "top3_lsa": [
+        "d01",
+        "d10",
+        "d05"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "compara",
+        "de",
+        "la",
+        "orientación",
+        "vectores"
+      ],
+      "num_terminos_compartidos": 4,
+      "terminos_compartidos": [
+        {
+          "termino": "compara",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "orientación",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "vectores",
+          "peso_consulta": 0.4613305217177221,
+          "peso_documento": 0.30121466100132,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "la",
+          "peso_consulta": 0.24765524618908155,
+          "peso_documento": 0.161700532512538,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "terminos_compartidos_de_contenido": [
+        "compara",
+        "orientación",
+        "vectores"
+      ],
+      "terminos_compartidos_genericos": [
+        "la"
+      ],
+      "terminos_consulta_ausentes_en_relevante": [
+        {
+          "termino": "de",
+          "peso_consulta": 0.5478953624826444,
+          "idf": 1.6061358035703155
+        }
+      ],
+      "explicacion": "La consulta comparte 4 término(s) con d05: solapamiento de contenido: 'compara', 'orientación', 'vectores'; términos genéricos (idf < 2.7047): 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 3)."
+    },
+    "q5": {
+      "consulta": "¿Qué hace que el modelo sea más determinista al elegir la siguiente palabra?",
+      "documento_relevante": "d09",
+      "rank_tfidf": 6,
+      "rank_lsa": 6,
+      "fallo_tfidf": true,
+      "fallo_lsa": true,
+      "similitud_tfidf_con_relevante": 0.07900232923856973,
+      "similitud_lsa_con_relevante": 0.49988551680348314,
+      "top3_tfidf": [
+        "d03",
+        "d06",
+        "d04"
+      ],
+      "top3_lsa": [
+        "d04",
+        "d01",
+        "d03"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "al",
+        "el",
+        "la",
+        "modelo",
+        "que",
+        "qué"
+      ],
+      "num_terminos_compartidos": 1,
+      "terminos_compartidos": [
+        {
+          "termino": "la",
+          "peso_consulta": 0.24397961091537643,
+          "peso_documento": 0.32380709577396377,
+          "idf": 1.4519851237430572
+        }
+      ],
+      "terminos_compartidos_de_contenido": [],
+      "terminos_compartidos_genericos": [
+        "la"
+      ],
+      "terminos_consulta_ausentes_en_relevante": [
+        {
+          "termino": "al",
+          "peso_consulta": 0.4544835731286831,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "modelo",
+          "peso_consulta": 0.4544835731286831,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "que",
+          "peso_consulta": 0.4544835731286831,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "qué",
+          "peso_consulta": 0.4544835731286831,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "el",
+          "peso_consulta": 0.3380128347893335,
+          "idf": 2.01160091167848
+        }
+      ],
+      "explicacion": "La consulta comparte 1 término(s) con d09: términos genéricos (idf < 2.7047): 'la'. Términos distintivos de la consulta ausentes en d09: 'al', 'modelo', 'que', 'qué'. Puesto del relevante: 6 (TF-IDF) y 6 (LSA). TF-IDF: FALLO (relevante en el puesto 6, fuera del top 3); LSA: FALLO (relevante en el puesto 6, fuera del top 3)."
+    },
+    "q6": {
+      "consulta": "¿Qué arquitectura combina autoatención con capas feed-forward?",
+      "documento_relevante": "d02",
+      "rank_tfidf": 1,
+      "rank_lsa": 1,
+      "fallo_tfidf": false,
+      "fallo_lsa": false,
+      "similitud_tfidf_con_relevante": 0.5674153888326815,
+      "similitud_lsa_con_relevante": 0.9530957100505457,
+      "top3_tfidf": [
+        "d02",
+        "d06",
+        "d03"
+      ],
+      "top3_lsa": [
+        "d02",
+        "d08",
+        "d10"
+      ],
+      "terminos_consulta_en_vocabulario": [
+        "autoatención",
+        "capas",
+        "con",
+        "feed",
+        "forward",
+        "qué"
+      ],
+      "num_terminos_compartidos": 5,
+      "terminos_compartidos": [
+        {
+          "termino": "autoatención",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "capas",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "feed",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "forward",
+          "peso_consulta": 0.43223174876056586,
+          "peso_documento": 0.30160141425178877,
+          "idf": 2.7047480922384253
+        },
+        {
+          "termino": "con",
+          "peso_consulta": 0.2566682232316953,
+          "peso_documento": 0.1790972073248953,
+          "idf": 1.6061358035703155
+        }
+      ],
+      "terminos_compartidos_de_contenido": [
+        "autoatención",
+        "capas",
+        "feed",
+        "forward"
+      ],
+      "terminos_compartidos_genericos": [
+        "con"
+      ],
+      "terminos_consulta_ausentes_en_relevante": [
+        {
+          "termino": "qué",
+          "peso_consulta": 0.43223174876056586,
+          "idf": 2.7047480922384253
+        }
+      ],
+      "explicacion": "La consulta comparte 5 término(s) con d02: solapamiento de contenido: 'autoatención', 'capas', 'feed', 'forward'; términos genéricos (idf < 2.7047): 'con'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1)."
+    }
+  },
+  "rankings_recalculados": {
+    "tfidf": {
+      "q1": {
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d06",
+          "d10",
+          "d02",
+          "d08",
+          "d09",
+          "d05",
+          "d03",
+          "d07"
+        ],
+        "similitudes_ordenadas": [
+          0.6890762406943802,
+          0.24104429689047813,
+          0.17176219526377381,
+          0.1455818977299592,
+          0.07453421603164366,
+          0.07361653787213339,
+          0.06091203978803966,
+          0.030417830241207696,
+          0.030168272064907867,
+          0.0
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.6890762406943802,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d04",
+          "d01",
+          "d06"
+        ]
+      },
+      "q2": {
+        "ranking_documentos": [
+          "d03",
+          "d01",
+          "d02",
+          "d04",
+          "d05",
+          "d06",
+          "d07",
+          "d08",
+          "d09",
+          "d10"
+        ],
+        "similitudes_ordenadas": [
+          0.517438736756843,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.517438736756843,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d03",
+          "d01",
+          "d02"
+        ]
+      },
+      "q3": {
+        "ranking_documentos": [
+          "d08",
+          "d06",
+          "d04",
+          "d01",
+          "d10",
+          "d02",
+          "d03",
+          "d05",
+          "d07",
+          "d09"
+        ],
+        "similitudes_ordenadas": [
+          0.560429272422995,
+          0.12298847552390199,
+          0.08065431281941934,
+          0.06381465584320169,
+          0.049407824941549196,
+          0.045968561989839445,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.560429272422995,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d08",
+          "d06",
+          "d04"
+        ]
+      },
+      "q4": {
+        "ranking_documentos": [
+          "d05",
+          "d01",
+          "d04",
+          "d10",
+          "d02",
+          "d08",
+          "d09",
+          "d03",
+          "d06",
+          "d07"
+        ],
+        "similitudes_ordenadas": [
+          0.45692453531459537,
+          0.24754993848068024,
+          0.24252131947498234,
+          0.19166293170642723,
+          0.09812652932690284,
+          0.09691837852548282,
+          0.08019252602167252,
+          0.039717434369503,
+          0.0,
+          0.0
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.45692453531459537,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d05",
+          "d01",
+          "d04"
+        ]
+      },
+      "q5": {
+        "ranking_documentos": [
+          "d03",
+          "d06",
+          "d04",
+          "d01",
+          "d10",
+          "d09",
+          "d08",
+          "d05",
+          "d02",
+          "d07"
+        ],
+        "similitudes_ordenadas": [
+          0.3106758887220715,
+          0.2008513459062183,
+          0.18955976285205217,
+          0.16230333908296432,
+          0.08491551831191195,
+          0.07900232923856973,
+          0.0748861092010969,
+          0.03945163300721819,
+          0.0,
+          0.0
+        ],
+        "rank_del_relevante": 6,
+        "similitud_con_relevante": 0.07900232923856973,
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "reciprocal_rank": 0.16666666666666666,
+        "top_3": [
+          "d03",
+          "d06",
+          "d04"
+        ]
+      },
+      "q6": {
+        "ranking_documentos": [
+          "d02",
+          "d06",
+          "d03",
+          "d08",
+          "d01",
+          "d04",
+          "d05",
+          "d07",
+          "d09",
+          "d10"
+        ],
+        "similitudes_ordenadas": [
+          0.5674153888326815,
+          0.16635706514893978,
+          0.04553295699284448,
+          0.045402589103718784,
+          0.03190732792160084,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.5674153888326815,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d02",
+          "d06",
+          "d03"
+        ]
+      }
+    },
+    "lsa": {
+      "q1": {
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d06",
+          "d10",
+          "d09",
+          "d05",
+          "d03",
+          "d08",
+          "d07",
+          "d02"
+        ],
+        "similitudes_ordenadas": [
+          0.9542338764603773,
+          0.926167364287045,
+          0.6302861368690816,
+          0.5834748914843861,
+          0.5060238963860794,
+          0.46575217619466225,
+          0.3738878981276879,
+          0.32452075468016345,
+          0.1934378078177676,
+          0.003022087349673075
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.9542338764603773,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d04",
+          "d01",
+          "d06"
+        ]
+      },
+      "q2": {
+        "ranking_documentos": [
+          "d03",
+          "d07",
+          "d09",
+          "d02",
+          "d04",
+          "d10",
+          "d08",
+          "d01",
+          "d05",
+          "d06"
+        ],
+        "similitudes_ordenadas": [
+          0.9753616198616091,
+          0.8023847351500116,
+          0.47086791359664704,
+          0.4022930576302999,
+          0.3826981299579772,
+          0.29423807632145293,
+          0.14626163623898533,
+          0.033741063891204764,
+          -0.16002038909686933,
+          -0.26136569169095347
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.9753616198616091,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d03",
+          "d07",
+          "d09"
+        ]
+      },
+      "q3": {
+        "ranking_documentos": [
+          "d08",
+          "d02",
+          "d06",
+          "d10",
+          "d01",
+          "d04",
+          "d03",
+          "d05",
+          "d07",
+          "d09"
+        ],
+        "similitudes_ordenadas": [
+          0.9746239272656918,
+          0.7665154388303865,
+          0.5606217883245773,
+          0.41330397888066833,
+          0.35434335823323854,
+          0.2243878585446967,
+          0.14820782499222893,
+          -0.13297643110943774,
+          -0.1359959095041173,
+          -0.17353933738775634
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.9746239272656918,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d08",
+          "d02",
+          "d06"
+        ]
+      },
+      "q4": {
+        "ranking_documentos": [
+          "d01",
+          "d10",
+          "d05",
+          "d09",
+          "d04",
+          "d03",
+          "d08",
+          "d02",
+          "d06",
+          "d07"
+        ],
+        "similitudes_ordenadas": [
+          0.9219618094000089,
+          0.9205569108925621,
+          0.898421713413974,
+          0.8201270985637538,
+          0.7523786823058928,
+          0.2875415099375321,
+          0.2695002757697448,
+          0.12236796902645442,
+          0.05001260690761722,
+          -0.25811500569151413
+        ],
+        "rank_del_relevante": 3,
+        "similitud_con_relevante": 0.898421713413974,
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 0.3333333333333333,
+        "top_3": [
+          "d01",
+          "d10",
+          "d05"
+        ]
+      },
+      "q5": {
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d03",
+          "d06",
+          "d10",
+          "d09",
+          "d07",
+          "d08",
+          "d05",
+          "d02"
+        ],
+        "similitudes_ordenadas": [
+          0.9427359534682044,
+          0.8066012329018136,
+          0.6140509840251358,
+          0.5655795641518976,
+          0.5629897534965821,
+          0.49988551680348314,
+          0.43375161039146554,
+          0.4046979346963305,
+          0.2737753303946181,
+          0.17339640145552682
+        ],
+        "rank_del_relevante": 6,
+        "similitud_con_relevante": 0.49988551680348314,
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "reciprocal_rank": 0.16666666666666666,
+        "top_3": [
+          "d04",
+          "d01",
+          "d03"
+        ]
+      },
+      "q6": {
+        "ranking_documentos": [
+          "d02",
+          "d08",
+          "d10",
+          "d03",
+          "d06",
+          "d01",
+          "d07",
+          "d04",
+          "d09",
+          "d05"
+        ],
+        "similitudes_ordenadas": [
+          0.9530957100505457,
+          0.9523406024377628,
+          0.3484279929519669,
+          0.3301561141049808,
+          0.21635859777817937,
+          0.04002492044137168,
+          0.005194301093235709,
+          -0.01180121930003325,
+          -0.18718419462120145,
+          -0.3256721709816445
+        ],
+        "rank_del_relevante": 1,
+        "similitud_con_relevante": 0.9530957100505457,
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "reciprocal_rank": 1.0,
+        "top_3": [
+          "d02",
+          "d08",
+          "d10"
+        ]
+      }
+    }
+  },
+  "coherencia_con_T1": {
+    "metricas_tfidf_referencia_T1": {
+      "hit_at_1": 0.8333333333333334,
+      "hit_at_3": 0.8333333333333334,
+      "mrr": 0.8611111111111112
+    },
+    "coinciden": {
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "mrr": true
+    }
+  }
+}

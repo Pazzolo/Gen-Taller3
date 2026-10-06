@@ -1,0 +1,12 @@
+{
+  "t2_n_ejemplos_entrenamiento": 398.0,
+  "t2_n_ejemplos_prueba": 171.0,
+  "t2_accuracy_gnb_prueba": 0.935672514619883,
+  "t2_f1_macro_gnb_prueba": 0.9306543778801843,
+  "t2_errores_gnb_prueba": 11.0,
+  "t2_accuracy_lr_prueba": 0.9883040935672515,
+  "t2_f1_macro_lr_prueba": 0.9875146028037383,
+  "t2_errores_lr_prueba": 2.0,
+  "t2_diferencia_accuracy_lr_menos_gnb": 0.052631578947368474,
+  "t2_diferencia_f1_macro_lr_menos_gnb": 0.056860224923553915
+}

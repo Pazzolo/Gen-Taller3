@@ -280,6 +280,14 @@ def _():
     assert len(comp) == 2 and "0.9415" in comp[0][0] and comp[1] == [] and r["status"] == "completado", comp
 
 
+@caso("orquestador: una respuesta vacía del programador cuenta como intento fallido, no tumba la corrida")
+def _():
+    r = Solver(llm_factory=lambda t, p: LLMGuion(t, _guion(["", _BIEN], [_secciones("NB obtuvo 0.9474.")]), p)).solve(
+        str(KIT / "enunciados/tarea-a-generativo-discriminativo.pdf"), str(TMP / "vacia"))
+    assert r["status"] == "completado" and r["subtareas"][0]["intentos"] == 2 and r["error"] is None, (r["status"], r["subtareas"], r["error"])
+    assert (TMP / "vacia" / "trabajo" / "T1-intento2" / "script.py").exists()
+
+
 if __name__ == "__main__":
     print(f"{len(fallos)} fallos" if fallos else "todas las pruebas pasaron")
     sys.exit(1 if fallos else 0)

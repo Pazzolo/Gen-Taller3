@@ -1,0 +1,79 @@
+{
+  "entregable": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 2
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Línea base léxica: vectorizar los 10 documentos (d01–d10) con TfidfVectorizer de scikit-learn con parámetros por defecto, calcular similitud coseno entre las 6 consultas (q1–q6) y el corpus, ordenar los 10 documentos por consulta y evaluar con los juicios (q1→d04, q2→d03, q3→d08, q4→d05, q5→d09, q6→d02): Hit@1, Hit@3 y MRR.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Semántica latente: proyectar la matriz TF-IDF de T1 a 4 dimensiones con TruncatedSVD(n_components=4, random_state=0) (LSA), repetir la misma evaluación (Hit@1, Hit@3, MRR) sobre las mismas 6 consultas y juicios, y construir la tabla conjunta con las tres métricas de los dos métodos.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Análisis por consulta: a partir de los rankings de T1 y T2, identificar en qué consultas falla cada método (relevante fuera del top 3) y extraer los términos que comparten cada consulta con su documento relevante (usando el vocabulario TF-IDF) para explicar los fallos; generar la tabla de la Parte 3.",
+      "depende_de": [
+        "T1",
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Pregunta conceptual: explicar por qué un recuperador denso (embeddings de un modelo entrenado) resolvería q5 mejor que TF-IDF y LSA, y qué costo tiene frente a TF-IDF, apoyándose en los resultados calculados.",
+      "depende_de": [
+        "T1",
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Redactar reporte.pdf de máximo 2 páginas con las secciones Objetivo, Método, Resultados (tabla de la Parte 2 y tabla de la Parte 3) y Discusión, incluyendo el código y usando solo cifras provenientes de la ejecución.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}

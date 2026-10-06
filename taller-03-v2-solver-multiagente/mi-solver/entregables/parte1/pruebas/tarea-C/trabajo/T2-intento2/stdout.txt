@@ -1,0 +1,27 @@
+T2 - Semantica latente (LSA, 4 componentes) vs linea base TF-IDF
+
+Tabla conjunta (6 consultas, 10 documentos):
+| Metodo | Hit@1 | Hit@3 | MRR |
+|---|---|---|---|
+| TF-IDF (linea base lexica, T1) | 0.8333 | 0.8333 | 0.8611 |
+| LSA (TruncatedSVD n_components=4, random_state=0) | 0.6667 | 0.8333 | 0.7500 |
+
+Diferencias (LSA - TF-IDF):
+  Hit@1: -0.1667
+  Hit@3: +0.0000
+  MRR  : -0.1111
+
+Varianza explicada por LSA (4 componentes): 0.3953
+
+Rank del documento relevante por consulta (TF-IDF -> LSA):
+  q1: 1 -> 1
+  q2: 1 -> 1
+  q3: 1 -> 1
+  q4: 1 -> 3
+  q5: 6 -> 6
+  q6: 1 -> 1
+
+Verificacion del recalculo de la linea base T1:
+  Hit@1=0.8333 (ref 0.8333, coincide: True), Hit@3=0.8333 (ref 0.8333, coincide: True), MRR=0.8611 (ref 0.8611, coincide: True)
+
+Resultados guardados en resultados.json

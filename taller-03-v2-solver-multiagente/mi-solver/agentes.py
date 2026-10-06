@@ -195,6 +195,8 @@ Reglas del entorno (las aplica el código, no tú):
 - Si la subtarea pide una figura: guárdala como PNG en la carpeta actual con plt.savefig y luego plt.close().
 - El script es independiente: si necesita algo de una subtarea anterior, vuelve a calcularlo.
 - Nunca uses el conjunto de prueba para elegir hiperparámetros ni para ajustar escaladores.
+- No ejecutes ni simules el script en tu razonamiento y no calcules los resultados a mano: el sandbox lo
+  ejecuta después y el revisor mira lo que imprime. Tu trabajo es solo escribirlo.
 Responde solo con el script en un bloque ```python."""
 
 

@@ -1,0 +1,78 @@
+{
+  "entregable": {
+    "formato": "md",
+    "archivo": "reporte.md",
+    "secciones": [
+      "Introducción",
+      "Metodología",
+      "Resultados",
+      "Discusión",
+      "Conclusiones"
+    ],
+    "max_palabras": 1200,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar sklearn.datasets.load_breast_cancer; reportar número de ejemplos, número de atributos y casos de cada clase. Dividir en entrenamiento (70 %) y prueba (30 %) con train_test_split(test_size=0.30, stratify=y, random_state=42); esta única división se usa en toda la tarea y el conjunto de prueba no se toca para ajustar nada.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Sobre la división de T1, entrenar un Naive Bayes gaussiano (GaussianNB) y una regresión logística con los atributos estandarizados (StandardScaler ajustado solo con el entrenamiento). Evaluar accuracy y F1 macro de cada modelo sobre el conjunto de prueba y construir la tabla comparativa de los dos clasificadores.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Sobre la misma división de T1, entrenar ambos modelos con submuestras estratificadas del 5 %, 10 %, 25 %, 50 % y 100 % del entrenamiento (random_state=42) y evaluar cada uno siempre sobre el mismo conjunto de prueba. Dibujar la exactitud contra el número de ejemplos de entrenamiento, una curva por modelo, y guardar la figura como PNG (p. ej. curva_aprendizaje.png).",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": true
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Redactar la discusión usando las cifras de T2 y T3: explicar si se observa el cruce que predicen Ng y Jordan (2002), en qué tamaño de entrenamiento conviene cada modelo y por qué, relacionándolo con el sesgo y la varianza de un modelo generativo (GaussianNB) frente a uno discriminativo (regresión logística).",
+      "depende_de": [
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Ensamblar reporte.md (máximo 1 200 palabras) con las secciones en este orden: Introducción, Metodología, Resultados (con la tabla de la Parte 2 y la figura PNG de la Parte 3), Discusión y Conclusiones. Toda cifra del reporte debe salir de la ejecución del código de T1–T3 e incluir el código que lo produce.",
+      "depende_de": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}

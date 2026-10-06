@@ -1,0 +1,29 @@
+==============================================================================================================
+T3 — Análisis por consulta (Parte 3): fallos por método y términos compartidos consulta-relevante
+==============================================================================================================
+Vocabulario TF-IDF: 105 términos | umbral IDF genérico (mediana): 2.7047
+TF-IDF    : Hit@1=0.8333  Hit@3=0.8333  MRR=0.8611  fallos (fuera de top 3): ['q5']
+LSA (k=4) : Hit@1=0.6667  Hit@3=0.8333  MRR=0.7500  fallos (fuera de top 3): ['q5']
+Varianza explicada por LSA (k=4): 0.0342, 0.1266, 0.1160, 0.1186 (total 0.3953)
+Fallan en ambos métodos: ['q5']
+--------------------------------------------------------------------------------------------------------------
+Tabla de la Parte 3 (rank del documento relevante; fallo = rank > 3):
+q    rel   rkTF rkLSA  falloTF  falloLSA  nCompart  términos compartidos (peso consulta / peso documento)
+--------------------------------------------------------------------------------------------------------------
+q1   d04      1     1       no        no         8  de (q=0.4162, d=0.3142); frecuencia (q=0.3504, d=0.2646); léxica (q=0.3504, d=0.2646); ranking (q=0.3504, d=0.2646); ...
+q2   d03      1     1       no        no         3  al (q=0.5774, d=0.2987); fragmentos (q=0.5774, d=0.2987); prompt (q=0.5774, d=0.2987)
+q3   d08      1     1       no        no         5  bajo (q=0.4322, d=0.2979); entrena (q=0.4322, d=0.2979); matrices (q=0.4322, d=0.2979); rango (q=0.4322, d=0.2979); ...
+q4   d05      1     3       no        no         4  compara (q=0.4613, d=0.3012); orientación (q=0.4613, d=0.3012); vectores (q=0.4613, d=0.3012); la (q=0.2477, d=0.1617)
+q5   d09      6     6       SÍ        SÍ         1  la (q=0.2440, d=0.3238)
+q6   d02      1     1       no        no         5  autoatención (q=0.4322, d=0.3016); capas (q=0.4322, d=0.3016); feed (q=0.4322, d=0.3016); forward (q=0.4322, d=0.3016); ...
+--------------------------------------------------------------------------------------------------------------
+Explicaciones por consulta:
+[q1] La consulta comparte 8 término(s) con d04: solapamiento de contenido: 'frecuencia', 'léxica', 'ranking', 'términos'; términos genéricos (idf < 2.7047): 'de', 'función', 'pondera', 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1).
+[q2] La consulta comparte 3 término(s) con d03: solapamiento de contenido: 'al', 'fragmentos', 'prompt'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1).
+[q3] La consulta comparte 5 término(s) con d08: solapamiento de contenido: 'bajo', 'entrena', 'matrices', 'rango'; términos genéricos (idf < 2.7047): 'de'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1).
+[q4] La consulta comparte 4 término(s) con d05: solapamiento de contenido: 'compara', 'orientación', 'vectores'; términos genéricos (idf < 2.7047): 'la'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 3).
+[q5] La consulta comparte 1 término(s) con d09: términos genéricos (idf < 2.7047): 'la'. Términos distintivos de la consulta ausentes en d09: 'al', 'modelo', 'que', 'qué'. Puesto del relevante: 6 (TF-IDF) y 6 (LSA). TF-IDF: FALLO (relevante en el puesto 6, fuera del top 3); LSA: FALLO (relevante en el puesto 6, fuera del top 3).
+[q6] La consulta comparte 5 término(s) con d02: solapamiento de contenido: 'autoatención', 'capas', 'feed', 'forward'; términos genéricos (idf < 2.7047): 'con'. TF-IDF: acierto (relevante en el puesto 1); LSA: acierto (relevante en el puesto 1).
+--------------------------------------------------------------------------------------------------------------
+Coherencia con T1 (TF-IDF recalculado vs. T1): hit_at_1=ok, hit_at_3=ok, mrr=ok
+Resultados guardados en resultados.json

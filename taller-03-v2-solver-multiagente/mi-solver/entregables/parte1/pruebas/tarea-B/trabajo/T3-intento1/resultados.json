@@ -1,0 +1,84 @@
+{
+  "T3_comprobacion_empirica": {
+    "subtarea": "T3: comprobacion empirica — 10000 muestras de la distribucion renormalizada top-p (p=0.9 sobre T=1) con numpy.random.default_rng(0); comparacion de frecuencias observadas vs probabilidades teoricas y divergencia KL en bits",
+    "tokens": [
+      "t0",
+      "t1",
+      "t2",
+      "t3",
+      "t4",
+      "t5"
+    ],
+    "logits": [
+      2.0,
+      1.0,
+      0.5,
+      0.2,
+      -1.0,
+      -3.0
+    ],
+    "temperatura": 1.0,
+    "p_top_p": 0.9,
+    "distribucion_T1_original": {
+      "t0": 0.5516226378718239,
+      "t1": 0.2029306277578035,
+      "t2": 0.12308364752983937,
+      "t3": 0.09118260875807133,
+      "t4": 0.02746367398498595,
+      "t5": 0.003716804097476065
+    },
+    "tokens_nucleo": [
+      "t0",
+      "t1",
+      "t2",
+      "t3"
+    ],
+    "num_tokens_nucleo": 4,
+    "suma_prob_nucleo_antes_renorm": 0.968819521917538,
+    "distribucion_renormalizada_teorica": {
+      "t0": 0.5693760554907313,
+      "t1": 0.2094617451103304,
+      "t2": 0.12704497044632815,
+      "t3": 0.09411722895261025,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "n_muestras": 10000,
+    "semilla": 0,
+    "generador": "numpy.random.default_rng(0)",
+    "conteos_observados": {
+      "t0": 5682,
+      "t1": 2093,
+      "t2": 1296,
+      "t3": 929,
+      "t4": 0,
+      "t5": 0
+    },
+    "frecuencias_observadas": {
+      "t0": 0.5682,
+      "t1": 0.2093,
+      "t2": 0.1296,
+      "t3": 0.0929,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "diferencia_obs_menos_teorica": {
+      "t0": -0.0011760554907312981,
+      "t1": -0.00016174511033037464,
+      "t2": 0.002555029553671845,
+      "t3": -0.0012172289526102553,
+      "t4": 0.0,
+      "t5": 0.0
+    },
+    "error_absoluto_maximo": 0.002555029553671845,
+    "suma_frecuencias_observadas": 1.0,
+    "tokens_sin_muestras": [
+      "t4",
+      "t5"
+    ],
+    "kl_empirica_respecto_teorica_bits": 5.006898814879229e-05,
+    "entropia_bits_distribucion_teorica": 1.6340748427749392,
+    "entropia_bits_distribucion_empirica": 1.6361596553054363,
+    "figura": "t3_frecuencias_vs_teoricas.png"
+  }
+}

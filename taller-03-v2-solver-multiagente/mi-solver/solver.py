@@ -71,6 +71,7 @@ class Estado(TypedDict, total=False):
     intento: int
     motivos: list[str]
     red_aprobada: bool
+    fallo_llm: bool
     sin_presupuesto: str
     rondas: int
     problemas_entrega: list[str]
@@ -139,7 +140,7 @@ class Solver:
         g.add_conditional_edges("validar", self.r_validar, ["planificar", "elegir", "publicar"])
         g.add_conditional_edges("elegir", self.r_elegir, ["investigar", "redactar"])
         g.add_edge("investigar", "programar")
-        g.add_conditional_edges("programar", self.r_programar, ["revisar_codigo", "redactar"])
+        g.add_conditional_edges("programar", self.r_programar, ["revisar_codigo", "redactar", "programar", "fallida"])
         g.add_conditional_edges("revisar_codigo", self.r_revisar_codigo, ["programar", "aprobar_red", "ejecutar", "fallida"])
         g.add_conditional_edges("aprobar_red", self.r_aprobar_red, ["ejecutar", "programar", "fallida"])
         g.add_edge("ejecutar", "revisar")
@@ -222,11 +223,24 @@ class Solver:
         st = self.subtareas[e["actual"]]
         st["intentos"] += 1
         previo = st.get("codigo") if e.get("motivos") else None
-        st["codigo"] = agentes.programar(self.llm, st["def"], st["contexto"], previo, e.get("motivos"))
-        return {"intento": st["intentos"]}
+        try:
+            st["codigo"] = agentes.programar(self.llm, st["def"], st["contexto"], previo, e.get("motivos"))
+        except RuntimeError as err:
+            # Una respuesta vacía o ilegible del LLM es un intento fallido de ESTA subtarea, no el fin de
+            # la corrida (Tarea C, 2026-10-05: el programador agotó 16 384 y 32 768 tokens razonando).
+            self.traza("freno", st["id"], freno="llm_sin_respuesta", intento=st["intentos"], error=str(err)[:300])
+            return {"intento": st["intentos"], "motivos": [f"el programador no devolvió un script: {err}"], "fallo_llm": True}
+        intento = self.salida / "trabajo" / f"{st['id']}-intento{st['intentos']}"
+        intento.mkdir(parents=True, exist_ok=True)
+        (intento / "script.py").write_text(st["codigo"], encoding="utf-8")   # lo que produjo, aunque no llegue a correr
+        return {"intento": st["intentos"], "fallo_llm": False}
 
     def r_programar(self, e: Estado) -> str:
-        return "redactar" if e.get("sin_presupuesto") else "revisar_codigo"
+        if e.get("sin_presupuesto"):
+            return "redactar"
+        if e.get("fallo_llm"):
+            return "programar" if self.subtareas[e["actual"]]["intentos"] < self.max_intentos else "fallida"
+        return "revisar_codigo"
 
     def n_revisar_codigo(self, e: Estado) -> dict:
         st = self.subtareas[e["actual"]]

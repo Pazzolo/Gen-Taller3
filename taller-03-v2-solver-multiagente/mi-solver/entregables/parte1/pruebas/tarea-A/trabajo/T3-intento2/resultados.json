@@ -1,0 +1,85 @@
+{
+  "t3_fracciones_pct": [
+    5.0,
+    10.0,
+    25.0,
+    50.0,
+    100.0
+  ],
+  "t3_fracciones_unidad": "porcentaje_del_conjunto_de_entrenamiento",
+  "t3_random_state_division": 42.0,
+  "t3_test_size": 0.3,
+  "t3_random_state_submuestra": 42.0,
+  "t3_n_ejemplos_entrenamiento_total": 398.0,
+  "t3_n_ejemplos_prueba": 171.0,
+  "t3_n_ejemplos_submuestra": [
+    19.0,
+    39.0,
+    99.0,
+    199.0,
+    398.0
+  ],
+  "t3_n_clase0_submuestra": [
+    7.0,
+    15.0,
+    37.0,
+    74.0,
+    148.0
+  ],
+  "t3_n_clase1_submuestra": [
+    12.0,
+    24.0,
+    62.0,
+    125.0,
+    250.0
+  ],
+  "t3_acc_gaussiannb": [
+    0.9415204678362573,
+    0.9473684210526315,
+    0.9473684210526315,
+    0.935672514619883,
+    0.9473684210526315
+  ],
+  "t3_acc_logreg": [
+    0.9298245614035088,
+    0.935672514619883,
+    0.9415204678362573,
+    0.9766081871345029,
+    0.9883040935672515
+  ],
+  "t3_dif_acc_logreg_menos_gaussiannb": [
+    -0.011695906432748537,
+    -0.011695906432748537,
+    -0.005847953216374213,
+    0.040935672514619936,
+    0.040935672514619936
+  ],
+  "t3_modelo_ganador_por_tamano": [
+    "GaussianNB",
+    "GaussianNB",
+    "GaussianNB",
+    "RegresionLogistica",
+    "RegresionLogistica"
+  ],
+  "t3_figura": "curva_aprendizaje.png",
+  "t3_n_train_5pct": 19.0,
+  "t3_acc_gaussiannb_5pct": 0.9415204678362573,
+  "t3_acc_logreg_5pct": 0.9298245614035088,
+  "t3_dif_acc_logreg_menos_gaussiannb_5pct": -0.011695906432748537,
+  "t3_n_train_10pct": 39.0,
+  "t3_acc_gaussiannb_10pct": 0.9473684210526315,
+  "t3_acc_logreg_10pct": 0.935672514619883,
+  "t3_dif_acc_logreg_menos_gaussiannb_10pct": -0.011695906432748537,
+  "t3_n_train_25pct": 99.0,
+  "t3_acc_gaussiannb_25pct": 0.9473684210526315,
+  "t3_acc_logreg_25pct": 0.9415204678362573,
+  "t3_dif_acc_logreg_menos_gaussiannb_25pct": -0.005847953216374213,
+  "t3_n_train_50pct": 199.0,
+  "t3_acc_gaussiannb_50pct": 0.935672514619883,
+  "t3_acc_logreg_50pct": 0.9766081871345029,
+  "t3_dif_acc_logreg_menos_gaussiannb_50pct": 0.040935672514619936,
+  "t3_n_train_100pct": 398.0,
+  "t3_acc_gaussiannb_100pct": 0.9473684210526315,
+  "t3_acc_logreg_100pct": 0.9883040935672515,
+  "t3_dif_acc_logreg_menos_gaussiannb_100pct": 0.040935672514619936
+}

@@ -1,0 +1,22 @@
+=== T3: Curva de aprendizaje (generativo vs discriminativo) ===
+Datos: Breast Cancer Wisconsin (Diagnostic)
+Division 70/30 estratificada, random_state=42 (misma que T1)
+Entrenamiento: 398 ejemplos | Prueba: 171 ejemplos (fija en todas las evaluaciones)
+
+   tamano |  n_train |    acc GaussNB |     acc RegLog |    dif RL-NB
+---------------------------------------------------------------------
+       5% |       19 |         0.9415 |         0.9298 |      -0.0117
+      10% |       39 |         0.9474 |         0.9357 |      -0.0117
+      25% |       99 |         0.9474 |         0.9415 |      -0.0058
+      50% |      199 |         0.9357 |         0.9766 |       0.0409
+     100% |      398 |         0.9474 |         0.9883 |       0.0409
+
+Mejor modelo por tamano de entrenamiento (exactitud en prueba):
+  n= 19 (5pct): GaussianNB (NB=0.9415, RL=0.9298)
+  n= 39 (10pct): GaussianNB (NB=0.9474, RL=0.9357)
+  n= 99 (25pct): GaussianNB (NB=0.9474, RL=0.9415)
+  n=199 (50pct): RegresionLogistica (NB=0.9357, RL=0.9766)
+  n=398 (100pct): RegresionLogistica (NB=0.9474, RL=0.9883)
+
+Figura guardada en: curva_aprendizaje.png
+Cifras guardadas en: resultados.json
