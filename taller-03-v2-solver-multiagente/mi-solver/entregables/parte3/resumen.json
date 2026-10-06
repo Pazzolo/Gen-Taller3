@@ -1,0 +1,34 @@
+{
+  "1_presupuesto": [
+    "parcial",
+    true,
+    true
+  ],
+  "2_intentos": [
+    [
+      "fallida",
+      "aprobada"
+    ],
+    1,
+    [
+      "repeticion",
+      "repeticion",
+      "max_intentos"
+    ]
+  ],
+  "3_tiempo": [
+    "tiempo_sandbox"
+  ],
+  "4_red_negada": [
+    [
+      "red",
+      false
+    ]
+  ],
+  "4_red_aprobada": [
+    [
+      "red",
+      true
+    ]
+  ]
+}

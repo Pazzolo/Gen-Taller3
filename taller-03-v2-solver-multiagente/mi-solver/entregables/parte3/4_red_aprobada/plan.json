@@ -1,0 +1,30 @@
+{
+  "entregable": {
+    "formato": "md",
+    "archivo": "reporte.md",
+    "secciones": [
+      "Introducción",
+      "Metodología",
+      "Resultados",
+      "Discusión",
+      "Conclusiones"
+    ],
+    "max_palabras": 1200,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "descripcion": "subtarea T1",
+      "depende_de": [],
+      "figura": false
+    }
+  ]
+}

@@ -382,6 +382,10 @@ class Solver:
     def _informe(self, error: str | None, segundos: float) -> dict:
         calc = [s for s in self.subtareas.values() if s["tipo"] == "calculo"]
         problemas = getattr(self, "problemas_finales", [])
+        if getattr(self, "sin_presupuesto", None):
+            for s in calc:
+                if s["status"] == "pendiente":
+                    s["status"] = "sin_presupuesto"      # el freno 1 cortó antes de llegar a ella
         if not self.entregable or not self.entregable.exists() or error:
             status = "fallido"
         elif problemas or any(s["status"] != "aprobada" for s in calc) or getattr(self, "sin_presupuesto", None):
