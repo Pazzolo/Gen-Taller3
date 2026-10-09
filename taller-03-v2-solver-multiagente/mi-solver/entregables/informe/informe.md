@@ -158,22 +158,22 @@ E y F cumplen lo que se pide a cada tarea propia: al menos cinco comprobaciones,
 
 | Tarea | Haciéndolo bien | Cayendo en la trampa | ¿El golden set lo detecta? |
 |---|---|---|---|
-| E | `alpha` por validación cruzada: 0,3162; R² de prueba 0,5037; RMSE 54,3838 | `alpha` elegido con la prueba: 100; R² 0,5159 | sí: la diferencia de 0,012 supera la tolerancia de 0,003 |
+| E | `alpha` por validación cruzada: 0,3162; R² de prueba 0,5037; RMSE 54,3838 | `alpha` elegido con la prueba: 100; R² 0,5159 | sí, por `alpha` (E04) y RMSE (E06); el R² no basta (ver la validación) |
 | F | estandarizando: k = 3; silueta 0,2849; ARI 0,8975 | sin estandarizar: k = 2; silueta 0,6569; ARI 0,3694 | sí |
 | F (descartada) | — | elegir k mirando las etiquetas: también k = 3 | no, da lo mismo. Por eso no se usó |
 
-La tercera fila es la que más enseñó: una trampa que parecía obvia (usar las etiquetas para elegir k) no cambia ninguna cifra en este dataset, así que el golden set no tendría cómo verla. Hay además dos detalles de diseño. E05 (R²) no distingue Ridge de la regresión sin regularizar (0,5028 queda dentro de la tolerancia): está para la trampa, no para eso, y el RMSE de E06 sí los separa (54,3838 contra 54,4331). Y E prohíbe descargar datos («viene incluido en la librería»), así que un script que intente `fetch_*` activa el freno de red de la Parte 3.
+La tercera fila es la que más enseñó: una trampa que parecía obvia (usar las etiquetas para elegir k) no cambia ninguna cifra en este dataset, así que el golden set no tendría cómo verla. Hay además dos detalles de diseño. El RMSE de E06 separa Ridge de la regresión sin regularizar (54,3838 contra 54,4331); el R² de E05, en cambio, no los separa (0,5037 contra 0,5028), y eso tiene una consecuencia que se ve más abajo. Y E prohíbe descargar datos («viene incluido en la librería»), así que un script que intente `fetch_*` activa el freno de red de la Parte 3.
 
-_[Ojo: las soluciones hechas a mano de esta validación no quedaron guardadas en el repositorio. Antes de entregar, hay que rehacerlas y guardarlas (por ejemplo en `parte2/validacion/`) o quitar esta tabla.]_
+**Validación antes de tener solver.** Para saber si las comprobaciones distinguen, se armaron una solución correcta y una que cae en la trampa para cada tarea propia (`parte2/validacion/construir.py`). Las dos versiones son idénticas salvo la trampa, para que lo que cambie sea solo eso. Después se pasaron por el evaluador del kit sin correr el solver (`--solo-evaluar`, salidas en `resultados_correcta.csv` y `resultados_trampa.csv`):
 
-**Validación antes de tener solver.** Para saber si las comprobaciones distinguen, se armaron a mano una solución correcta y una que cae en la trampa, y se pasaron por `evaluar_solver.comprobar`:
-
-| | Correcta | Con la trampa | Falla en |
+| | Correcta | Con la trampa | Falla solo con la trampa |
 |---|---|---|---|
-| E | 8/8 | 4/8 | E04 `alpha`, E05 R², E06 RMSE (y E07, porque esa versión no tenía figura) |
+| E | 7/8 | 5/8 | E04 `alpha`, E06 RMSE |
 | F | 6/6 | 4/6 | F04 ARI, F05 silueta |
 
-Al hacer esto apareció algo útil para el redactor: la primera solución correcta de E falló la figura (E07) por forzar el backend `Agg` de matplotlib, que no deja la imagen en el notebook. Es el mismo error que después el revisor LLM le marcó al solver en T4.
+Las dos trampas se detectan, pero la validación dejó ver dos defectos de diseño en E, y es mejor decirlos que esconderlos. El primero: **E03 falla incluso en la solución correcta**. El evaluador acepta un encabezado si no pasa en más de 40 caracteres al nombre de la sección, y el título que trae el propio enunciado («Parte 2 — Selección de alpha por validación cruzada») se pasa. O sea, se castiga a quien copia el título tal cual, que es justo lo que haría un solver cuidadoso. El segundo: **E05 no atrapa la trampa**. Al comparar con la regresión sin regularizar, como pide la Parte 3, el notebook imprime un R² de prueba de 0,5028, y eso queda dentro de la tolerancia de 0,003 alrededor de la verdad (0,5037). La trampa la atrapan E04 y E06, no E05. _[Pendiente: acortar el título de la Parte 2 en el enunciado de E y bajar la tolerancia de E05 (la diferencia es de 0,0009). Se hace después de la 2.b, para no cambiar el golden set a mitad de la corrida, y se vuelve a evaluar con `--solo-evaluar`.]_
+
+Antes, en un primer intento de esta validación, la figura de E (E07) falló por forzar el backend `Agg` de matplotlib, que no deja la imagen en el notebook. Es el mismo error que después el revisor LLM le marcó al solver en T4.
 
 ### 2.b — Solver completo contra la versión sin grafo
 _[Pendiente: la evaluación está corriendo (`correr_2b.sh`). Las tablas saldrán de `resultados/{completo,sin_grafo}/` con `tablas_2b.py`, no a mano.]_
@@ -203,4 +203,15 @@ En las corridas reales apareció un quinto freno que no estaba pedido: `llm_sin_
 _[Pendiente: se elige después de la 2.b.]_
 
 ## Parte 5 — Preguntas
-_[Pendiente: la pregunta 2 necesita `resumen_solver.csv`.]_
+
+**1. ¿Quién decide que la tarea está resuelta?**
+
+Ninguno de los tres solo. El planificador propone, y `validar_plan` puede devolverle el plan. El revisor aprueba cada script (`n_revisar`, `solver.py:295`), pero antes corren las comprobaciones con código, y el LLM solo ve lo que ya pasó ese filtro. El status lo pone `_informe` (`solver.py:396`), que es código: «completado» solo si el entregable existe, la regla 5 no dejó cifras sin origen, todas las subtareas de cálculo quedaron aprobadas y el presupuesto no se cortó. Si falla algo de eso, sale «parcial». Ojo con lo que eso significa: «completado» dice que el solver cumplió sus propias reglas, no que la respuesta esté bien. En la corrida de prueba de la Tarea A, Naive Bayes salió estandarizado en la tabla (0,9357) y crudo en la curva (0,9474), y aun así salió «completado». Quien decide de verdad si la tarea está resuelta es el golden set, que vive fuera del solver.
+
+**2. ¿Qué agente gasta más tokens? ¿Qué ganó el grafo?**
+
+_[Pendiente: sale de `resumen_solver.csv` de las dos versiones de la 2.b.]_
+
+**3. Uso honesto y daño si el sandbox falla**
+
+Para usarlo de forma honesta hay que declarar que la tarea la resolvió un sistema, con qué modelo y en qué fecha, y adjuntar la traza: ahí queda qué planeó, qué código escribió, qué rechazó el revisor y qué se cambió a mano después. Sin la traza no hay forma de separar el trabajo propio del de la máquina. Sobre el sandbox, conviene ser preciso con lo que protege. El perfil de `sandbox-exec` niega la red y la escritura fuera de la carpeta, pero deja leer todo el disco (`allow default`). Si la revisión AST dejara pasar un script malicioso, no podría borrar ni enviar nada, pero sí podría leer un `.env` o una clave SSH e imprimirla en `stdout.txt`, que queda en la carpeta de la corrida y termina en el repositorio. Y con la red aprobada por una persona (freno 4), esa misma lectura sí podría salir.

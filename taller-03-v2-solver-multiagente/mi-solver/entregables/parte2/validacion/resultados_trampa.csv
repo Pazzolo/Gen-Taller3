@@ -1,0 +1,15 @@
+tarea,check,tipo,ok,detalle
+E,E01,archivo,1,1 archivo(s) con *.ipynb
+E,E02,ipynb_ejecutado,1,"4 celdas de código, 0 sin ejecutar, 0 con error"
+E,E03,secciones,0,faltan: ['Parte 2']
+E,E04,cifra,0,verdad=0.3162 ±0.002; no hallada
+E,E05,cifra,1,verdad=0.5037 ±0.003; hallada
+E,E06,cifra_presente,0,verdad=54.3838 ±0.006; no hallada
+E,E07,archivo,1,imagen embebida en el notebook
+E,E08,procedencia,1,sin cifras con dos o más decimales
+F,F01,archivo,1,1 archivo(s) con reporte.pdf
+F,F02,paginas_max,1,1 páginas
+F,F03,secciones,1,"todas, en orden"
+F,F04,cifra,0,verdad=0.8975 ±0.006; no hallada
+F,F05,cifra,0,verdad=0.2849 ±0.002; no hallada
+F,F06,procedencia,1,9/9 cifras respaldadas (1.00)
