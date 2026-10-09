@@ -1,0 +1,14 @@
+T2 - Parte 2: LSA (TruncatedSVD, 4 componentes) frente a la linea base TF-IDF
+Documentos: 10 | Consultas: 6 | Vocabulario TF-IDF: 83 terminos
+Varianza explicada por las 4 componentes LSA: 0.4026
+
+Tabla conjunta (metricas promediadas sobre las 6 consultas):
+Metodo                   Hit@1     Hit@3       MRR
+TF-IDF + coseno         0.8333    0.8333    0.8519
+LSA-4D + coseno         0.6667    0.8333    0.7667
+
+Rango (1-based) del primer documento relevante por consulta:
+  TF-IDF : [1, 1, 1, 1, 9, 1]
+  LSA-4D : [1, 1, 2, 1, 10, 1]
+
+Cifras guardadas en resultados.json

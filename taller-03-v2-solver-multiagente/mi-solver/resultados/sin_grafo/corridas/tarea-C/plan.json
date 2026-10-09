@@ -1,0 +1,79 @@
+{
+  "entregable": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 2
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Parte 1: con el corpus de 10 documentos (d01–d10) y las 6 consultas (q1–q6, relevantes q1→d04, q2→d03, q3→d08, q4→d05, q5→d09, q6→d02) del enunciado, vectorizar con TfidfVectorizer (parámetros por defecto), rankear los 10 documentos por similitud coseno para cada consulta y calcular Hit@1, Hit@3 y MRR; guardar rankings y métricas.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Parte 2: proyectar la matriz TF-IDF de T1 a 4 dimensiones con TruncatedSVD(n_components=4, random_state=0) (LSA), repetir la misma evaluación (Hit@1, Hit@3, MRR sobre las 6 consultas) y generar la tabla conjunta con las tres métricas de los dos métodos.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Parte 3 (cifras): por método y consulta, determinar en cuáles el relevante queda fuera del top-3 y calcular los términos que comparten cada consulta con su documento relevante (intersección de tokens consulta-documento); generar la tabla de análisis por consulta de la Parte 3.",
+      "depende_de": [
+        "T1",
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S3",
+        "S4"
+      ],
+      "descripcion": "Redactar la explicación de por qué falla cada método en las consultas identificadas en T3 (usando los términos compartidos calculados) y responder la Parte 4: por qué un recuperador denso resolvería q5 mejor que TF-IDF y LSA, y qué costo tiene frente a TF-IDF.",
+      "depende_de": [
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Ensamblar reporte.pdf de máximo 2 páginas con las secciones Objetivo, Método, Resultados (tabla de la Parte 2 y tabla de la Parte 3) y Discusión, incluyendo el código, con todas las cifras tomadas de las ejecuciones de T1–T3 y el texto de T4.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}

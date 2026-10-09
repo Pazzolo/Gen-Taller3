@@ -1,0 +1,20 @@
+=== T1 Parte 1: linea base TF-IDF + similitud coseno ===
+Documentos: 10 | Consultas: 6 | Terminos de vocabulario: 169
+------------------------------------------------------------------------
+q1 (relevante: d04): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d04 > d09 > d02 > d06 > d05 > d08 > d01 > d07 > d10 > d03
+q2 (relevante: d03): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d03 > d06 > d01 > d05 > d02 > d04 > d07 > d08 > d09 > d10
+q3 (relevante: d08): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d08 > d01 > d04 > d09 > d06 > d02 > d03 > d05 > d07 > d10
+q4 (relevante: d05): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d05 > d07 > d04 > d01 > d10 > d09 > d06 > d02 > d08 > d03
+q5 (relevante: d09): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d09 > d06 > d04 > d03 > d05 > d01 > d02 > d07 > d08 > d10
+q6 (relevante: d02): rank = 1 | Hit@1 = 1.0000 | Hit@3 = 1.0000 | RR = 1.0000
+    ranking: d02 > d04 > d01 > d05 > d09 > d06 > d07 > d10 > d08 > d03
+------------------------------------------------------------------------
+Hit@1 = 1.0000
+Hit@3 = 1.0000
+MRR   = 1.0000
+Resultados guardados en resultados.json
