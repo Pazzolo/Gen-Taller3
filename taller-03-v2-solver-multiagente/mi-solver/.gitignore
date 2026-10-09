@@ -1,3 +1,5 @@
 __pycache__/
 # La caché del índice del curso (entidades + embeddings bge-m3) se regenera sola en ~2 min.
 cache/
+# Caché de fuentes que matplotlib deja en la carpeta de cada script del sandbox.
+.mpl/

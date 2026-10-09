@@ -1,0 +1,19 @@
+=== T3: Curva de aprendizaje (GaussianNB vs regresión logística) ===
+División de la Parte 1 recreada: 398 entrenamiento / 171 prueba (test_size=0.30, estratificada, random_state=42)
+
+Exactitud medida SIEMPRE sobre el mismo conjunto de prueba (171 ejemplos):
+    5% del entrenamiento (n= 19): GaussianNB=0.9415 | RegLog=0.9298
+   10% del entrenamiento (n= 39): GaussianNB=0.9474 | RegLog=0.9357
+   25% del entrenamiento (n= 99): GaussianNB=0.9357 | RegLog=0.9415
+   50% del entrenamiento (n=199): GaussianNB=0.9240 | RegLog=0.9766
+  100% del entrenamiento (n=398): GaussianNB=0.9357 | RegLog=0.9883
+
+Modelo con mayor exactitud en cada tamaño:
+    5% (n= 19): GaussianNB
+   10% (n= 39): GaussianNB
+   25% (n= 99): Regresión logística
+   50% (n=199): Regresión logística
+  100% (n=398): Regresión logística
+
+Figura guardada: curva_aprendizaje_T3.png
+Cifras escritas en resultados.json

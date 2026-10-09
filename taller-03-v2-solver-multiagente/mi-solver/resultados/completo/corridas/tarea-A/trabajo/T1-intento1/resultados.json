@@ -1,0 +1,27 @@
+{
+  "T1": {
+    "n_ejemplos_total": 569.0,
+    "n_atributos": 30.0,
+    "casos_por_clase_total": {
+      "malignant": 212.0,
+      "benign": 357.0
+    },
+    "n_ejemplos_entrenamiento": 398.0,
+    "n_ejemplos_prueba": 171.0,
+    "proporcion_entrenamiento": 0.6994727592267135,
+    "proporcion_prueba": 0.30052724077328646,
+    "casos_por_clase_entrenamiento": {
+      "malignant": 148.0,
+      "benign": 250.0
+    },
+    "casos_por_clase_prueba": {
+      "malignant": 64.0,
+      "benign": 107.0
+    },
+    "parametros_division": {
+      "test_size": 0.3,
+      "stratify": "y",
+      "random_state": 42
+    }
+  }
+}

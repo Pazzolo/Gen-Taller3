@@ -1,0 +1,107 @@
+{
+  "resultados": {
+    "T3": {
+      "division_entrenamiento_prueba": {
+        "test_size": 0.3,
+        "estratificada": true,
+        "random_state": 42,
+        "n_ejemplos_entrenamiento": 398.0,
+        "n_ejemplos_prueba": 171.0
+      },
+      "fracciones_evaluadas": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "tamanos_submuestra": [
+        19.0,
+        39.0,
+        99.0,
+        199.0,
+        398.0
+      ],
+      "accuracy_gaussian_nb_por_tamano": [
+        0.9415204678362573,
+        0.9473684210526315,
+        0.935672514619883,
+        0.9239766081871345,
+        0.935672514619883
+      ],
+      "accuracy_regresion_logistica_por_tamano": [
+        0.9298245614035088,
+        0.935672514619883,
+        0.9415204678362573,
+        0.9766081871345029,
+        0.9883040935672515
+      ],
+      "detalle_por_submuestra": {
+        "submuestra_5_pct": {
+          "fraccion_solicitada": 0.05,
+          "n_ejemplos_entrenamiento": 19.0,
+          "casos_por_clase_submuestra": {
+            "malignant": 7.0,
+            "benign": 12.0
+          },
+          "accuracy_gaussian_nb": 0.9415204678362573,
+          "accuracy_regresion_logistica": 0.9298245614035088,
+          "ventaja_regresion_logistica_menos_nb": -0.011695906432748537
+        },
+        "submuestra_10_pct": {
+          "fraccion_solicitada": 0.1,
+          "n_ejemplos_entrenamiento": 39.0,
+          "casos_por_clase_submuestra": {
+            "malignant": 15.0,
+            "benign": 24.0
+          },
+          "accuracy_gaussian_nb": 0.9473684210526315,
+          "accuracy_regresion_logistica": 0.935672514619883,
+          "ventaja_regresion_logistica_menos_nb": -0.011695906432748537
+        },
+        "submuestra_25_pct": {
+          "fraccion_solicitada": 0.25,
+          "n_ejemplos_entrenamiento": 99.0,
+          "casos_por_clase_submuestra": {
+            "malignant": 37.0,
+            "benign": 62.0
+          },
+          "accuracy_gaussian_nb": 0.935672514619883,
+          "accuracy_regresion_logistica": 0.9415204678362573,
+          "ventaja_regresion_logistica_menos_nb": 0.005847953216374324
+        },
+        "submuestra_50_pct": {
+          "fraccion_solicitada": 0.5,
+          "n_ejemplos_entrenamiento": 199.0,
+          "casos_por_clase_submuestra": {
+            "malignant": 74.0,
+            "benign": 125.0
+          },
+          "accuracy_gaussian_nb": 0.9239766081871345,
+          "accuracy_regresion_logistica": 0.9766081871345029,
+          "ventaja_regresion_logistica_menos_nb": 0.052631578947368474
+        },
+        "submuestra_100_pct": {
+          "fraccion_solicitada": 1.0,
+          "n_ejemplos_entrenamiento": 398.0,
+          "casos_por_clase_submuestra": {
+            "malignant": 148.0,
+            "benign": 250.0
+          },
+          "accuracy_gaussian_nb": 0.935672514619883,
+          "accuracy_regresion_logistica": 0.9883040935672515,
+          "ventaja_regresion_logistica_menos_nb": 0.052631578947368474
+        }
+      },
+      "accuracy_gaussian_nb_100_pct": 0.935672514619883,
+      "accuracy_regresion_logistica_100_pct": 0.9883040935672515,
+      "figura": "curva_aprendizaje_T3.png",
+      "parametros": {
+        "submuestreo": "train_test_split(X_train, y_train, train_size=frac, stratify=y_train, random_state=42); el 100% usa el entrenamiento completo",
+        "escalador": "StandardScaler ajustado en cada submuestra; el conjunto de prueba solo se transforma (nunca se ajusta con él)",
+        "gaussian_nb": "GaussianNB() (valores por defecto)",
+        "regresion_logistica": "LogisticRegression(max_iter=5000, random_state=42)"
+      }
+    }
+  }
+}

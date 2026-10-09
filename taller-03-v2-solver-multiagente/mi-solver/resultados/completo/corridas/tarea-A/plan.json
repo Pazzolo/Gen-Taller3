@@ -1,0 +1,79 @@
+{
+  "entregable": {
+    "formato": "md",
+    "archivo": "reporte.md",
+    "secciones": [
+      "Introducción",
+      "Metodología",
+      "Resultados",
+      "Discusión",
+      "Conclusiones"
+    ],
+    "max_palabras": 1200,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar sklearn.datasets.load_breast_cancer; reportar número de ejemplos, de atributos y casos por clase; dividir en 70% entrenamiento / 30% prueba con train_test_split(test_size=0.30, stratify=y, random_state=42). Esta única división se guarda y reutiliza en toda la tarea.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Entrenar sobre el 100% del entrenamiento de T1 un GaussianNB y una regresión logística dentro de un Pipeline con StandardScaler ajustado solo con el entrenamiento; evaluar ambos en el conjunto de prueba fijo y reportar accuracy y F1 macro en una tabla.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Curva de aprendizaje sobre la misma división de T1: submuestras estratificadas del entrenamiento con el 5%, 10%, 25%, 50% y 100% (random_state=42); entrenar GaussianNB y regresión logística (escalador ajustado en cada submuestra) y evaluar accuracy siempre en el mismo conjunto de prueba; graficar exactitud contra número de ejemplos de entrenamiento con una curva por modelo y guardar la figura como PNG.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": true
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Discusión con las cifras de T2 y T3: verificar si se observa el cruce de Ng y Jordan (generativo mejor con pocos datos, discriminativo mejor asintóticamente), indicar en qué tamaños conviene cada modelo y relacionarlo con el sesgo y la varianza de modelos generativos frente a discriminativos.",
+      "depende_de": [
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Redactar reporte.md (máximo 1200 palabras) con las secciones en orden: Introducción, Metodología, Resultados (incluyendo la tabla de accuracy/F1 de T2 y la figura PNG de T3), Discusión (texto de T4) y Conclusiones; toda cifra debe provenir de la ejecución del código entregado.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}

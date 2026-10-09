@@ -1,0 +1,62 @@
+{
+  "resultados": {
+    "T2": {
+      "division_reproducida": {
+        "dataset": "load_breast_cancer",
+        "test_size": 0.3,
+        "stratify": "y",
+        "random_state": 42,
+        "n_total": 569,
+        "n_atributos": 30,
+        "n_entrenamiento": 398,
+        "n_prueba": 171,
+        "clases": [
+          "malignant",
+          "benign"
+        ],
+        "casos_por_clase_entrenamiento": {
+          "malignant": 148,
+          "benign": 250
+        },
+        "casos_por_clase_prueba": {
+          "malignant": 64,
+          "benign": 107
+        }
+      },
+      "modelos": {
+        "GaussianNB": {
+          "accuracy_entrenamiento": 0.9422110552763819,
+          "f1_macro_entrenamiento": 0.9378880301806907,
+          "accuracy_prueba": 0.935672514619883,
+          "f1_macro_prueba": 0.9306543778801843,
+          "matriz_confusion_prueba": [
+            [
+              57,
+              7
+            ],
+            [
+              4,
+              103
+            ]
+          ]
+        },
+        "RegresionLogistica": {
+          "accuracy_entrenamiento": 0.9874371859296482,
+          "f1_macro_entrenamiento": 0.9864973978653675,
+          "accuracy_prueba": 0.9883040935672515,
+          "f1_macro_prueba": 0.9875146028037383,
+          "matriz_confusion_prueba": [
+            [
+              63,
+              1
+            ],
+            [
+              1,
+              106
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

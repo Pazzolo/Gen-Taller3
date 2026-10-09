@@ -1,0 +1,12 @@
+=== T1: Carga y división de Breast Cancer (Diagnostic) ===
+Ejemplos totales: 569
+Atributos: 30
+Casos por clase (total):
+  malignant: 212
+  benign: 357
+Entrenamiento: 398 ejemplos (0.6995 del total)
+Prueba: 171 ejemplos (0.3005 del total)
+Casos por clase (entrenamiento / prueba):
+  malignant: 148 / 64
+  benign: 250 / 107
+División guardada (determinista: test_size=0.30, stratify=y, random_state=42) y cifras escritas en resultados.json

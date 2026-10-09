@@ -1,0 +1,6503 @@
+{
+ "directed": true,
+ "multigraph": false,
+ "graph": {},
+ "nodes": [
+  {
+   "clase": "seccion",
+   "titulo": "Tarea B — Temperatura, top-p y entropía de la distribución de salida",
+   "pagina": 1,
+   "entrega": false,
+   "id": "S0"
+  },
+  {
+   "clase": "seccion",
+   "titulo": "Parte 1 — Softmax con temperatura",
+   "pagina": 1,
+   "entrega": false,
+   "id": "S1"
+  },
+  {
+   "clase": "seccion",
+   "titulo": "Parte 2 — Muestreo de núcleo (top-p)",
+   "pagina": 1,
+   "entrega": false,
+   "id": "S2"
+  },
+  {
+   "clase": "seccion",
+   "titulo": "Parte 3 — Comprobación empírica",
+   "pagina": 1,
+   "entrega": false,
+   "id": "S3"
+  },
+  {
+   "clase": "seccion",
+   "titulo": "Parte 4 — Pregunta conceptual",
+   "pagina": 1,
+   "entrega": false,
+   "id": "S4"
+  },
+  {
+   "clase": "seccion",
+   "titulo": "Formato",
+   "pagina": 1,
+   "entrega": true,
+   "id": "S5"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "temperatura",
+   "tipo": "concepto",
+   "id": "E:temperatura"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "top-p",
+   "tipo": "metodo",
+   "id": "E:top p"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "entropía",
+   "tipo": "metrica",
+   "id": "E:entropia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "logits",
+   "tipo": "concepto",
+   "id": "E:logit"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo de lenguaje",
+   "tipo": "metodo",
+   "id": "E:modelo de lenguaje"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "token",
+   "tipo": "concepto",
+   "id": "E:token"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "vocabulario",
+   "tipo": "concepto",
+   "id": "E:vocabulario"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución de salida",
+   "tipo": "concepto",
+   "id": "E:distribucion de salida"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "softmax con temperatura",
+   "tipo": "metodo",
+   "id": "E:softmax con temperatura"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "NumPy",
+   "tipo": "metodo",
+   "id": "E:numpy"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "estabilidad numérica",
+   "tipo": "concepto",
+   "id": "E:estabilidad numerica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución de probabilidad",
+   "tipo": "concepto",
+   "id": "E:distribucion de probabilidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "muestreo de núcleo (top-p)",
+   "tipo": "metodo",
+   "id": "E:muestreo de nucleo top p"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "probabilidad acumulada",
+   "tipo": "concepto",
+   "id": "E:probabilidad acumulada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "renormalización",
+   "tipo": "concepto",
+   "id": "E:renormalizacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "numpy.random.default_rng",
+   "tipo": "metodo",
+   "id": "E:numpy random default rng"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "muestreo",
+   "tipo": "concepto",
+   "id": "E:muestreo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución renormalizada",
+   "tipo": "concepto",
+   "id": "E:distribucion renormalizada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución empírica",
+   "tipo": "concepto",
+   "id": "E:distribucion empirica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "gráfico de barras",
+   "tipo": "metodo",
+   "id": "E:grafico de barra"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "divergencia KL",
+   "tipo": "metrica",
+   "id": "E:divergencia kl"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "decodificación voraz (greedy)",
+   "tipo": "metodo",
+   "id": "E:decodificacion voraz greedy"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "notebook",
+   "tipo": "concepto",
+   "id": "E:notebook"
+  },
+  {
+   "clase": "nota",
+   "titulo": "s1-transformers-y-foundation-models",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N0"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Transformers",
+   "tipo": "metodo",
+   "id": "E:transformer"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Foundation Models",
+   "tipo": "metodo",
+   "id": "E:foundation model"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "enfoque bayesiano",
+   "tipo": "concepto",
+   "id": "E:enfoque bayesiano"
+  },
+  {
+   "clase": "nota",
+   "titulo": "1. Sesión histórica: IA antes de los LLMs (20 min)",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N1"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "IA clásica",
+   "tipo": "concepto",
+   "id": "E:ia clasica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LLM",
+   "tipo": "metodo",
+   "id": "E:llm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ingeniería del conocimiento",
+   "tipo": "concepto",
+   "id": "E:ingenieria del conocimiento"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "representación del conocimiento",
+   "tipo": "concepto",
+   "id": "E:representacion del conocimiento"
+  },
+  {
+   "clase": "nota",
+   "titulo": "Línea de tiempo",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N2"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sistemas expertos",
+   "tipo": "metodo",
+   "id": "E:sistema experto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "algoritmos evolutivos",
+   "tipo": "metodo",
+   "id": "E:algoritmo evolutivo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelos ocultos de Markov",
+   "tipo": "metodo",
+   "id": "E:modelo oculto de markov"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "máquinas de vectores de soporte",
+   "tipo": "metodo",
+   "id": "E:maquina de vectore de soporte"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "redes bayesianas",
+   "tipo": "metodo",
+   "id": "E:rede bayesiana"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "AlexNet",
+   "tipo": "metodo",
+   "id": "E:alexnet"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "aprendizaje profundo",
+   "tipo": "metodo",
+   "id": "E:aprendizaje profundo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GPT-3",
+   "tipo": "metodo",
+   "id": "E:gpt 3"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "aprendizaje en contexto",
+   "tipo": "concepto",
+   "id": "E:aprendizaje en contexto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RLHF",
+   "tipo": "metodo",
+   "id": "E:rlhf"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RAG",
+   "tipo": "metodo",
+   "id": "E:rag"
+  },
+  {
+   "clase": "nota",
+   "titulo": "Conexión con el curso anterior",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N3"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Prolog",
+   "tipo": "metodo",
+   "id": "E:prolog"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Búsqueda A*",
+   "tipo": "metodo",
+   "id": "E:busqueda a"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Algoritmo genético",
+   "tipo": "metodo",
+   "id": "E:algoritmo genetico"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Chain-of-Thought",
+   "tipo": "metodo",
+   "id": "E:chain of thought"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Tree-of-Thought",
+   "tipo": "metodo",
+   "id": "E:tree of thought"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Optimización de prompts",
+   "tipo": "metodo",
+   "id": "E:optimizacion de prompt"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "DSPy",
+   "tipo": "metodo",
+   "id": "E:dspy"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "OPRO",
+   "tipo": "metodo",
+   "id": "E:opro"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GraphRAG",
+   "tipo": "metodo",
+   "id": "E:graphrag"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente LLM con herramientas",
+   "tipo": "metodo",
+   "id": "E:agente llm con herramienta"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.1 La pregunta generativa",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N4"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo discriminativo",
+   "tipo": "metodo",
+   "id": "E:modelo discriminativo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo generativo",
+   "tipo": "metodo",
+   "id": "E:modelo generativo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo generativo autorregresivo",
+   "tipo": "metodo",
+   "id": "E:modelo generativo autorregresivo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "regresión logística",
+   "tipo": "metodo",
+   "id": "E:regresion logistica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "SVM",
+   "tipo": "metodo",
+   "id": "E:svm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "probabilidad condicional",
+   "tipo": "concepto",
+   "id": "E:probabilidad condicional"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución de probabilidad conjunta",
+   "tipo": "concepto",
+   "id": "E:distribucion de probabilidad conjunta"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "factorización autorregresiva",
+   "tipo": "concepto",
+   "id": "E:factorizacion autorregresiva"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.2 Teorema de Bayes como motor de inferencia",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N5"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Teorema de Bayes",
+   "tipo": "concepto",
+   "id": "E:teorema de baye"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Prior",
+   "tipo": "concepto",
+   "id": "E:prior"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Verosimilitud",
+   "tipo": "concepto",
+   "id": "E:verosimilitud"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Posterior",
+   "tipo": "concepto",
+   "id": "E:posterior"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Evidencia",
+   "tipo": "concepto",
+   "id": "E:evidencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "MAP (Maximum A Posteriori)",
+   "tipo": "metodo",
+   "id": "E:map maximum a posteriori"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Prior uniforme",
+   "tipo": "concepto",
+   "id": "E:prior uniforme"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Preentrenamiento",
+   "tipo": "metodo",
+   "id": "E:preentrenamiento"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.3 Naive Bayes — el modelo generativo mínimo",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N6"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Naive Bayes",
+   "tipo": "metodo",
+   "id": "E:naive baye"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "independencia condicional",
+   "tipo": "concepto",
+   "id": "E:independencia condicional"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "clasificador de spam",
+   "tipo": "concepto",
+   "id": "E:clasificador de spam"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.4 Gaussian Mixture Models — variables latentes",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N7"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelos de mezcla gaussiana (GMM)",
+   "tipo": "metodo",
+   "id": "E:modelo de mezcla gaussiana gmm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "variable latente",
+   "tipo": "concepto",
+   "id": "E:variable latente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "algoritmo EM",
+   "tipo": "metodo",
+   "id": "E:algoritmo em"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "E-step",
+   "tipo": "metodo",
+   "id": "E:e step"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "M-step",
+   "tipo": "metodo",
+   "id": "E:m step"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "estimación de máxima verosimilitud (MLE)",
+   "tipo": "metodo",
+   "id": "E:estimacion de maxima verosimilitud mle"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "responsabilidad",
+   "tipo": "concepto",
+   "id": "E:responsabilidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución categórica",
+   "tipo": "concepto",
+   "id": "E:distribucion categorica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución normal",
+   "tipo": "concepto",
+   "id": "E:distribucion normal"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "embeddings",
+   "tipo": "concepto",
+   "id": "E:embedding"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "espacio latente",
+   "tipo": "concepto",
+   "id": "E:espacio latente"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.5 Hidden Markov Models — generación secuencial",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N8"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Estado oculto",
+   "tipo": "concepto",
+   "id": "E:estado oculto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Probabilidad de transición",
+   "tipo": "concepto",
+   "id": "E:probabilidad de transicion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Probabilidad de emisión",
+   "tipo": "concepto",
+   "id": "E:probabilidad de emision"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Generación secuencial",
+   "tipo": "concepto",
+   "id": "E:generacion secuencial"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Reconocimiento de voz",
+   "tipo": "concepto",
+   "id": "E:reconocimiento de voz"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Etiquetado POS",
+   "tipo": "metodo",
+   "id": "E:etiquetado pos"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Modelado de secuencias genómicas",
+   "tipo": "concepto",
+   "id": "E:modelado de secuencia genomica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Dependencias de largo alcance",
+   "tipo": "concepto",
+   "id": "E:dependencia de largo alcance"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Mecanismo de atención",
+   "tipo": "metodo",
+   "id": "E:mecanismo de atencion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.6 Variational Autoencoder — el puente al espacio latente continuo",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N9"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "autoencoder variacional (VAE)",
+   "tipo": "metodo",
+   "id": "E:autoencoder variacional vae"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "espacio latente continuo",
+   "tipo": "concepto",
+   "id": "E:espacio latente continuo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "codificador",
+   "tipo": "concepto",
+   "id": "E:codificador"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "decodificador",
+   "tipo": "concepto",
+   "id": "E:decodificador"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ELBO",
+   "tipo": "concepto",
+   "id": "E:elbo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "truco de reparametrización",
+   "tipo": "metodo",
+   "id": "E:truco de reparametrizacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "arquitectura encoder-decoder",
+   "tipo": "concepto",
+   "id": "E:arquitectura encoder decoder"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "T5",
+   "tipo": "metodo",
+   "id": "E:t5"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelos de difusión",
+   "tipo": "metodo",
+   "id": "E:modelo de difusion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.7 Del VAE al LLM autorregresivo",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N10"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GMM",
+   "tipo": "metodo",
+   "id": "E:gmm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "HMM",
+   "tipo": "metodo",
+   "id": "E:hmm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "VAE",
+   "tipo": "metodo",
+   "id": "E:vae"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LLM autorregresivo",
+   "tipo": "metodo",
+   "id": "E:llm autorregresivo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Flash Attention",
+   "tipo": "metodo",
+   "id": "E:flash attention"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Mamba",
+   "tipo": "metodo",
+   "id": "E:mamba"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "atención",
+   "tipo": "metodo",
+   "id": "E:atencion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "costo cuadrático en la secuencia",
+   "tipo": "concepto",
+   "id": "E:costo cuadratico en la secuencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ventana de contexto finita",
+   "tipo": "concepto",
+   "id": "E:ventana de contexto finita"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.1 El problema que resolvió",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N11"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RNN",
+   "tipo": "metodo",
+   "id": "E:rnn"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LSTM",
+   "tipo": "metodo",
+   "id": "E:lstm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "recurrencia",
+   "tipo": "concepto",
+   "id": "E:recurrencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "gradientes que desaparecen o explotan",
+   "tipo": "concepto",
+   "id": "E:gradiente que desaparecen o explotan"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "paralelización del entrenamiento",
+   "tipo": "concepto",
+   "id": "E:paralelizacion del entrenamiento"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "secuencia",
+   "tipo": "concepto",
+   "id": "E:secuencia"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.2 Mecanismo de atención",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N12"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "query",
+   "tipo": "concepto",
+   "id": "E:query"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "keys",
+   "tipo": "concepto",
+   "id": "E:keys"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "values",
+   "tipo": "concepto",
+   "id": "E:value"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "score de similitud query·key",
+   "tipo": "concepto",
+   "id": "E:score de similitud query key"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "softmax",
+   "tipo": "metodo",
+   "id": "E:softmax"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "escalado por sqrt(d_k)",
+   "tipo": "concepto",
+   "id": "E:escalado por sqrt d k"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "suma ponderada",
+   "tipo": "concepto",
+   "id": "E:suma ponderada"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.3 Multi-head attention",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N13"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "atención multi-cabeza",
+   "tipo": "metodo",
+   "id": "E:atencion multi cabeza"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "relaciones sintácticas",
+   "tipo": "concepto",
+   "id": "E:relacione sintactica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "relaciones semánticas",
+   "tipo": "concepto",
+   "id": "E:relacione semantica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "co-referencia",
+   "tipo": "concepto",
+   "id": "E:co referencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "concatenación",
+   "tipo": "metodo",
+   "id": "E:concatenacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "proyección",
+   "tipo": "metodo",
+   "id": "E:proyeccion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.4 Estructura completa de un bloque transformer",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N14"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "conexiones residuales",
+   "tipo": "concepto",
+   "id": "E:conexione residuale"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "normalización de capa",
+   "tipo": "metodo",
+   "id": "E:normalizacion de capa"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "red feed-forward",
+   "tipo": "metodo",
+   "id": "E:red feed forward"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ReLU",
+   "tipo": "metodo",
+   "id": "E:relu"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GeLU",
+   "tipo": "metodo",
+   "id": "E:gelu"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "problema del gradiente",
+   "tipo": "concepto",
+   "id": "E:problema del gradiente"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.5 Positional encoding",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N15"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "codificación posicional",
+   "tipo": "concepto",
+   "id": "E:codificacion posicional"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "codificación sinusoidal (seno/coseno)",
+   "tipo": "metodo",
+   "id": "E:codificacion sinusoidal seno coseno"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RoPE",
+   "tipo": "metodo",
+   "id": "E:rope"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ALiBi",
+   "tipo": "metodo",
+   "id": "E:alibi"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Llama",
+   "tipo": "metodo",
+   "id": "E:llama"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Mistral",
+   "tipo": "metodo",
+   "id": "E:mistral"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "posición relativa",
+   "tipo": "concepto",
+   "id": "E:posicion relativa"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "extrapolación a secuencias largas",
+   "tipo": "concepto",
+   "id": "E:extrapolacion a secuencia larga"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.6 Encoder vs. Decoder",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N16"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Encoder",
+   "tipo": "concepto",
+   "id": "E:encoder"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Decoder",
+   "tipo": "concepto",
+   "id": "E:decoder"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Encoder-Decoder",
+   "tipo": "concepto",
+   "id": "E:encoder decoder"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "atención bidireccional",
+   "tipo": "metodo",
+   "id": "E:atencion bidireccional"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "atención causal",
+   "tipo": "metodo",
+   "id": "E:atencion causal"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "BERT",
+   "tipo": "metodo",
+   "id": "E:bert"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GPT",
+   "tipo": "metodo",
+   "id": "E:gpt"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Claude",
+   "tipo": "metodo",
+   "id": "E:claude"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "BART",
+   "tipo": "metodo",
+   "id": "E:bart"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.1 Pretraining",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N17"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "predicción del siguiente token",
+   "tipo": "concepto",
+   "id": "E:prediccion del siguiente token"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelado de la distribución condicional de tokens",
+   "tipo": "concepto",
+   "id": "E:modelado de la distribucion condicional de token"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Llama 3.1",
+   "tipo": "metodo",
+   "id": "E:llama 3 1"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "comprensión implícita",
+   "tipo": "concepto",
+   "id": "E:comprension implicita"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.2 Supervised Fine-Tuning (SFT)",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N18"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Supervised Fine-Tuning (SFT)",
+   "tipo": "metodo",
+   "id": "E:supervised fine tuning sft"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo base",
+   "tipo": "concepto",
+   "id": "E:modelo base"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "pares instrucción-respuesta",
+   "tipo": "concepto",
+   "id": "E:pare instruccion respuesta"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "seguimiento de instrucciones",
+   "tipo": "concepto",
+   "id": "E:seguimiento de instruccione"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "completador de texto",
+   "tipo": "concepto",
+   "id": "E:completador de texto"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.3 RLHF — Reinforcement Learning from Human Feedback",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N19"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "SFT",
+   "tipo": "metodo",
+   "id": "E:sft"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "reward model",
+   "tipo": "metodo",
+   "id": "E:reward model"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "PPO",
+   "tipo": "metodo",
+   "id": "E:ppo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "anotación humana",
+   "tipo": "concepto",
+   "id": "E:anotacion humana"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.4 DPO — Direct Preference Optimization",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N20"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "DPO (Direct Preference Optimization)",
+   "tipo": "metodo",
+   "id": "E:dpo direct preference optimization"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "pares de preferencia",
+   "tipo": "concepto",
+   "id": "E:pare de preferencia"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.5 Constitutional AI (Anthropic)",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N21"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Constitutional AI",
+   "tipo": "metodo",
+   "id": "E:constitutional ai"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "constitución (principios)",
+   "tipo": "concepto",
+   "id": "E:constitucion principio"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "feedback humano",
+   "tipo": "concepto",
+   "id": "E:feedback humano"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "auto-crítica",
+   "tipo": "concepto",
+   "id": "E:auto critica"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "alignment",
+   "tipo": "concepto",
+   "id": "E:alignment"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "harmless",
+   "tipo": "concepto",
+   "id": "E:harmles"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "helpful",
+   "tipo": "concepto",
+   "id": "E:helpful"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.6 Inference: temperatura y sampling",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N22"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "top-p (nucleus sampling)",
+   "tipo": "metodo",
+   "id": "E:top p nucleu sampling"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "top-k",
+   "tipo": "metodo",
+   "id": "E:top k"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.1 In-context learning",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N23"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "prompt",
+   "tipo": "concepto",
+   "id": "E:prompt"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "pesos del modelo",
+   "tipo": "concepto",
+   "id": "E:peso del modelo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "capacidades emergentes",
+   "tipo": "concepto",
+   "id": "E:capacidade emergente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "inferencia bayesiana implícita",
+   "tipo": "concepto",
+   "id": "E:inferencia bayesiana implicita"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "aprendizaje basado en gradientes",
+   "tipo": "concepto",
+   "id": "E:aprendizaje basado en gradiente"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.2 Chain-of-Thought",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N24"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Zero-shot CoT",
+   "tipo": "metodo",
+   "id": "E:zero shot cot"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Few-shot CoT",
+   "tipo": "metodo",
+   "id": "E:few shot cot"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "razonamiento multi-paso",
+   "tipo": "concepto",
+   "id": "E:razonamiento multi paso"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.3 Structured outputs",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N25"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "salidas estructuradas",
+   "tipo": "concepto",
+   "id": "E:salida estructurada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "JSON mode",
+   "tipo": "metodo",
+   "id": "E:json mode"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GPT-4o",
+   "tipo": "metodo",
+   "id": "E:gpt 4o"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Pydantic",
+   "tipo": "metodo",
+   "id": "E:pydantic"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "instructor",
+   "tipo": "metodo",
+   "id": "E:instructor"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "validación de tipos",
+   "tipo": "concepto",
+   "id": "E:validacion de tipo"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6. Notas del Lab 01",
+   "archivo": "s1-transformers-y-foundation-models.md",
+   "id": "N26"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelos propietarios",
+   "tipo": "concepto",
+   "id": "E:modelo propietario"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "extracción estructurada",
+   "tipo": "concepto",
+   "id": "E:extraccion estructurada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "clasificación",
+   "tipo": "concepto",
+   "id": "E:clasificacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "resumen",
+   "tipo": "concepto",
+   "id": "E:resumen"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo de 7B parámetros",
+   "tipo": "concepto",
+   "id": "E:modelo de 7b parametro"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "prompting",
+   "tipo": "concepto",
+   "id": "E:prompting"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GPT-4",
+   "tipo": "metodo",
+   "id": "E:gpt 4"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Ollama",
+   "tipo": "metodo",
+   "id": "E:ollama"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelos de pesos abiertos",
+   "tipo": "concepto",
+   "id": "E:modelo de peso abierto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "latencia",
+   "tipo": "metrica",
+   "id": "E:latencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "claves de API",
+   "tipo": "concepto",
+   "id": "E:clave de api"
+  },
+  {
+   "clase": "nota",
+   "titulo": "s2-rag-y-vector-search",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N27"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "búsqueda vectorial",
+   "tipo": "metodo",
+   "id": "E:busqueda vectorial"
+  },
+  {
+   "clase": "nota",
+   "titulo": "1. Por qué RAG existe",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N28"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RAG (Retrieval-Augmented Generation)",
+   "tipo": "metodo",
+   "id": "E:rag retrieval augmented generation"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "pretraining",
+   "tipo": "concepto",
+   "id": "E:pretraining"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "cutoff date",
+   "tipo": "concepto",
+   "id": "E:cutoff date"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "alucinación",
+   "tipo": "concepto",
+   "id": "E:alucinacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "chunk",
+   "tipo": "concepto",
+   "id": "E:chunk"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "base de conocimiento",
+   "tipo": "concepto",
+   "id": "E:base de conocimiento"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "KRP (Knowledge Representation and Planning)",
+   "tipo": "concepto",
+   "id": "E:krp knowledge representation and planning"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.1 Qué son",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N29"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "vector de alta dimensión",
+   "tipo": "concepto",
+   "id": "E:vector de alta dimension"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "similitud semántica",
+   "tipo": "concepto",
+   "id": "E:similitud semantica"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.2 Cómo se entrenan",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N30"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "contrastive learning",
+   "tipo": "metodo",
+   "id": "E:contrastive learning"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Sentence-BERT",
+   "tipo": "metodo",
+   "id": "E:sentence bert"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Siamese networks",
+   "tipo": "metodo",
+   "id": "E:siamese network"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sentence-transformers/all-MiniLM-L6-v2",
+   "tipo": "metodo",
+   "id": "E:sentence transformer all minilm l6 v2"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "text-embedding-3-small",
+   "tipo": "metodo",
+   "id": "E:text embedding 3 small"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "text-embedding-3-large",
+   "tipo": "metodo",
+   "id": "E:text embedding 3 large"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "BAAI/bge-m3",
+   "tipo": "metodo",
+   "id": "E:baai bge m3"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.3 Similitud semántica",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N31"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "similitud coseno",
+   "tipo": "metodo",
+   "id": "E:similitud coseno"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "producto punto",
+   "tipo": "metodo",
+   "id": "E:producto punto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distancia euclidiana",
+   "tipo": "metodo",
+   "id": "E:distancia euclidiana"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "maldición de la dimensionalidad",
+   "tipo": "concepto",
+   "id": "E:maldicion de la dimensionalidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "normalización de vectores",
+   "tipo": "concepto",
+   "id": "E:normalizacion de vectore"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.1 El problema de escala",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N32"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "búsqueda exacta (brute-force kNN)",
+   "tipo": "metodo",
+   "id": "E:busqueda exacta brute force knn"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Approximate Nearest Neighbor (ANN)",
+   "tipo": "metodo",
+   "id": "E:approximate nearest neighbor ann"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "recall",
+   "tipo": "metrica",
+   "id": "E:recall"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "similitud",
+   "tipo": "concepto",
+   "id": "E:similitud"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.2 HNSW — Hierarchical Navigable Small World",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N33"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "HNSW",
+   "tipo": "metodo",
+   "id": "E:hnsw"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "grafo de proximidad jerárquico",
+   "tipo": "concepto",
+   "id": "E:grafo de proximidad jerarquico"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "skip connections",
+   "tipo": "concepto",
+   "id": "E:skip connection"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "búsqueda del vecino más cercano",
+   "tipo": "metodo",
+   "id": "E:busqueda del vecino mas cercano"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "beam search",
+   "tipo": "metodo",
+   "id": "E:beam search"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "espacio vectorial",
+   "tipo": "concepto",
+   "id": "E:espacio vectorial"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "base de datos vectorial",
+   "tipo": "concepto",
+   "id": "E:base de dato vectorial"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.3 IVF — Inverted File Index",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N34"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "IVF (Inverted File Index)",
+   "tipo": "metodo",
+   "id": "E:ivf inverted file index"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "k-means",
+   "tipo": "metodo",
+   "id": "E:k mean"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "clustering",
+   "tipo": "concepto",
+   "id": "E:clustering"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "nprobe",
+   "tipo": "concepto",
+   "id": "E:nprobe"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "cuantización",
+   "tipo": "metodo",
+   "id": "E:cuantizacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "IVF-PQ",
+   "tipo": "metodo",
+   "id": "E:ivf pq"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.4 Stack recomendado",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N35"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Qdrant",
+   "tipo": "metodo",
+   "id": "E:qdrant"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Weaviate",
+   "tipo": "metodo",
+   "id": "E:weaviate"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "pgvector",
+   "tipo": "metodo",
+   "id": "E:pgvector"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Pinecone",
+   "tipo": "metodo",
+   "id": "E:pinecone"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "PostgreSQL",
+   "tipo": "metodo",
+   "id": "E:postgresql"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GraphQL",
+   "tipo": "metodo",
+   "id": "E:graphql"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "embeddings vectoriales",
+   "tipo": "concepto",
+   "id": "E:embedding vectoriale"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "multimodal",
+   "tipo": "concepto",
+   "id": "E:multimodal"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.1 Por qué importa el chunking",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N36"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "chunking",
+   "tipo": "metodo",
+   "id": "E:chunking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "límite de tokens de contexto",
+   "tipo": "concepto",
+   "id": "E:limite de token de contexto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "MiniLM",
+   "tipo": "metodo",
+   "id": "E:minilm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "text-embedding-3",
+   "tipo": "metodo",
+   "id": "E:text embedding 3"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.2 Estrategias",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N37"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fixed-size chunking",
+   "tipo": "metodo",
+   "id": "E:fixed size chunking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sliding window",
+   "tipo": "metodo",
+   "id": "E:sliding window"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "semantic chunking",
+   "tipo": "metodo",
+   "id": "E:semantic chunking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "hierarchical chunking",
+   "tipo": "metodo",
+   "id": "E:hierarchical chunking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "contextual chunking",
+   "tipo": "metodo",
+   "id": "E:contextual chunking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "overlap",
+   "tipo": "concepto",
+   "id": "E:overlap"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "prompt caching",
+   "tipo": "metodo",
+   "id": "E:prompt caching"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.3 Regla práctica",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N38"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Chunking jerárquico",
+   "tipo": "metodo",
+   "id": "E:chunking jerarquico"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Chunking semántico",
+   "tipo": "metodo",
+   "id": "E:chunking semantico"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Chunking de tamaño fijo",
+   "tipo": "metodo",
+   "id": "E:chunking de tamano fijo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Chunking por función/clase",
+   "tipo": "metodo",
+   "id": "E:chunking por funcion clase"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Representación de tablas como texto con contexto",
+   "tipo": "metodo",
+   "id": "E:representacion de tabla como texto con contexto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Artículos académicos",
+   "tipo": "concepto",
+   "id": "E:articulo academico"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Documentos legales",
+   "tipo": "concepto",
+   "id": "E:documento legale"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "FAQ",
+   "tipo": "concepto",
+   "id": "E:faq"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Código fuente",
+   "tipo": "concepto",
+   "id": "E:codigo fuente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Datos estructurados",
+   "tipo": "concepto",
+   "id": "E:dato estructurado"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.1 BM25 (Sparse Retrieval)",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N39"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "BM25",
+   "tipo": "metodo",
+   "id": "E:bm25"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "TF-IDF",
+   "tipo": "metodo",
+   "id": "E:tf idf"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "recuperación dispersa",
+   "tipo": "metodo",
+   "id": "E:recuperacion dispersa"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "IDF",
+   "tipo": "metodo",
+   "id": "E:idf"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "coincidencia de palabras clave",
+   "tipo": "concepto",
+   "id": "E:coincidencia de palabra clave"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "consulta lexical",
+   "tipo": "concepto",
+   "id": "E:consulta lexical"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sinónimos",
+   "tipo": "concepto",
+   "id": "E:sinonimo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "paráfrasis",
+   "tipo": "concepto",
+   "id": "E:parafrasi"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.2 Dense Retrieval",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N40"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Dense Retrieval",
+   "tipo": "metodo",
+   "id": "E:dense retrieval"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "semántica",
+   "tipo": "concepto",
+   "id": "E:semantica"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.3 Hybrid Search",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N41"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "búsqueda híbrida",
+   "tipo": "metodo",
+   "id": "E:busqueda hibrida"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "recuperación densa",
+   "tipo": "metodo",
+   "id": "E:recuperacion densa"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Reciprocal Rank Fusion (RRF)",
+   "tipo": "metodo",
+   "id": "E:reciprocal rank fusion rrf"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.4 Reranking",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N42"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "reranking",
+   "tipo": "metodo",
+   "id": "E:reranking"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "cross-encoder",
+   "tipo": "metodo",
+   "id": "E:cros encoder"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+   "tipo": "metodo",
+   "id": "E:cros encoder ms marco minilm l 6 v2"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "score de relevancia",
+   "tipo": "metrica",
+   "id": "E:score de relevancia"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6.1 Métricas de retrieval",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N43"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Hit Rate @k",
+   "tipo": "metrica",
+   "id": "E:hit rate k"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "MRR",
+   "tipo": "metrica",
+   "id": "E:mrr"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Recall @k",
+   "tipo": "metrica",
+   "id": "E:recall k"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6.2 Métricas de generación (RAGAS)",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N44"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RAGAS",
+   "tipo": "metodo",
+   "id": "E:raga"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Faithfulness",
+   "tipo": "metrica",
+   "id": "E:faithfulnes"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Answer Relevancy",
+   "tipo": "metrica",
+   "id": "E:answer relevancy"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Context Precision",
+   "tipo": "metrica",
+   "id": "E:context precision"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Context Recall",
+   "tipo": "metrica",
+   "id": "E:context recall"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6.3 GraphRAG",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N45"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "grafo de conocimiento",
+   "tipo": "concepto",
+   "id": "E:grafo de conocimiento"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "detección de comunidades",
+   "tipo": "metodo",
+   "id": "E:deteccion de comunidade"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "algoritmo de Leiden",
+   "tipo": "metodo",
+   "id": "E:algoritmo de leiden"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RDF",
+   "tipo": "concepto",
+   "id": "E:rdf"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "tripletas",
+   "tipo": "concepto",
+   "id": "E:tripleta"
+  },
+  {
+   "clase": "nota",
+   "titulo": "7. Notas del Lab 02",
+   "archivo": "s2-rag-y-vector-search.md",
+   "id": "N46"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "documentos institucionales USFQ",
+   "tipo": "dataset",
+   "id": "E:documento institucionale usfq"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "golden set",
+   "tipo": "concepto",
+   "id": "E:golden set"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "evaluación cuantitativa",
+   "tipo": "concepto",
+   "id": "E:evaluacion cuantitativa"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "retrieval",
+   "tipo": "metodo",
+   "id": "E:retrieval"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "hybrid search",
+   "tipo": "metodo",
+   "id": "E:hybrid search"
+  },
+  {
+   "clase": "nota",
+   "titulo": "s3-agentes",
+   "archivo": "s3-agentes.md",
+   "id": "N47"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agentes LLM",
+   "tipo": "concepto",
+   "id": "E:agente llm"
+  },
+  {
+   "clase": "nota",
+   "titulo": "1.1 Agentes clásicos (Russel & Norvig)",
+   "archivo": "s3-agentes.md",
+   "id": "N48"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente",
+   "tipo": "concepto",
+   "id": "E:agente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Función de agente",
+   "tipo": "concepto",
+   "id": "E:funcion de agente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Taxonomía PEAS",
+   "tipo": "concepto",
+   "id": "E:taxonomia peas"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Sensores",
+   "tipo": "concepto",
+   "id": "E:sensore"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Actuadores",
+   "tipo": "concepto",
+   "id": "E:actuadore"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente reactivo simple",
+   "tipo": "concepto",
+   "id": "E:agente reactivo simple"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Reglas condición-acción",
+   "tipo": "concepto",
+   "id": "E:regla condicion accion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente basado en modelos",
+   "tipo": "concepto",
+   "id": "E:agente basado en modelo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente basado en objetivos",
+   "tipo": "concepto",
+   "id": "E:agente basado en objetivo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente basado en utilidad",
+   "tipo": "concepto",
+   "id": "E:agente basado en utilidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Función de utilidad",
+   "tipo": "concepto",
+   "id": "E:funcion de utilidad"
+  },
+  {
+   "clase": "nota",
+   "titulo": "1.2 El agente LLM en la taxonomía clásica",
+   "archivo": "s3-agentes.md",
+   "id": "N49"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "CoT",
+   "tipo": "metodo",
+   "id": "E:cot"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ReAct",
+   "tipo": "metodo",
+   "id": "E:react"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Plan-and-Execute",
+   "tipo": "metodo",
+   "id": "E:plan and execute"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "ventana de contexto",
+   "tipo": "concepto",
+   "id": "E:ventana de contexto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "memoria de conversación",
+   "tipo": "concepto",
+   "id": "E:memoria de conversacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "tools",
+   "tipo": "concepto",
+   "id": "E:tool"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.1 Qué es",
+   "archivo": "s3-agentes.md",
+   "id": "N50"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "llamada a funciones (function calling)",
+   "tipo": "metodo",
+   "id": "E:llamada a funcione function calling"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "herramienta (tool)",
+   "tipo": "concepto",
+   "id": "E:herramienta tool"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "SQL",
+   "tipo": "metodo",
+   "id": "E:sql"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "esquema de entrada (input_schema)",
+   "tipo": "concepto",
+   "id": "E:esquema de entrada input schema"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.2 Ciclo de tool use",
+   "archivo": "s3-agentes.md",
+   "id": "N51"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "tool use",
+   "tipo": "concepto",
+   "id": "E:tool use"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "framework",
+   "tipo": "concepto",
+   "id": "E:framework"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "contexto",
+   "tipo": "concepto",
+   "id": "E:contexto"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.3 Model Context Protocol (MCP)",
+   "archivo": "s3-agentes.md",
+   "id": "N52"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Model Context Protocol (MCP)",
+   "tipo": "metodo",
+   "id": "E:model context protocol mcp"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "protocolo cliente-servidor",
+   "tipo": "concepto",
+   "id": "E:protocolo cliente servidor"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "herramientas externas",
+   "tipo": "concepto",
+   "id": "E:herramienta externa"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.1 ReAct (Reason + Act)",
+   "archivo": "s3-agentes.md",
+   "id": "N53"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Thought",
+   "tipo": "concepto",
+   "id": "E:thought"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Action",
+   "tipo": "concepto",
+   "id": "E:action"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Observation",
+   "tipo": "concepto",
+   "id": "E:observation"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "execute_sql",
+   "tipo": "metodo",
+   "id": "E:execute sql"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "traza auditable",
+   "tipo": "concepto",
+   "id": "E:traza auditable"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "propagación de errores",
+   "tipo": "concepto",
+   "id": "E:propagacion de errore"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.2 Plan-and-Execute",
+   "archivo": "s3-agentes.md",
+   "id": "N54"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fase de planificación",
+   "tipo": "concepto",
+   "id": "E:fase de planificacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fase de ejecución",
+   "tipo": "concepto",
+   "id": "E:fase de ejecucion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "llamada a herramienta (tool call)",
+   "tipo": "metodo",
+   "id": "E:llamada a herramienta tool call"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.3 Reflexion",
+   "archivo": "s3-agentes.md",
+   "id": "N55"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Reflexion",
+   "tipo": "metodo",
+   "id": "E:reflexion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "autoevaluación",
+   "tipo": "concepto",
+   "id": "E:autoevaluacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "iteración",
+   "tipo": "concepto",
+   "id": "E:iteracion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.1 Por qué multi-agente",
+   "archivo": "s3-agentes.md",
+   "id": "N56"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "multi-agente",
+   "tipo": "metodo",
+   "id": "E:multi agente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "trazas",
+   "tipo": "concepto",
+   "id": "E:traza"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "límites de ejecución",
+   "tipo": "concepto",
+   "id": "E:limite de ejecucion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agente generalista",
+   "tipo": "concepto",
+   "id": "E:agente generalista"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agentes especializados",
+   "tipo": "concepto",
+   "id": "E:agente especializado"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "paralelismo",
+   "tipo": "concepto",
+   "id": "E:paralelismo"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.2 Supervisor Pattern",
+   "archivo": "s3-agentes.md",
+   "id": "N57"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "patrón supervisor",
+   "tipo": "metodo",
+   "id": "E:patron supervisor"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agente supervisor",
+   "tipo": "metodo",
+   "id": "E:agente supervisor"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agente de datos",
+   "tipo": "metodo",
+   "id": "E:agente de dato"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agente de análisis",
+   "tipo": "metodo",
+   "id": "E:agente de analisi"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "agente de informes",
+   "tipo": "metodo",
+   "id": "E:agente de informe"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "API",
+   "tipo": "concepto",
+   "id": "E:api"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "subagente",
+   "tipo": "concepto",
+   "id": "E:subagente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "paso de contexto",
+   "tipo": "concepto",
+   "id": "E:paso de contexto"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sistema multiagente",
+   "tipo": "concepto",
+   "id": "E:sistema multiagente"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.3 LangGraph",
+   "archivo": "s3-agentes.md",
+   "id": "N58"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LangGraph",
+   "tipo": "metodo",
+   "id": "E:langgraph"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LangChain",
+   "tipo": "metodo",
+   "id": "E:langchain"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "grafo de estado",
+   "tipo": "concepto",
+   "id": "E:grafo de estado"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "nodos",
+   "tipo": "concepto",
+   "id": "E:nodo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "edges",
+   "tipo": "concepto",
+   "id": "E:edge"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "edges condicionales",
+   "tipo": "concepto",
+   "id": "E:edge condicionale"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "estado compartido",
+   "tipo": "concepto",
+   "id": "E:estado compartido"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "StateGraph",
+   "tipo": "metodo",
+   "id": "E:stategraph"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "supervisor",
+   "tipo": "metodo",
+   "id": "E:supervisor"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.4 Hand-offs",
+   "archivo": "s3-agentes.md",
+   "id": "N59"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "hand-off",
+   "tipo": "concepto",
+   "id": "E:hand off"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "resultado parcial",
+   "tipo": "concepto",
+   "id": "E:resultado parcial"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "objetivo del siguiente paso",
+   "tipo": "concepto",
+   "id": "E:objetivo del siguiente paso"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "restricciones y preferencias",
+   "tipo": "concepto",
+   "id": "E:restriccione y preferencia"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.1 Loops infinitos",
+   "archivo": "s3-agentes.md",
+   "id": "N60"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "loop infinito",
+   "tipo": "concepto",
+   "id": "E:loop infinito"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "límite máximo de iteraciones",
+   "tipo": "metodo",
+   "id": "E:limite maximo de iteracione"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "max_steps",
+   "tipo": "metodo",
+   "id": "E:max step"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.2 Costos descontrolados",
+   "archivo": "s3-agentes.md",
+   "id": "N61"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "bucle de agente",
+   "tipo": "concepto",
+   "id": "E:bucle de agente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "costo por ejecución",
+   "tipo": "metrica",
+   "id": "E:costo por ejecucion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "monitoreo de tokens en tiempo real",
+   "tipo": "metodo",
+   "id": "E:monitoreo de token en tiempo real"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "corte automático por presupuesto",
+   "tipo": "metodo",
+   "id": "E:corte automatico por presupuesto"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.3 Herramientas peligrosas",
+   "archivo": "s3-agentes.md",
+   "id": "N62"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "execute_python_code",
+   "tipo": "metodo",
+   "id": "E:execute python code"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "delete_file",
+   "tipo": "metodo",
+   "id": "E:delete file"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "human-in-the-loop",
+   "tipo": "metodo",
+   "id": "E:human in the loop"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sandboxing",
+   "tipo": "metodo",
+   "id": "E:sandboxing"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "principio de mínimo privilegio",
+   "tipo": "concepto",
+   "id": "E:principio de minimo privilegio"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.4 Prompt injection en herramientas",
+   "archivo": "s3-agentes.md",
+   "id": "N63"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "prompt injection",
+   "tipo": "concepto",
+   "id": "E:prompt injection"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "system prompt",
+   "tipo": "metodo",
+   "id": "E:system prompt"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6. Conexión con MSDS 6020 (Ética)",
+   "archivo": "s3-agentes.md",
+   "id": "N64"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Transparencia",
+   "tipo": "concepto",
+   "id": "E:transparencia"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Agente autónomo",
+   "tipo": "concepto",
+   "id": "E:agente autonomo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Trazas del agente",
+   "tipo": "concepto",
+   "id": "E:traza del agente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Auditabilidad",
+   "tipo": "concepto",
+   "id": "E:auditabilidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Autonomía controlada",
+   "tipo": "concepto",
+   "id": "E:autonomia controlada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Riesgos de agencia",
+   "tipo": "concepto",
+   "id": "E:riesgo de agencia"
+  },
+  {
+   "clase": "nota",
+   "titulo": "s4-llmops-y-finetuning",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N65"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LLMOps",
+   "tipo": "concepto",
+   "id": "E:llmop"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fine-tuning ligero",
+   "tipo": "metodo",
+   "id": "E:fine tuning ligero"
+  },
+  {
+   "clase": "nota",
+   "titulo": "1. Por qué LLMOps es diferente a MLOps",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N66"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "MLOps",
+   "tipo": "metodo",
+   "id": "E:mlop"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "exactitud",
+   "tipo": "metrica",
+   "id": "E:exactitud"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RMSE",
+   "tipo": "metrica",
+   "id": "E:rmse"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.1 Golden Sets",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N67"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "casos felices",
+   "tipo": "concepto",
+   "id": "E:caso felice"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "casos límite",
+   "tipo": "concepto",
+   "id": "E:caso limite"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "casos adversariales",
+   "tipo": "concepto",
+   "id": "E:caso adversariale"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "criterio de éxito",
+   "tipo": "concepto",
+   "id": "E:criterio de exito"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sesgo de confirmación",
+   "tipo": "concepto",
+   "id": "E:sesgo de confirmacion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "significancia estadística",
+   "tipo": "concepto",
+   "id": "E:significancia estadistica"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.2 LLM-as-Judge",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N68"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LLM como juez",
+   "tipo": "metodo",
+   "id": "E:llm como juez"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "evaluación humana",
+   "tipo": "concepto",
+   "id": "E:evaluacion humana"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sesgo de verbosidad",
+   "tipo": "concepto",
+   "id": "E:sesgo de verbosidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sesgo de auto-mejora",
+   "tipo": "concepto",
+   "id": "E:sesgo de auto mejora"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "sesgo de posición",
+   "tipo": "concepto",
+   "id": "E:sesgo de posicion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "completitud",
+   "tipo": "metrica",
+   "id": "E:completitud"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "concisión",
+   "tipo": "metrica",
+   "id": "E:concision"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "calibración del juez",
+   "tipo": "concepto",
+   "id": "E:calibracion del juez"
+  },
+  {
+   "clase": "nota",
+   "titulo": "2.3 RAGAS para RAG",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N69"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "HuggingFace Dataset",
+   "tipo": "dataset",
+   "id": "E:huggingface dataset"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.1 Por qué es no negociable",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N70"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.2 Modelo de trazabilidad",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N71"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "span",
+   "tipo": "concepto",
+   "id": "E:span"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Langfuse",
+   "tipo": "metodo",
+   "id": "E:langfuse"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "guardrail",
+   "tipo": "metodo",
+   "id": "E:guardrail"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "embed_query",
+   "tipo": "metodo",
+   "id": "E:embed query"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "costo",
+   "tipo": "metrica",
+   "id": "E:costo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "duración",
+   "tipo": "metrica",
+   "id": "E:duracion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.3 Langfuse",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N72"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "instrumentación",
+   "tipo": "concepto",
+   "id": "E:instrumentacion"
+  },
+  {
+   "clase": "nota",
+   "titulo": "3.4 Prompt Versioning",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N73"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "versionado de prompts",
+   "tipo": "concepto",
+   "id": "E:versionado de prompt"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Langfuse Prompt Management",
+   "tipo": "metodo",
+   "id": "E:langfuse prompt management"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "git",
+   "tipo": "metodo",
+   "id": "E:git"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "rollback",
+   "tipo": "concepto",
+   "id": "E:rollback"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.1 Input validation",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N74"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "validación de entrada",
+   "tipo": "metodo",
+   "id": "E:validacion de entrada"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "PII filtering",
+   "tipo": "metodo",
+   "id": "E:pii filtering"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Microsoft Presidio",
+   "tipo": "metodo",
+   "id": "E:microsoft presidio"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.2 Output validation",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N75"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "validación de salida",
+   "tipo": "concepto",
+   "id": "E:validacion de salida"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "modelo de lenguaje (LLM)",
+   "tipo": "metodo",
+   "id": "E:modelo de lenguaje llm"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "JSON",
+   "tipo": "concepto",
+   "id": "E:json"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "toxicidad",
+   "tipo": "concepto",
+   "id": "E:toxicidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "clasificador de toxicidad",
+   "tipo": "metodo",
+   "id": "E:clasificador de toxicidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "OpenAI Moderation API",
+   "tipo": "metodo",
+   "id": "E:openai moderation api"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Detoxify",
+   "tipo": "metodo",
+   "id": "E:detoxify"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "datos sensibles",
+   "tipo": "concepto",
+   "id": "E:dato sensible"
+  },
+  {
+   "clase": "nota",
+   "titulo": "4.3 Costo y latencia",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N76"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "semantic caching",
+   "tipo": "metodo",
+   "id": "E:semantic caching"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "GPTCache",
+   "tipo": "metodo",
+   "id": "E:gptcache"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.1 Por qué no full fine-tuning",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N77"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fine-tuning completo",
+   "tipo": "metodo",
+   "id": "E:fine tuning completo"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "float32",
+   "tipo": "concepto",
+   "id": "E:float32"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "gradientes",
+   "tipo": "concepto",
+   "id": "E:gradiente"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "estados del optimizador",
+   "tipo": "concepto",
+   "id": "E:estado del optimizador"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.2 LoRA — Low-Rank Adaptation",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N78"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "LoRA",
+   "tipo": "metodo",
+   "id": "E:lora"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "adaptación de bajo rango",
+   "tipo": "concepto",
+   "id": "E:adaptacion de bajo rango"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "parámetros entrenables",
+   "tipo": "concepto",
+   "id": "E:parametro entrenable"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "rango (r)",
+   "tipo": "concepto",
+   "id": "E:rango r"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "alpha (escala)",
+   "tipo": "concepto",
+   "id": "E:alpha escala"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "target_modules",
+   "tipo": "concepto",
+   "id": "E:target module"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "capas de atención",
+   "tipo": "concepto",
+   "id": "E:capa de atencion"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "q_proj",
+   "tipo": "concepto",
+   "id": "E:q proj"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "v_proj",
+   "tipo": "concepto",
+   "id": "E:v proj"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.3 QLoRA — Quantization + LoRA",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N79"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "QLoRA",
+   "tipo": "metodo",
+   "id": "E:qlora"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "cuantización a 4 bits",
+   "tipo": "metodo",
+   "id": "E:cuantizacion a 4 bits"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "NF4",
+   "tipo": "metodo",
+   "id": "E:nf4"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fine-tuning",
+   "tipo": "metodo",
+   "id": "E:fine tuning"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "float16/bfloat16",
+   "tipo": "concepto",
+   "id": "E:float16 bfloat16"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "PEFT",
+   "tipo": "metodo",
+   "id": "E:peft"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "bitsandbytes",
+   "tipo": "metodo",
+   "id": "E:bitsandbyte"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "Llama 3.2 3B",
+   "tipo": "metodo",
+   "id": "E:llama 3 2 3b"
+  },
+  {
+   "clase": "nota",
+   "titulo": "5.4 Árbol de decisión: ¿cuándo usar qué?",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N80"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "árbol de decisión",
+   "tipo": "concepto",
+   "id": "E:arbol de decision"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "fine-tuning + RAG",
+   "tipo": "metodo",
+   "id": "E:fine tuning rag"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6.1 Señales a monitorear",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N81"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "latencia p95",
+   "tipo": "metrica",
+   "id": "E:latencia p95"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "costo por query",
+   "tipo": "metrica",
+   "id": "E:costo por query"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "RAGAS faithfulness",
+   "tipo": "metrica",
+   "id": "E:raga faithfulnes"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "tasa de rechazo por guardrails",
+   "tipo": "metrica",
+   "id": "E:tasa de rechazo por guardrail"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "satisfacción del usuario",
+   "tipo": "metrica",
+   "id": "E:satisfaccion del usuario"
+  },
+  {
+   "clase": "nota",
+   "titulo": "6.2 Drift de calidad",
+   "archivo": "s4-llmops-y-finetuning.md",
+   "id": "N82"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "drift de calidad",
+   "tipo": "concepto",
+   "id": "E:drift de calidad"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "concept drift",
+   "tipo": "concepto",
+   "id": "E:concept drift"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "distribución de queries",
+   "tipo": "concepto",
+   "id": "E:distribucion de querie"
+  },
+  {
+   "clase": "entidad",
+   "nombre": "métricas",
+   "tipo": "metrica",
+   "id": "E:metrica"
+  }
+ ],
+ "aristas": [
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:temperatura"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:top p"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:entropia"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:logit"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:modelo de lenguaje"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:vocabulario"
+  },
+  {
+   "rel": "menciona",
+   "source": "S0",
+   "target": "E:distribucion de salida"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:softmax con temperatura"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:numpy"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:temperatura"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:entropia"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:estabilidad numerica"
+  },
+  {
+   "rel": "menciona",
+   "source": "S1",
+   "target": "E:distribucion de probabilidad"
+  },
+  {
+   "rel": "depende_de",
+   "evidencia": "Parte 1",
+   "source": "S2",
+   "target": "S1"
+  },
+  {
+   "rel": "menciona",
+   "source": "S2",
+   "target": "E:muestreo de nucleo top p"
+  },
+  {
+   "rel": "menciona",
+   "source": "S2",
+   "target": "E:probabilidad acumulada"
+  },
+  {
+   "rel": "menciona",
+   "source": "S2",
+   "target": "E:renormalizacion"
+  },
+  {
+   "rel": "depende_de",
+   "evidencia": "Parte 2",
+   "source": "S3",
+   "target": "S2"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:numpy random default rng"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:muestreo"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:distribucion renormalizada"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:distribucion empirica"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:grafico de barra"
+  },
+  {
+   "rel": "menciona",
+   "source": "S3",
+   "target": "E:divergencia kl"
+  },
+  {
+   "rel": "depende_de",
+   "evidencia": "Parte 1",
+   "source": "S4",
+   "target": "S1"
+  },
+  {
+   "rel": "menciona",
+   "source": "S4",
+   "target": "E:temperatura"
+  },
+  {
+   "rel": "menciona",
+   "source": "S4",
+   "target": "E:decodificacion voraz greedy"
+  },
+  {
+   "rel": "menciona",
+   "source": "S4",
+   "target": "E:entropia"
+  },
+  {
+   "rel": "menciona",
+   "source": "S5",
+   "target": "E:notebook"
+  },
+  {
+   "rel": "menciona",
+   "source": "N0",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N0",
+   "target": "E:foundation model"
+  },
+  {
+   "rel": "menciona",
+   "source": "N0",
+   "target": "E:enfoque bayesiano"
+  },
+  {
+   "rel": "menciona",
+   "source": "N1",
+   "target": "E:ia clasica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N1",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N1",
+   "target": "E:ingenieria del conocimiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N1",
+   "target": "E:representacion del conocimiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:sistema experto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:algoritmo evolutivo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:modelo oculto de markov"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:maquina de vectore de soporte"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:rede bayesiana"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:alexnet"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:aprendizaje profundo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:gpt 3"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:aprendizaje en contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:rlhf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N2",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:prolog"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:sistema experto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:busqueda a"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:algoritmo genetico"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:chain of thought"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:tree of thought"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:optimizacion de prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:dspy"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:opro"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:graphrag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N3",
+   "target": "E:agente llm con herramienta"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:modelo discriminativo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:modelo generativo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:modelo generativo autorregresivo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:regresion logistica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:svm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:probabilidad condicional"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:distribucion de probabilidad conjunta"
+  },
+  {
+   "rel": "menciona",
+   "source": "N4",
+   "target": "E:factorizacion autorregresiva"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:teorema de baye"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:prior"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:verosimilitud"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:posterior"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:evidencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:map maximum a posteriori"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:prior uniforme"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N5",
+   "target": "E:preentrenamiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N6",
+   "target": "E:naive baye"
+  },
+  {
+   "rel": "menciona",
+   "source": "N6",
+   "target": "E:modelo generativo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N6",
+   "target": "E:independencia condicional"
+  },
+  {
+   "rel": "menciona",
+   "source": "N6",
+   "target": "E:clasificador de spam"
+  },
+  {
+   "rel": "menciona",
+   "source": "N6",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:modelo de mezcla gaussiana gmm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:variable latente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:algoritmo em"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:e step"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:m step"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:estimacion de maxima verosimilitud mle"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:responsabilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:distribucion categorica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:distribucion normal"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:espacio latente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N7",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:modelo oculto de markov"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:estado oculto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:probabilidad de transicion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:probabilidad de emision"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:muestreo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:generacion secuencial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:reconocimiento de voz"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:etiquetado pos"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:modelado de secuencia genomica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:dependencia de largo alcance"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N8",
+   "target": "E:mecanismo de atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:autoencoder variacional vae"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:espacio latente continuo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:codificador"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:decodificador"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:elbo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:divergencia kl"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:truco de reparametrizacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:muestreo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:arquitectura encoder decoder"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:t5"
+  },
+  {
+   "rel": "menciona",
+   "source": "N9",
+   "target": "E:modelo de difusion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:naive baye"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:gmm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:hmm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:vae"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:llm autorregresivo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:flash attention"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:mamba"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:variable latente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:independencia condicional"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:costo cuadratico en la secuencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N10",
+   "target": "E:ventana de contexto finita"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:rnn"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:lstm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:recurrencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:gradiente que desaparecen o explotan"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:paralelizacion del entrenamiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N11",
+   "target": "E:secuencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:mecanismo de atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:query"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:keys"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:value"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:score de similitud query key"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:softmax"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:escalado por sqrt d k"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:suma ponderada"
+  },
+  {
+   "rel": "menciona",
+   "source": "N12",
+   "target": "E:distribucion de probabilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:atencion multi cabeza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:mecanismo de atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:relacione sintactica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:relacione semantica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:co referencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:concatenacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N13",
+   "target": "E:proyeccion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:atencion multi cabeza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:conexione residuale"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:normalizacion de capa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:red feed forward"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:relu"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:gelu"
+  },
+  {
+   "rel": "menciona",
+   "source": "N14",
+   "target": "E:problema del gradiente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:codificacion posicional"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:rnn"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:codificacion sinusoidal seno coseno"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:rope"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:alibi"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:llama"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:mistral"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:posicion relativa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N15",
+   "target": "E:extrapolacion a secuencia larga"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:encoder"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:decoder"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:encoder decoder"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:atencion bidireccional"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:atencion causal"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:bert"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:gpt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:llama"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:claude"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:t5"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:bart"
+  },
+  {
+   "rel": "menciona",
+   "source": "N16",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:preentrenamiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:prediccion del siguiente token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:modelado de la distribucion condicional de token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:gpt 3"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:llama 3 1"
+  },
+  {
+   "rel": "menciona",
+   "source": "N17",
+   "target": "E:comprension implicita"
+  },
+  {
+   "rel": "menciona",
+   "source": "N18",
+   "target": "E:supervised fine tuning sft"
+  },
+  {
+   "rel": "menciona",
+   "source": "N18",
+   "target": "E:modelo base"
+  },
+  {
+   "rel": "menciona",
+   "source": "N18",
+   "target": "E:pare instruccion respuesta"
+  },
+  {
+   "rel": "menciona",
+   "source": "N18",
+   "target": "E:seguimiento de instruccione"
+  },
+  {
+   "rel": "menciona",
+   "source": "N18",
+   "target": "E:completador de texto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:rlhf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:sft"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:reward model"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:ppo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N19",
+   "target": "E:anotacion humana"
+  },
+  {
+   "rel": "menciona",
+   "source": "N20",
+   "target": "E:dpo direct preference optimization"
+  },
+  {
+   "rel": "menciona",
+   "source": "N20",
+   "target": "E:rlhf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N20",
+   "target": "E:reward model"
+  },
+  {
+   "rel": "menciona",
+   "source": "N20",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N20",
+   "target": "E:pare de preferencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:constitutional ai"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:constitucion principio"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:feedback humano"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:auto critica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:alignment"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:harmles"
+  },
+  {
+   "rel": "menciona",
+   "source": "N21",
+   "target": "E:helpful"
+  },
+  {
+   "rel": "menciona",
+   "source": "N22",
+   "target": "E:temperatura"
+  },
+  {
+   "rel": "menciona",
+   "source": "N22",
+   "target": "E:logit"
+  },
+  {
+   "rel": "menciona",
+   "source": "N22",
+   "target": "E:muestreo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N22",
+   "target": "E:top p nucleu sampling"
+  },
+  {
+   "rel": "menciona",
+   "source": "N22",
+   "target": "E:top k"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:aprendizaje en contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:peso del modelo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:capacidade emergente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:mecanismo de atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:inferencia bayesiana implicita"
+  },
+  {
+   "rel": "menciona",
+   "source": "N23",
+   "target": "E:aprendizaje basado en gradiente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N24",
+   "target": "E:chain of thought"
+  },
+  {
+   "rel": "menciona",
+   "source": "N24",
+   "target": "E:zero shot cot"
+  },
+  {
+   "rel": "menciona",
+   "source": "N24",
+   "target": "E:few shot cot"
+  },
+  {
+   "rel": "menciona",
+   "source": "N24",
+   "target": "E:razonamiento multi paso"
+  },
+  {
+   "rel": "menciona",
+   "source": "N24",
+   "target": "E:prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:salida estructurada"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:json mode"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:gpt 4o"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:pydantic"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:instructor"
+  },
+  {
+   "rel": "menciona",
+   "source": "N25",
+   "target": "E:validacion de tipo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:modelo propietario"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:extraccion estructurada"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:clasificacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:resumen"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:modelo de 7b parametro"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:prompting"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:gpt 4"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:ollama"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:modelo de peso abierto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:latencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N26",
+   "target": "E:clave de api"
+  },
+  {
+   "rel": "menciona",
+   "source": "N27",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N27",
+   "target": "E:busqueda vectorial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:rag retrieval augmented generation"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:pretraining"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:cutoff date"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:alucinacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:chunk"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:base de conocimiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N28",
+   "target": "E:krp knowledge representation and planning"
+  },
+  {
+   "rel": "menciona",
+   "source": "N29",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N29",
+   "target": "E:vector de alta dimension"
+  },
+  {
+   "rel": "menciona",
+   "source": "N29",
+   "target": "E:similitud semantica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:contrastive learning"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:sentence bert"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:bert"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:siamese network"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:sentence transformer all minilm l6 v2"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:text embedding 3 small"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:text embedding 3 large"
+  },
+  {
+   "rel": "menciona",
+   "source": "N30",
+   "target": "E:baai bge m3"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:similitud semantica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:similitud coseno"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:producto punto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:distancia euclidiana"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:maldicion de la dimensionalidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N31",
+   "target": "E:normalizacion de vectore"
+  },
+  {
+   "rel": "menciona",
+   "source": "N32",
+   "target": "E:busqueda exacta brute force knn"
+  },
+  {
+   "rel": "menciona",
+   "source": "N32",
+   "target": "E:approximate nearest neighbor ann"
+  },
+  {
+   "rel": "menciona",
+   "source": "N32",
+   "target": "E:recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N32",
+   "target": "E:similitud"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:hnsw"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:grafo de proximidad jerarquico"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:skip connection"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:busqueda del vecino mas cercano"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:beam search"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:espacio vectorial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N33",
+   "target": "E:base de dato vectorial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:ivf inverted file index"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:k mean"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:clustering"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:nprobe"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:latencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:cuantizacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N34",
+   "target": "E:ivf pq"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:qdrant"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:weaviate"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:pgvector"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:pinecone"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:postgresql"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:graphql"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:embedding vectoriale"
+  },
+  {
+   "rel": "menciona",
+   "source": "N35",
+   "target": "E:multimodal"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:limite de token de contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:minilm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:text embedding 3"
+  },
+  {
+   "rel": "menciona",
+   "source": "N36",
+   "target": "E:chunk"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:fixed size chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:sliding window"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:semantic chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:hierarchical chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:contextual chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:overlap"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:prompt caching"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N37",
+   "target": "E:recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:chunking jerarquico"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:chunking semantico"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:chunking de tamano fijo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:chunking por funcion clase"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:representacion de tabla como texto con contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:articulo academico"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:documento legale"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:faq"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:codigo fuente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N38",
+   "target": "E:dato estructurado"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:bm25"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:tf idf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:recuperacion dispersa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:idf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:coincidencia de palabra clave"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:consulta lexical"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:sinonimo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N39",
+   "target": "E:parafrasi"
+  },
+  {
+   "rel": "menciona",
+   "source": "N40",
+   "target": "E:dense retrieval"
+  },
+  {
+   "rel": "menciona",
+   "source": "N40",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N40",
+   "target": "E:similitud coseno"
+  },
+  {
+   "rel": "menciona",
+   "source": "N40",
+   "target": "E:chunk"
+  },
+  {
+   "rel": "menciona",
+   "source": "N40",
+   "target": "E:semantica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N41",
+   "target": "E:busqueda hibrida"
+  },
+  {
+   "rel": "menciona",
+   "source": "N41",
+   "target": "E:bm25"
+  },
+  {
+   "rel": "menciona",
+   "source": "N41",
+   "target": "E:recuperacion densa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N41",
+   "target": "E:reciprocal rank fusion rrf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N41",
+   "target": "E:qdrant"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:reranking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:bm25"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:cros encoder"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:cros encoder ms marco minilm l 6 v2"
+  },
+  {
+   "rel": "menciona",
+   "source": "N42",
+   "target": "E:score de relevancia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N43",
+   "target": "E:hit rate k"
+  },
+  {
+   "rel": "menciona",
+   "source": "N43",
+   "target": "E:mrr"
+  },
+  {
+   "rel": "menciona",
+   "source": "N43",
+   "target": "E:recall k"
+  },
+  {
+   "rel": "menciona",
+   "source": "N43",
+   "target": "E:chunk"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:raga"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:faithfulnes"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:answer relevancy"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:context precision"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:context recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:chunk"
+  },
+  {
+   "rel": "menciona",
+   "source": "N44",
+   "target": "E:alucinacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:graphrag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:dense retrieval"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:grafo de conocimiento"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:deteccion de comunidade"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:algoritmo de leiden"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:rdf"
+  },
+  {
+   "rel": "menciona",
+   "source": "N45",
+   "target": "E:tripleta"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:documento institucionale usfq"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:golden set"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:evaluacion cuantitativa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:retrieval"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:hybrid search"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:reranking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:raga"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N46",
+   "target": "E:faithfulnes"
+  },
+  {
+   "rel": "menciona",
+   "source": "N47",
+   "target": "E:agente llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:funcion de agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:taxonomia peas"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:sensore"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:actuadore"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:agente reactivo simple"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:regla condicion accion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:agente basado en modelo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:agente basado en objetivo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:agente basado en utilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N48",
+   "target": "E:funcion de utilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:agente llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:agente basado en objetivo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:cot"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:react"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:plan and execute"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:ventana de contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:memoria de conversacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:funcion de agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N49",
+   "target": "E:tool"
+  },
+  {
+   "rel": "menciona",
+   "source": "N50",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N50",
+   "target": "E:llamada a funcione function calling"
+  },
+  {
+   "rel": "menciona",
+   "source": "N50",
+   "target": "E:herramienta tool"
+  },
+  {
+   "rel": "menciona",
+   "source": "N50",
+   "target": "E:sql"
+  },
+  {
+   "rel": "menciona",
+   "source": "N50",
+   "target": "E:esquema de entrada input schema"
+  },
+  {
+   "rel": "menciona",
+   "source": "N51",
+   "target": "E:tool use"
+  },
+  {
+   "rel": "menciona",
+   "source": "N51",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N51",
+   "target": "E:tool"
+  },
+  {
+   "rel": "menciona",
+   "source": "N51",
+   "target": "E:framework"
+  },
+  {
+   "rel": "menciona",
+   "source": "N51",
+   "target": "E:contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N52",
+   "target": "E:model context protocol mcp"
+  },
+  {
+   "rel": "menciona",
+   "source": "N52",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N52",
+   "target": "E:protocolo cliente servidor"
+  },
+  {
+   "rel": "menciona",
+   "source": "N52",
+   "target": "E:herramienta externa"
+  },
+  {
+   "rel": "menciona",
+   "source": "N52",
+   "target": "E:claude"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:react"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:thought"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:action"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:observation"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:execute sql"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:traza auditable"
+  },
+  {
+   "rel": "menciona",
+   "source": "N53",
+   "target": "E:propagacion de errore"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:plan and execute"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:fase de planificacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:fase de ejecucion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N54",
+   "target": "E:llamada a herramienta tool call"
+  },
+  {
+   "rel": "menciona",
+   "source": "N55",
+   "target": "E:reflexion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N55",
+   "target": "E:autoevaluacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N55",
+   "target": "E:iteracion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:multi agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:herramienta tool"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:traza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:limite de ejecucion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:ventana de contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:agente generalista"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:agente especializado"
+  },
+  {
+   "rel": "menciona",
+   "source": "N56",
+   "target": "E:paralelismo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:patron supervisor"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:agente supervisor"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:agente de dato"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:agente de analisi"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:agente de informe"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:sql"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:api"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:subagente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:paso de contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N57",
+   "target": "E:sistema multiagente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:langgraph"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:langchain"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:sistema multiagente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:grafo de estado"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:nodo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:edge"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:edge condicionale"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:estado compartido"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:stategraph"
+  },
+  {
+   "rel": "menciona",
+   "source": "N58",
+   "target": "E:supervisor"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:hand off"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:contexto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:resultado parcial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:objetivo del siguiente paso"
+  },
+  {
+   "rel": "menciona",
+   "source": "N59",
+   "target": "E:restriccione y preferencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N60",
+   "target": "E:loop infinito"
+  },
+  {
+   "rel": "menciona",
+   "source": "N60",
+   "target": "E:agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N60",
+   "target": "E:tool"
+  },
+  {
+   "rel": "menciona",
+   "source": "N60",
+   "target": "E:limite maximo de iteracione"
+  },
+  {
+   "rel": "menciona",
+   "source": "N60",
+   "target": "E:max step"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:bucle de agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:gpt 4o"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:costo por ejecucion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:monitoreo de token en tiempo real"
+  },
+  {
+   "rel": "menciona",
+   "source": "N61",
+   "target": "E:corte automatico por presupuesto"
+  },
+  {
+   "rel": "menciona",
+   "source": "N62",
+   "target": "E:execute python code"
+  },
+  {
+   "rel": "menciona",
+   "source": "N62",
+   "target": "E:delete file"
+  },
+  {
+   "rel": "menciona",
+   "source": "N62",
+   "target": "E:human in the loop"
+  },
+  {
+   "rel": "menciona",
+   "source": "N62",
+   "target": "E:sandboxing"
+  },
+  {
+   "rel": "menciona",
+   "source": "N62",
+   "target": "E:principio de minimo privilegio"
+  },
+  {
+   "rel": "menciona",
+   "source": "N63",
+   "target": "E:prompt injection"
+  },
+  {
+   "rel": "menciona",
+   "source": "N63",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N63",
+   "target": "E:system prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:responsabilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:transparencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:agente autonomo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:traza del agente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:auditabilidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:autonomia controlada"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:human in the loop"
+  },
+  {
+   "rel": "menciona",
+   "source": "N64",
+   "target": "E:riesgo de agencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N65",
+   "target": "E:llmop"
+  },
+  {
+   "rel": "menciona",
+   "source": "N65",
+   "target": "E:fine tuning ligero"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:llmop"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:mlop"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:exactitud"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:rmse"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N66",
+   "target": "E:modelo base"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:golden set"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:caso felice"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:caso limite"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:caso adversariale"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:alucinacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:criterio de exito"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:sesgo de confirmacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N67",
+   "target": "E:significancia estadistica"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:llm como juez"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:evaluacion humana"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:sesgo de verbosidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:sesgo de auto mejora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:sesgo de posicion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:exactitud"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:completitud"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:concision"
+  },
+  {
+   "rel": "menciona",
+   "source": "N68",
+   "target": "E:calibracion del juez"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:raga"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:faithfulnes"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:answer relevancy"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:context precision"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:context recall"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:huggingface dataset"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N69",
+   "target": "E:chunking"
+  },
+  {
+   "rel": "menciona",
+   "source": "N70",
+   "target": "E:traza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N70",
+   "target": "E:prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:traza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:span"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:langfuse"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:busqueda vectorial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:guardrail"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:embed query"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:costo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N71",
+   "target": "E:duracion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N72",
+   "target": "E:langfuse"
+  },
+  {
+   "rel": "menciona",
+   "source": "N72",
+   "target": "E:langchain"
+  },
+  {
+   "rel": "menciona",
+   "source": "N72",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N72",
+   "target": "E:traza"
+  },
+  {
+   "rel": "menciona",
+   "source": "N72",
+   "target": "E:instrumentacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N73",
+   "target": "E:versionado de prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N73",
+   "target": "E:system prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N73",
+   "target": "E:langfuse prompt management"
+  },
+  {
+   "rel": "menciona",
+   "source": "N73",
+   "target": "E:git"
+  },
+  {
+   "rel": "menciona",
+   "source": "N73",
+   "target": "E:rollback"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:validacion de entrada"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:prompt injection"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:system prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:pii filtering"
+  },
+  {
+   "rel": "menciona",
+   "source": "N74",
+   "target": "E:microsoft presidio"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:validacion de salida"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:modelo de lenguaje llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:json"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:toxicidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:clasificador de toxicidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:openai moderation api"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:detoxify"
+  },
+  {
+   "rel": "menciona",
+   "source": "N75",
+   "target": "E:dato sensible"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:prompt caching"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:semantic caching"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:gptcache"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:base de dato vectorial"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:embedding"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:system prompt"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:token"
+  },
+  {
+   "rel": "menciona",
+   "source": "N76",
+   "target": "E:latencia"
+  },
+  {
+   "rel": "menciona",
+   "source": "N77",
+   "target": "E:fine tuning completo"
+  },
+  {
+   "rel": "menciona",
+   "source": "N77",
+   "target": "E:float32"
+  },
+  {
+   "rel": "menciona",
+   "source": "N77",
+   "target": "E:gradiente"
+  },
+  {
+   "rel": "menciona",
+   "source": "N77",
+   "target": "E:estado del optimizador"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:lora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:adaptacion de bajo rango"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:parametro entrenable"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:rango r"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:alpha escala"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:target module"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:capa de atencion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:q proj"
+  },
+  {
+   "rel": "menciona",
+   "source": "N78",
+   "target": "E:v proj"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:qlora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:lora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:cuantizacion a 4 bits"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:nf4"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:fine tuning"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:float16 bfloat16"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:transformer"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:peft"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:bitsandbyte"
+  },
+  {
+   "rel": "menciona",
+   "source": "N79",
+   "target": "E:llama 3 2 3b"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:arbol de decision"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:prompting"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:fine tuning"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:lora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:qlora"
+  },
+  {
+   "rel": "menciona",
+   "source": "N80",
+   "target": "E:fine tuning rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:latencia p95"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:costo por query"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:raga faithfulnes"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:guardrail"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:tasa de rechazo por guardrail"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:alucinacion"
+  },
+  {
+   "rel": "menciona",
+   "source": "N81",
+   "target": "E:satisfaccion del usuario"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:drift de calidad"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:llm"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:rag"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:concept drift"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:golden set"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:distribucion de querie"
+  },
+  {
+   "rel": "menciona",
+   "source": "N82",
+   "target": "E:metrica"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+  "n_muestras": 10000,
+  "semilla": 0,
+  "tokens": [
+    "t0",
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5"
+  ],
+  "logits": [
+    2.0,
+    1.0,
+    0.5,
+    0.2,
+    -1.0,
+    -3.0
+  ],
+  "temperatura": 1.0,
+  "p_nucleo": 0.9,
+  "tokens_sobrevivientes": [
+    "t0",
+    "t1",
+    "t2",
+    "t3"
+  ],
+  "tamano_nucleo": 4,
+  "masa_nucleo_antes_renormalizar": 0.968819521917538,
+  "distribucion_renormalizada_teorica": {
+    "t0": 0.5693760554907313,
+    "t1": 0.2094617451103304,
+    "t2": 0.12704497044632815,
+    "t3": 0.09411722895261025,
+    "t4": 0.0,
+    "t5": 0.0
+  },
+  "conteos_observados": {
+    "t0": 5682,
+    "t1": 2093,
+    "t2": 1296,
+    "t3": 929,
+    "t4": 0,
+    "t5": 0
+  },
+  "frecuencias_observadas": {
+    "t0": 0.5682,
+    "t1": 0.2093,
+    "t2": 0.1296,
+    "t3": 0.0929,
+    "t4": 0.0,
+    "t5": 0.0
+  },
+  "error_absoluto_por_token": {
+    "t0": 0.0011760554907312981,
+    "t1": 0.00016174511033037464,
+    "t2": 0.002555029553671845,
+    "t3": 0.0012172289526102553,
+    "t4": 0.0,
+    "t5": 0.0
+  },
+  "error_absoluto_maximo": 0.002555029553671845,
+  "error_absoluto_medio": 0.0008516765178906288,
+  "suma_frecuencias_observadas": 1.0,
+  "entropia_teorica_bits": 1.6340748427749392,
+  "entropia_empirica_bits": 1.6361596553054363,
+  "kl_empirica_respecto_teorica_bits": 5.006898814879229e-05,
+  "figura": "t3_frecuencias_vs_teoricas.png"
+}

@@ -1,0 +1,23 @@
+Parte 3 - Comprobación empírica del muestreo top-p
+n = 10000 muestras, numpy.random.default_rng(0), p = 0.9
+Tokens sobrevivientes (núcleo): ['t0', 't1', 't2', 't3']
+
+Token   Teórica   Observada   Conteo   |Error abs.|
+----------------------------------------------------
+t0      0.5694    0.5682     5682     0.0012
+t1      0.2095    0.2093     2093     0.0002
+t2      0.1270    0.1296     1296     0.0026
+t3      0.0941    0.0929      929     0.0012
+t4      0.0000    0.0000        0     0.0000
+t5      0.0000    0.0000        0     0.0000
+----------------------------------------------------
+Suma frecuencias observadas: 1.0000
+
+Cifras principales:
+Divergencia KL(empírica || teórica) = 0.0001 bits
+Entropía teórica (renormalizada):  1.6341 bits
+Entropía empírica:                 1.6362 bits
+Error absoluto máximo por token:   0.0026
+Error absoluto medio:              0.0009
+Figura guardada: t3_frecuencias_vs_teoricas.png
+Resultados guardados en resultados.json

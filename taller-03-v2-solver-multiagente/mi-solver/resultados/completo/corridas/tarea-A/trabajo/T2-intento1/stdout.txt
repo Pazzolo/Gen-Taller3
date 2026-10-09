@@ -1,0 +1,23 @@
+=== T2: GaussianNB vs Regresión Logística (Pipeline con StandardScaler) ===
+División reproducida de T1: train=398, test=171 (test_size=0.30, stratify=y, random_state=42)
+
+Tabla — conjunto de PRUEBA fijo:
+Modelo                  Accuracy  F1 macro
+------------------------------------------
+GaussianNB                0.9357    0.9307
+RegresionLogistica        0.9883    0.9875
+
+Tabla — conjunto de ENTRENAMIENTO (referencia):
+Modelo                  Accuracy  F1 macro
+------------------------------------------
+GaussianNB                0.9422    0.9379
+RegresionLogistica        0.9874    0.9865
+
+Matriz de confusión en prueba (GaussianNB) [filas=real, cols=pred; clases [np.str_('malignant'), np.str_('benign')]]:
+  malignant [57, 7]
+  benign    [4, 103]
+Matriz de confusión en prueba (RegresionLogistica) [filas=real, cols=pred; clases [np.str_('malignant'), np.str_('benign')]]:
+  malignant [63, 1]
+  benign    [1, 106]
+
+Cifras guardadas en resultados.json (clave 'T2')
