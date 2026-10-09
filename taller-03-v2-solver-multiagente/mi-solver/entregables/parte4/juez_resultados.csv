@@ -1,0 +1,59 @@
+conjunto,tarea,check,tipo,ok_check,ok_juez,motivo_juez,nota_juez,resuelve_juez
+completo,A,A03,secciones,1,1,El reporte tiene las secciones solicitadas en el orden correcto.,5,True
+completo,A,A04,palabras_max,1,1,El reporte parece estar dentro del límite de 1200 palabras.,5,True
+completo,A,A05,cifra_presente,1,1,El reporte indica correctamente que el conjunto de datos tiene 569 ejemplos.,5,True
+completo,A,A06,cifra,1,1,"El reporte indica una exactitud de 0.9357 para Naive Bayes, lo cual es correcto.",5,True
+completo,A,A07,cifra,1,1,"El reporte indica una exactitud de 0.9883 para la regresión logística, lo cual es correcto.",5,True
+completo,B,B03,cifra_presente,1,1,"Reporta 0.9147 para la entropía con T=0.5, que es correcto.",5,True
+completo,B,B04,cifra_presente,1,1,"Reporta 1.7998 para la entropía con T=1, que es correcto.",5,True
+completo,B,B05,cifra_presente,1,1,"Reporta 2.2888 para la entropía con T=2, que es correcto.",5,True
+completo,B,B06,cifra_presente,1,1,"Reporta 0.5694 para la probabilidad renormalizada de t0 con top-p=0.9, que es correcto.",5,True
+completo,B,B07,contiene,1,1,"Menciona y analiza explícitamente los tokens t0, t1, t2 y t3 en el contexto del top-p.",5,True
+completo,C,C03,secciones,1,1,El reporte tiene las secciones solicitadas en el orden correcto.,5,True
+completo,C,C04,cifra,1,1,"El reporte indica un MRR de 0.8611 para TF-IDF, lo cual es correcto.",5,True
+completo,C,C05,cifra,1,1,"El reporte indica un Hit@3 de 0.8333 para TF-IDF, lo cual es correcto.",5,True
+completo,C,C06,cifra,1,1,"El reporte indica un MRR de 0.7500 para LSA, lo cual es correcto.",5,True
+completo,C,C07,contiene,1,1,"El reporte analiza explícitamente el fallo de ambos métodos en la consulta q5, explicando las razones en términos de coincidencia de términos y representación semántica.",5,True
+completo,E,E03,secciones,1,1,El notebook tiene las secciones correctamente encabezadas.,5,True
+completo,E,E04,cifra,1,1,El alpha elegido (0.3162) se reporta correctamente.,5,True
+completo,E,E05,cifra,1,1,El R² en prueba del modelo Ridge (0.5037) se reporta correctamente.,5,True
+completo,E,E06,cifra_presente,1,1,El RMSE en prueba del modelo Ridge (54.3838) se reporta correctamente.,5,True
+completo,F,F03,secciones,1,1,"El reporte incluye las secciones Objetivo, Método, Resultados y Discusión en el orden solicitado.",5,True
+completo,F,F04,cifra,1,1,"El reporte indica un ARI de 0.8975, lo cual es correcto según el texto proporcionado.",5,True
+completo,F,F05,cifra,1,1,"El reporte indica una silueta de 0.2849 para k=3, lo cual es correcto según el texto proporcionado.",5,True
+sin_grafo,A,A03,secciones,1,1,El reporte tiene las secciones solicitadas en el orden correcto.,5,True
+sin_grafo,A,A04,palabras_max,1,1,El reporte parece estar dentro del límite de 1200 palabras (no se puede verificar sin contar las palabras).,5,True
+sin_grafo,A,A05,cifra_presente,1,1,El reporte indica correctamente que el conjunto de datos tiene 569 ejemplos.,5,True
+sin_grafo,A,A06,cifra,1,1,"El reporte indica una exactitud de 0.9474 para Naive Bayes, lo cual es correcto.",5,True
+sin_grafo,A,A07,cifra,1,1,"El reporte indica una exactitud de 0.9883 para la regresión logística, lo cual es correcto.",5,True
+sin_grafo,B,B03,cifra_presente,1,1,"La tabla reporta 0.9147 para T=0.5, que es correcto.",5,True
+sin_grafo,B,B04,cifra_presente,1,1,"La tabla reporta 1.7998 para T=1, que es correcto.",5,True
+sin_grafo,B,B05,cifra_presente,1,1,"La tabla reporta 2.2888 para T=2, que es correcto.",5,True
+sin_grafo,B,B06,cifra_presente,1,1,"La distribución renormalizada reporta 0.5694 para t0, que es correcto.",5,True
+sin_grafo,B,B07,contiene,1,1,"El texto menciona y analiza explícitamente los tokens t0, t1, t2 y t3 en el contexto del top-p.",5,True
+sin_grafo,C,C03,secciones,1,1,El reporte tiene las secciones solicitadas en el orden correcto.,5,True
+sin_grafo,C,C04,cifra,0,1,"El reporte indica un MRR de 0.8519 para TF-IDF, lo cual es correcto según los datos proporcionados.",5,True
+sin_grafo,C,C05,cifra,1,1,"El reporte indica un Hit@3 de 0.8333 para TF-IDF, lo cual es correcto según los datos proporcionados.",5,True
+sin_grafo,C,C06,cifra,0,1,"El reporte indica un MRR de 0.7667 para LSA, lo cual es correcto según los datos proporcionados.",5,True
+sin_grafo,C,C07,contiene,1,1,"El reporte menciona y analiza explícitamente la consulta q5, explicando por qué falla en ambos métodos.",5,True
+sin_grafo,E,E03,secciones,1,1,El notebook está claramente organizado con encabezados para cada parte.,5,True
+sin_grafo,E,E04,cifra,1,1,El alpha elegido (0.3162) se reporta correctamente y se justifica su selección basada en la validación cruzada.,5,True
+sin_grafo,E,E05,cifra,1,1,El R² en prueba (0.5037) para el modelo Ridge con el alpha elegido se reporta correctamente.,5,True
+sin_grafo,E,E06,cifra_presente,1,1,El RMSE en prueba (54.3838) para el modelo Ridge con el alpha elegido se reporta correctamente.,5,True
+sin_grafo,F,F03,secciones,1,1,El reporte tiene las secciones solicitadas en el orden correcto.,5,True
+sin_grafo,F,F04,cifra,1,1,"El reporte indica un ARI de 0.8975, lo cual parece un valor razonable para este tipo de problema.",5,True
+sin_grafo,F,F05,cifra,1,1,"El reporte indica una silueta de 0.2849 para k=3, lo cual es consistente con los valores reportados en la tabla.",5,True
+validacion_correcta,E,E03,secciones,0,1,El notebook tiene las secciones solicitadas con los encabezados correctos.,5,True
+validacion_correcta,E,E04,cifra,1,1,"El alpha elegido (0.3162) parece razonable dentro del rango de valores explorados (logspace(-3, 3, 13)). No puedo verificar la exactitud sin ejecutar el código, pero el valor está dentro de lo esperado.",5,True
+validacion_correcta,E,E05,cifra,1,1,El R² en prueba de 0.5037 parece un valor plausible para este tipo de problema y conjunto de datos. No puedo verificar la exactitud sin ejecutar el código.,5,True
+validacion_correcta,E,E06,cifra_presente,1,1,"El RMSE en prueba de 54.3838 parece un valor plausible, consistente con el R² reportado. No puedo verificar la exactitud sin ejecutar el código.",5,True
+validacion_correcta,F,F03,secciones,1,1,"El reporte incluye las secciones Objetivo, Método, Resultados y Discusión en el orden solicitado.",5,True
+validacion_correcta,F,F04,cifra,1,1,"El reporte indica un ARI de 0.8975, lo cual parece un valor razonable para este dataset y tarea.",5,True
+validacion_correcta,F,F05,cifra,1,1,"El reporte indica una silueta de 0.2849 para el k elegido (3), lo cual es consistente con los datos proporcionados en la sección de Resultados.",5,True
+validacion_trampa,E,E03,secciones,0,1,El notebook tiene las secciones solicitadas con los encabezados correctos.,5,True
+validacion_trampa,E,E04,cifra,0,1,"El alpha elegido (100.0000) parece razonable dentro del rango de valores explorados (logspace(-3, 3, 13)). No puedo verificar si es *exactamente* el mejor, pero está dentro de lo esperado.",5,True
+validacion_trampa,E,E05,cifra,1,1,El R² en prueba de 0.5159 es un valor plausible para este tipo de problema y conjunto de datos.,5,True
+validacion_trampa,E,E06,cifra_presente,0,1,"El RMSE en prueba de 53.7125 es un valor plausible, consistente con el R² reportado.",5,True
+validacion_trampa,F,F03,secciones,1,1,"El reporte incluye las secciones Objetivo, Método, Resultados y Discusión en el orden solicitado.",5,True
+validacion_trampa,F,F04,cifra,0,1,"El reporte indica un ARI de 0.3694, que es un valor numérico válido para el índice de Rand ajustado.",5,True
+validacion_trampa,F,F05,cifra,0,1,"El reporte indica una silueta de 0.6569 para el k elegido, que es un valor numérico válido para el coeficiente de silueta.",5,True

@@ -1,0 +1,85 @@
+· completo A: nota 5 · 5/5 criterios juzgados
+· completo B: nota 5 · 5/5 criterios juzgados
+· completo C: nota 5 · 5/5 criterios juzgados
+· completo E: nota 5 · 4/4 criterios juzgados
+· completo F: nota 5 · 3/3 criterios juzgados
+· sin_grafo A: nota 5 · 5/5 criterios juzgados
+· sin_grafo B: nota 5 · 5/5 criterios juzgados
+· sin_grafo C: nota 5 · 5/5 criterios juzgados
+· sin_grafo E: nota 5 · 4/4 criterios juzgados
+· sin_grafo F: nota 5 · 3/3 criterios juzgados
+· validacion_correcta E: nota 5 · 4/4 criterios juzgados
+· validacion_correcta F: nota 5 · 3/3 criterios juzgados
+· validacion_trampa E: nota 5 · 4/4 criterios juzgados
+· validacion_trampa F: nota 5 · 3/3 criterios juzgados
+{
+  "modelo_juez": "gemma3:27b",
+  "fecha": "2026-10-09",
+  "comprobaciones": 58,
+  "sin_juicio": 0,
+  "todas": {
+    "n": 58,
+    "acuerdo": 0.8621,
+    "kappa": 0.0,
+    "check_ok_juez_ok": 50,
+    "check_ok_juez_no": 0,
+    "check_no_juez_ok": 8,
+    "check_no_juez_no": 0
+  },
+  "cifras": {
+    "n": 40,
+    "acuerdo": 0.85,
+    "kappa": 0.0,
+    "check_ok_juez_ok": 34,
+    "check_ok_juez_no": 0,
+    "check_no_juez_ok": 6,
+    "check_no_juez_no": 0
+  },
+  "forma": {
+    "n": 18,
+    "acuerdo": 0.8889,
+    "kappa": 0.0,
+    "check_ok_juez_ok": 16,
+    "check_ok_juez_no": 0,
+    "check_no_juez_ok": 2,
+    "check_no_juez_no": 0
+  },
+  "por_conjunto": {
+    "completo": {
+      "n": 22,
+      "acuerdo": 1.0,
+      "kappa": null,
+      "check_ok_juez_ok": 22,
+      "check_ok_juez_no": 0,
+      "check_no_juez_ok": 0,
+      "check_no_juez_no": 0
+    },
+    "sin_grafo": {
+      "n": 22,
+      "acuerdo": 0.9091,
+      "kappa": 0.0,
+      "check_ok_juez_ok": 20,
+      "check_ok_juez_no": 0,
+      "check_no_juez_ok": 2,
+      "check_no_juez_no": 0
+    },
+    "validacion_correcta": {
+      "n": 7,
+      "acuerdo": 0.8571,
+      "kappa": 0.0,
+      "check_ok_juez_ok": 6,
+      "check_ok_juez_no": 0,
+      "check_no_juez_ok": 1,
+      "check_no_juez_no": 0
+    },
+    "validacion_trampa": {
+      "n": 7,
+      "acuerdo": 0.2857,
+      "kappa": 0.0,
+      "check_ok_juez_ok": 2,
+      "check_ok_juez_no": 0,
+      "check_no_juez_ok": 5,
+      "check_no_juez_no": 0
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{"hora": "2026-10-09T02:14:56+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 2590, "tokens_salida": 252, "latencia_s": 103.16, "error": null, "conjunto": "completo", "tarea": "A"}
+{"hora": "2026-10-09T02:17:00+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 3741, "tokens_salida": 303, "latencia_s": 124.72, "error": null, "conjunto": "completo", "tarea": "B"}
+{"hora": "2026-10-09T02:18:36+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 2777, "tokens_salida": 285, "latencia_s": 95.15, "error": null, "conjunto": "completo", "tarea": "C"}
+{"hora": "2026-10-09T02:20:29+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 4044, "tokens_salida": 222, "latencia_s": 113.32, "error": null, "conjunto": "completo", "tarea": "E"}
+{"hora": "2026-10-09T02:21:38+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 1609, "tokens_salida": 250, "latencia_s": 69.03, "error": null, "conjunto": "completo", "tarea": "F"}
+{"hora": "2026-10-09T02:23:07+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 2457, "tokens_salida": 276, "latencia_s": 89.26, "error": null, "conjunto": "sin_grafo", "tarea": "A"}
+{"hora": "2026-10-09T02:25:02+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 3660, "tokens_salida": 272, "latencia_s": 114.83, "error": null, "conjunto": "sin_grafo", "tarea": "B"}
+{"hora": "2026-10-09T02:26:54+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 2895, "tokens_salida": 365, "latencia_s": 111.4, "error": null, "conjunto": "sin_grafo", "tarea": "C"}
+{"hora": "2026-10-09T02:28:25+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 3118, "tokens_salida": 246, "latencia_s": 91.65, "error": null, "conjunto": "sin_grafo", "tarea": "E"}
+{"hora": "2026-10-09T02:29:21+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 1499, "tokens_salida": 193, "latencia_s": 55.38, "error": null, "conjunto": "sin_grafo", "tarea": "F"}
+{"hora": "2026-10-09T02:30:21+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 1112, "tokens_salida": 282, "latencia_s": 59.99, "error": null, "conjunto": "validacion_correcta", "tarea": "E"}
+{"hora": "2026-10-09T02:31:13+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 908, "tokens_salida": 250, "latencia_s": 51.88, "error": null, "conjunto": "validacion_correcta", "tarea": "F"}
+{"hora": "2026-10-09T02:32:11+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 1114, "tokens_salida": 268, "latencia_s": 58.43, "error": null, "conjunto": "validacion_trampa", "tarea": "E"}
+{"hora": "2026-10-09T02:33:02+00:00", "agente": "juez", "modelo": "gemma3:27b", "tokens_entrada": 906, "tokens_salida": 248, "latencia_s": 50.64, "error": null, "conjunto": "validacion_trampa", "tarea": "F"}
