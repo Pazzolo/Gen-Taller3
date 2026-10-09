@@ -1,0 +1,35 @@
+Top-p (muestreo de núcleo) con p=0.9 sobre la distribución T=1
+----------------------------------------------------------------
+Distribución softmax con T=1 (recomputada de los logits):
+  t0: 0.5516
+  t1: 0.2029
+  t2: 0.1231
+  t3: 0.0912
+  t4: 0.0275
+  t5: 0.0037
+  suma = 1.0000
+----------------------------------------------------------------
+Tokens ordenados por probabilidad descendente:
+  token           p   acumulada   estado
+  t0         0.5516      0.5516   * en el núcleo
+  t1         0.2029      0.7546   * en el núcleo
+  t2         0.1231      0.8776   * en el núcleo
+  t3         0.0912      0.9688   * en el núcleo (aquí se alcanza p=0.9)
+  t4         0.0275      0.9963   
+  t5         0.0037      1.0000   
+----------------------------------------------------------------
+Conjunto mínimo con probabilidad acumulada >= 0.9:
+  Tokens supervivientes (k=4): ['t0', 't1', 't2', 't3']
+  Tokens eliminados (2): ['t4', 't5']
+  Masa del núcleo antes de renormalizar: 0.9688
+  Masa eliminada: 0.0312
+----------------------------------------------------------------
+Distribución renormalizada (núcleo top-p):
+  t0: 0.5694
+  t1: 0.2095
+  t2: 0.1270
+  t3: 0.0941
+  suma = 1.0000
+  entropía = 1.6341 bits (T=1 original: 1.7998 bits)
+----------------------------------------------------------------
+Resultados guardados en resultados.json

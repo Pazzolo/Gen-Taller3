@@ -1,0 +1,20 @@
+=== T1: Breast Cancer Wisconsin (Diagnostic) ===
+Numero de ejemplos: 569
+Numero de atributos: 30
+Casos por clase (total):
+  malignant: 212
+  benign: 357
+Proporcion malignant: 0.3726
+Proporcion benign:    0.6274
+
+Division 70/30 estratificada (random_state=42):
+  Entrenamiento: 398 ejemplos (0.6995 del total)
+  Prueba:        171 ejemplos (0.3005 del total)
+Casos por clase en entrenamiento:
+  malignant: 148
+  benign: 250
+Casos por clase en prueba:
+  malignant: 64
+  benign: 107
+
+Resultados guardados en resultados.json

@@ -1,0 +1,10 @@
+T3 — Curva de aprendizaje (división T1: train=398, test=171)
+División idéntica a T1 (índices): sí
+% train   n_ejemplos  GaussianNB     LogReg        
+5.0       19          0.9415         0.9298        
+10.0      39          0.9474         0.9357        
+25.0      99          0.9357         0.9415        
+50.0      199         0.9240         0.9766        
+100.0     398         0.9357         0.9883        
+Figura guardada en: t3_curva_aprendizaje.png
+Resultados guardados en: resultados.json

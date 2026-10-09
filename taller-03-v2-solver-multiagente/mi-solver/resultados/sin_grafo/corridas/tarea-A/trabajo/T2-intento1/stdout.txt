@@ -1,0 +1,17 @@
+Subtarea T2 — Parte 2: dos clasificadores (breast_cancer)
+Division: train=398, test=171 (test_size=0.3, estratificado, random_state=42)
+
+Tabla comparativa — conjunto de prueba
+Modelo                  Accuracy  F1 macro
+------------------------------------------
+GaussianNB                0.9474    0.9429
+LogisticRegression        0.9883    0.9875
+
+GaussianNB         -> accuracy=0.9474, f1_macro=0.9429
+LogisticRegression -> accuracy=0.9883, f1_macro=0.9875
+
+F1 por clase (test):
+  GaussianNB: malignant=0.9268, benign=0.9589
+  LogisticRegression: malignant=0.9844, benign=0.9907
+
+Resultados guardados en resultados.json

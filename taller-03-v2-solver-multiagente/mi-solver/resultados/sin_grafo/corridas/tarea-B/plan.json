@@ -1,0 +1,62 @@
+{
+  "entregable": {
+    "formato": "ipynb",
+    "archivo": "tarea_b_temperatura_topp_entropia.ipynb",
+    "secciones": [
+      "Parte 1 — Softmax con temperatura",
+      "Parte 2 — Muestreo de núcleo (top-p)",
+      "Parte 3 — Comprobación empírica",
+      "Parte 4 — Pregunta conceptual"
+    ],
+    "max_palabras": null,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Implementar en NumPy la softmax con temperatura numéricamente estable (restar el máximo de los logits) sobre los logits [2.0, 1.0, 0.5, 0.2, -1.0, -3.0] de los tokens t0–t5. Calcular la distribución para T=0.5, T=1 y T=2 y la entropía en bits de cada una (H = -Σ p log2 p). Presentar las tres distribuciones y las tres entropías en una tabla con cuatro decimales.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Sobre la distribución de T=1 de la Parte 1, aplicar muestreo de núcleo top-p con p=0.9: ordenar los tokens por probabilidad descendente, conservar el conjunto mínimo cuya probabilidad acumulada alcanza 0.9 y renormalizar. Reportar qué tokens sobreviven y la distribución renormalizada.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Tomar 10 000 muestras de la distribución renormalizada de la Parte 2 con numpy.random.default_rng(0). Comparar frecuencias observadas vs probabilidades teóricas en un gráfico de barras (matplotlib) y calcular la divergencia KL en bits de la distribución empírica respecto de la teórica.",
+      "depende_de": [
+        "T2"
+      ],
+      "figura": true
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Redactar la respuesta conceptual: qué le pasa a la distribución cuando T→0 (concentra toda la masa en el token de mayor logit, distribución degenerada) y cuando T→∞ (tiende a uniforme), y por qué T→0 equivale a la decodificación voraz (greedy). Usar como evidencia las entropías calculadas en la Parte 1 (entropía que decrece al bajar T).",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    }
+  ]
+}

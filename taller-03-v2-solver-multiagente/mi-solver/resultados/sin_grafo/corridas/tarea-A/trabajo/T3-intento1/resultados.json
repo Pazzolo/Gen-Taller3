@@ -1,0 +1,99 @@
+{
+  "resultados": {
+    "subtarea": "T3_curva_aprendizaje",
+    "dataset": "breast_cancer_wisconsin_diagnostic",
+    "division_T1_recalculada": {
+      "test_size": 0.3,
+      "estratificado": true,
+      "random_state": 42,
+      "n_train": 398,
+      "n_test": 171,
+      "coincide_indices_con_T1": true
+    },
+    "submuestreo": {
+      "estratificado": true,
+      "random_state": 42,
+      "fracciones": [
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ]
+    },
+    "escalador": "StandardScaler ajustado en cada submuestra (test solo transformado)",
+    "metrica": "accuracy sobre el mismo conjunto de prueba de T1",
+    "puntos_curva": [
+      {
+        "fraccion": 0.05,
+        "fraccion_porcentaje": 5.0,
+        "n_ejemplos_entrenamiento": 19,
+        "accuracy_test_GaussianNB": 0.9415204678362573,
+        "accuracy_test_LogisticRegression": 0.9298245614035088
+      },
+      {
+        "fraccion": 0.1,
+        "fraccion_porcentaje": 10.0,
+        "n_ejemplos_entrenamiento": 39,
+        "accuracy_test_GaussianNB": 0.9473684210526315,
+        "accuracy_test_LogisticRegression": 0.935672514619883
+      },
+      {
+        "fraccion": 0.25,
+        "fraccion_porcentaje": 25.0,
+        "n_ejemplos_entrenamiento": 99,
+        "accuracy_test_GaussianNB": 0.935672514619883,
+        "accuracy_test_LogisticRegression": 0.9415204678362573
+      },
+      {
+        "fraccion": 0.5,
+        "fraccion_porcentaje": 50.0,
+        "n_ejemplos_entrenamiento": 199,
+        "accuracy_test_GaussianNB": 0.9239766081871345,
+        "accuracy_test_LogisticRegression": 0.9766081871345029
+      },
+      {
+        "fraccion": 1.0,
+        "fraccion_porcentaje": 100.0,
+        "n_ejemplos_entrenamiento": 398,
+        "accuracy_test_GaussianNB": 0.935672514619883,
+        "accuracy_test_LogisticRegression": 0.9883040935672515
+      }
+    ],
+    "curvas": {
+      "GaussianNB": {
+        "n_ejemplos": [
+          19,
+          39,
+          99,
+          199,
+          398
+        ],
+        "accuracy_test": [
+          0.9415204678362573,
+          0.9473684210526315,
+          0.935672514619883,
+          0.9239766081871345,
+          0.935672514619883
+        ]
+      },
+      "LogisticRegression": {
+        "n_ejemplos": [
+          19,
+          39,
+          99,
+          199,
+          398
+        ],
+        "accuracy_test": [
+          0.9298245614035088,
+          0.935672514619883,
+          0.9415204678362573,
+          0.9766081871345029,
+          0.9883040935672515
+        ]
+      }
+    },
+    "figura_png": "t3_curva_aprendizaje.png"
+  }
+}

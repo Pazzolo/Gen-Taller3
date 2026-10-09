@@ -1,0 +1,79 @@
+{
+  "entregable": {
+    "formato": "md",
+    "archivo": "reporte.md",
+    "secciones": [
+      "Introducción",
+      "Metodología",
+      "Resultados",
+      "Discusión",
+      "Conclusiones"
+    ],
+    "max_palabras": 1200,
+    "max_paginas": null
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar sklearn.datasets.load_breast_cancer; reportar número de ejemplos, atributos y casos por clase; dividir 70% entrenamiento / 30% prueba con train_test_split estratificado por clase y random_state=42 (única división de la tarea). Guardar conteos y los índices de la división.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Sobre la división de T1: entrenar GaussianNB y LogisticRegression (con StandardScaler ajustado solo con el entrenamiento); evaluar accuracy y F1 macro de cada modelo sobre el conjunto de prueba; producir la tabla comparativa de la Parte 2.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Curva de aprendizaje sobre la misma división de T1: submuestras estratificadas del entrenamiento con 5%, 10%, 25%, 50% y 100% (random_state=42); entrenar GaussianNB y LogisticRegression (escalador ajustado en cada submuestra) y evaluar accuracy siempre sobre el mismo conjunto de prueba; dibujar exactitud vs número de ejemplos de entrenamiento (una curva por modelo) y guardar la figura como PNG.",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": true
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Discusión (Parte 4): usando las cifras de T2 y T3, explicar si se observa el cruce de Ng y Jordan (qué modelo conviene en cada tamaño de entrenamiento y por qué), relacionándolo con el sesgo y la varianza del modelo generativo (NB) frente al discriminativo (regresión logística).",
+      "depende_de": [
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Redactar reporte.md con las secciones en orden: Introducción, Metodología, Resultados (incluyendo la tabla de la Parte 2 y la figura PNG de la Parte 3), Discusión y Conclusiones; máximo 1200 palabras; toda cifra proviene de los resultados de T1, T2 y T3, y la discusión de T4.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}
