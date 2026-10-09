@@ -1,0 +1,2 @@
+/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/corridas/tarea-E/trabajo/T4-intento1/script.py:115: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()  # la figura queda visible como salida del notebook

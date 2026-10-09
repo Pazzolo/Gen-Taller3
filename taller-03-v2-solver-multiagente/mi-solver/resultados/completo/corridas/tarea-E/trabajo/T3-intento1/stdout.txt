@@ -1,0 +1,12 @@
+Parte 3 — Evaluacion en prueba (una sola vez)
+Train: 331 ejemplos | Test: 111 ejemplos (la prueba se usa solo aqui)
+Alpha elegido por CV (solo train): 1.0000 | R2 medio de CV: 0.4701
+
+Modelo                           R2 (test)   RMSE (test)
+Ridge (alpha de CV)                 0.4859       53.3182
+LinearRegression (sin reg.)         0.4849       53.3696
+
+Diferencia R2 (Ridge - Lineal): +0.0010
+Diferencia RMSE (Lineal - Ridge): +0.0513
+
+Cifras guardadas en resultados.json

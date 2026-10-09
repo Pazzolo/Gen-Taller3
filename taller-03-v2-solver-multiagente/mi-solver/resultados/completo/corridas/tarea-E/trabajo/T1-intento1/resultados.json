@@ -1,0 +1,30 @@
+{
+  "n_ejemplos": 442.0,
+  "n_atributos": 10.0,
+  "n_train": 331.0,
+  "n_test": 111.0,
+  "proporcion_train": 0.748868778280543,
+  "proporcion_test": 0.251131221719457,
+  "test_size": 0.25,
+  "random_state": 7.0,
+  "forma_X_train": [
+    331,
+    10
+  ],
+  "forma_X_test": [
+    111,
+    10
+  ],
+  "nombres_atributos": [
+    "age",
+    "sex",
+    "bmi",
+    "bp",
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+  ]
+}

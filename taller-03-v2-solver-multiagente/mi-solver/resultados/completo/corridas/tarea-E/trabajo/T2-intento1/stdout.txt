@@ -1,0 +1,23 @@
+Parte 2 — Seleccion de alpha por validacion cruzada (solo train)
+Train usado: 331 ejemplos | Test reservado (no usado aqui): 111
+Pipeline: StandardScaler + Ridge
+Grid: numpy.logspace(-3, 3, 13) | CV: KFold(5, shuffle=True, random_state=7) | scoring='r2'
+
+R2 medio de CV por alpha:
+  alpha=0.0010 | R2 CV medio=0.4724 (+/- 0.0703)
+  alpha=0.0032 | R2 CV medio=0.4724 (+/- 0.0703)
+  alpha=0.0100 | R2 CV medio=0.4724 (+/- 0.0703)
+  alpha=0.0316 | R2 CV medio=0.4724 (+/- 0.0703)
+  alpha=0.1000 | R2 CV medio=0.4724 (+/- 0.0705)
+  alpha=0.3162 | R2 CV medio=0.4724 (+/- 0.0709)  <-- mejor
+  alpha=1.0000 | R2 CV medio=0.4722 (+/- 0.0717)
+  alpha=3.1623 | R2 CV medio=0.4714 (+/- 0.0730)
+  alpha=10.0000 | R2 CV medio=0.4708 (+/- 0.0739)
+  alpha=31.6228 | R2 CV medio=0.4698 (+/- 0.0741)
+  alpha=100.0000 | R2 CV medio=0.4570 (+/- 0.0732)
+  alpha=316.2278 | R2 CV medio=0.3995 (+/- 0.0683)
+  alpha=1000.0000 | R2 CV medio=0.2790 (+/- 0.0514)
+
+Alpha elegido: 0.3162
+R2 medio de validacion cruzada: 0.4724
+Cifras guardadas en resultados.json

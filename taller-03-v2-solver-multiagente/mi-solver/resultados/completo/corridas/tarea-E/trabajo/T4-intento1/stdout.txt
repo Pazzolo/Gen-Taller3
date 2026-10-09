@@ -1,0 +1,22 @@
+Parte 4 — Figura: R2 medio de validacion cruzada frente a alpha
+Fuente de las cifras: recalculado en T4: load_diabetes, train=331/test=111, Pipeline(StandardScaler+Ridge), KFold(5, shuffle=True, random_state=7), scoring='r2', grid logspace(-3, 3, 13)
+Puntos dibujados: 13 alphas, de 0.001 a 1000 (eje x logaritmico)
+
+R2 medio de CV por alpha (lo que se dibuja):
+  alpha=    0.0010 | R2 CV medio=0.4695
+  alpha=    0.0032 | R2 CV medio=0.4695
+  alpha=    0.0100 | R2 CV medio=0.4695
+  alpha=    0.0316 | R2 CV medio=0.4696
+  alpha=    0.1000 | R2 CV medio=0.4697
+  alpha=    0.3162 | R2 CV medio=0.4699
+  alpha=    1.0000 | R2 CV medio=0.4701  <-- mejor
+  alpha=    3.1623 | R2 CV medio=0.4697
+  alpha=   10.0000 | R2 CV medio=0.4690
+  alpha=   31.6228 | R2 CV medio=0.4680
+  alpha=  100.0000 | R2 CV medio=0.4569
+  alpha=  316.2278 | R2 CV medio=0.4028
+  alpha= 1000.0000 | R2 CV medio=0.2811
+
+Mejor alpha: 1.0000 | R2 medio de CV maximo: 0.4701
+Figura guardada como 'T4_r2_cv_vs_alpha.png' (semilogx, eje x en escala logaritmica)
+Cifras guardadas en resultados.json

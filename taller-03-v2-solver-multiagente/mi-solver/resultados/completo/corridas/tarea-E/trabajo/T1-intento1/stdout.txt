@@ -1,0 +1,9 @@
+Parte 1 — Datos (sklearn.datasets.load_diabetes)
+Numero de ejemplos: 442
+Numero de atributos: 10
+Division train/test: 75%/25% con random_state=7
+Tamano de train: 331 ejemplos (proporcion = 0.7489)
+Tamano de test:  111 ejemplos (proporcion = 0.2511)
+Forma de X_train: (331, 10) | Forma de X_test: (111, 10)
+El conjunto de prueba queda reservado para la Parte 3.
+Cifras guardadas en resultados.json

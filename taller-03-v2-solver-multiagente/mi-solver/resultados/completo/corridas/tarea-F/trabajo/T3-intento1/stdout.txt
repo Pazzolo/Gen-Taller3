@@ -1,0 +1,36 @@
+=== T3: ARI de KMeans (k elegido en T2) contra las clases reales del Wine ===
+Datos estandarizados: 178 ejemplos x 13 atributos
+Clases reales: 3 (class_0, class_1, class_2)
+
+Tabla silueta-vs-k (KMeans, n_init=10, random_state=0):
+  k |    silueta
+------------------
+  2 |     0.2683
+  3 |     0.2849  <- elegido
+  4 |     0.2457
+  5 |     0.2026
+  6 |     0.1960
+  7 |     0.1386
+  8 |     0.1581
+
+k elegido (silueta mas alta): 3
+Silueta maxima: 0.2849
+ARI contra clases reales (k=3): 0.8975
+Tamanos de los clusters con k=3: {0: 65, 1: 51, 2: 62}
+
+Tabla de contingencia (clusters vs clases reales):
+cluster | class_0 | class_1 | class_2
+      0 | 0 | 65 | 0
+      1 | 0 | 3 | 48
+      2 | 59 | 3 | 0
+
+ARI por k (solo diagnostico; no se uso para elegir k):
+  k=2: ARI=0.3887
+  k=3: ARI=0.8975
+  k=4: ARI=0.7070
+  k=5: ARI=0.5993
+  k=6: ARI=0.5445
+  k=7: ARI=0.4159
+  k=8: ARI=0.4064
+
+Cifras guardadas en resultados.json

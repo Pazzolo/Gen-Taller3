@@ -1,0 +1,13 @@
+Parte 3 - Evaluacion en prueba (una sola vez)
+Reconstruyendo la particion exacta de T2 (train 331 / test 111)...
+  Particion de T2 reproducida: metodo=train_test_split, random_state=7 (2 candidatos probados)
+Train: 331 | Test: 111 | alpha elegido: 0.3162
+
+R2 medio de CV del alpha elegido (solo train): 0.4724
+
+Resultados sobre el conjunto de prueba (evaluados una sola vez):
+  Ridge            (alpha=0.3162, StandardScaler+Ridge): R2=0.5037 | RMSE=54.3838
+  LinearRegression (sin regularizar, StandardScaler+LinearRegression): R2=0.5028 | RMSE=54.4331
+  Diferencia (Ridge - LinearRegression): dR2=+0.0009 | dRMSE=-0.0493
+  Ridge reduce el RMSE en prueba respecto a la regresion lineal sin regularizar.
+Cifras guardadas en resultados.json

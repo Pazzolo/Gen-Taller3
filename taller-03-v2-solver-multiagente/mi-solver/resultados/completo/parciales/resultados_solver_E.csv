@@ -1,0 +1,9 @@
+tarea,check,tipo,ok,detalle
+E,E01,archivo,1,1 archivo(s) con *.ipynb
+E,E02,ipynb_ejecutado,1,"4 celdas de código, 0 sin ejecutar, 0 con error"
+E,E03,secciones,1,"todas, en orden"
+E,E04,cifra,1,verdad=0.3162 ±0.002; hallada
+E,E05,cifra,1,verdad=0.5037 ±0.003; hallada
+E,E06,cifra_presente,1,verdad=54.3838 ±0.006; hallada
+E,E07,archivo,1,4 archivo(s) con **/*.png
+E,E08,procedencia,1,24/24 cifras respaldadas (1.00)

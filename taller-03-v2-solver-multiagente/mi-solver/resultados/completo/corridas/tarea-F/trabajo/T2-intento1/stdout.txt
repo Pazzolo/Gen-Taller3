@@ -1,0 +1,20 @@
+=== T2: KMeans + coeficiente de silueta (datos Wine estandarizados) ===
+Datos estandarizados: 178 ejemplos x 13 atributos
+
+Tabla silueta-vs-k (KMeans, n_init=10, random_state=0, datos estandarizados):
+  k |    silueta |      inercia
+----------------------------------
+  2 |     0.2683 |    1659.0080
+  3 |     0.2849 |    1277.9285  <- elegido
+  4 |     0.2457 |    1180.7376
+  5 |     0.2026 |    1110.3654
+  6 |     0.1960 |    1044.4698
+  7 |     0.1386 |     995.9946
+  8 |     0.1581 |     944.5589
+
+k elegido (silueta mas alta): 3
+Silueta maxima: 0.2849
+ARI contra clases reales (solo diagnostico final): 0.8975
+Tamanos de los clusters con k=3: {0: 65, 1: 51, 2: 62}
+
+Cifras guardadas en resultados.json
