@@ -1,0 +1,35 @@
+==============================================================================
+T3 · Análisis por consulta: fallos (relevante fuera del top 3) y términos
+compartidos entre cada consulta y su documento relevante
+==============================================================================
+Vocabulario TF-IDF: 105 términos | LSA-4: varianza explicada acumulada = 0.3953
+Umbral de éxito: relevante dentro del top 3
+
+--- Tabla de análisis por consulta ---
+q1 | relevante: d04 | términos comunes (8): de, frecuencia, función, la, léxica, pondera, ranking, términos
+    TF-IDF (coseno)                rank relevante = 1.0000 | fallo top3 = no | sim = 0.6891 | top3 = d04, d01, d06
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 1.0000 | fallo top3 = no | sim = 0.9542 | top3 = d04, d01, d06
+q2 | relevante: d03 | términos comunes (3): al, fragmentos, prompt
+    TF-IDF (coseno)                rank relevante = 1.0000 | fallo top3 = no | sim = 0.5174 | top3 = d03, d01, d02
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 1.0000 | fallo top3 = no | sim = 0.9754 | top3 = d03, d07, d09
+q3 | relevante: d08 | términos comunes (5): bajo, de, entrena, matrices, rango
+    TF-IDF (coseno)                rank relevante = 1.0000 | fallo top3 = no | sim = 0.5604 | top3 = d08, d06, d04
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 1.0000 | fallo top3 = no | sim = 0.9746 | top3 = d08, d02, d06
+q4 | relevante: d05 | términos comunes (4): compara, la, orientación, vectores
+    TF-IDF (coseno)                rank relevante = 1.0000 | fallo top3 = no | sim = 0.4569 | top3 = d05, d01, d04
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 3.0000 | fallo top3 = no | sim = 0.8984 | top3 = d01, d10, d05
+q5 | relevante: d09 | términos comunes (1): la
+    TF-IDF (coseno)                rank relevante = 6.0000 | fallo top3 = SÍ | sim = 0.0790 | top3 = d03, d06, d04
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 6.0000 | fallo top3 = SÍ | sim = 0.4999 | top3 = d04, d01, d03
+q6 | relevante: d02 | términos comunes (5): autoatención, capas, con, feed, forward
+    TF-IDF (coseno)                rank relevante = 1.0000 | fallo top3 = no | sim = 0.5674 | top3 = d02, d06, d03
+    LSA-4 (TruncatedSVD, coseno)   rank relevante = 1.0000 | fallo top3 = no | sim = 0.9531 | top3 = d02, d08, d10
+
+Fallos con TF-IDF (coseno): 1/6 consultas -> q5
+  * FALLO de TF-IDF (coseno) en q5: el documento relevante d09 queda en el puesto 6, fuera del top 3 (similitud coseno con la consulta = 0.0790; top 3 devuelto: d03, d06, d04). Consulta y relevante comparten 1 término(s) del vocabulario [la], pero ese solapamiento no basta para situar al relevante en el top 3 con este método.
+Fallos con LSA-4 (TruncatedSVD, coseno): 1/6 consultas -> q5
+  * FALLO de LSA-4 (TruncatedSVD, coseno) en q5: el documento relevante d09 queda en el puesto 6, fuera del top 3 (similitud coseno con la consulta = 0.4999; top 3 devuelto: d04, d01, d03). Consulta y relevante comparten 1 término(s) del vocabulario [la], pero ese solapamiento no basta para situar al relevante en el top 3 con este método. En el espacio latente de 4 componentes (varianza explicada acumulada = 0.3953), la consulta proyecta más cerca de otros documentos, lo que desplaza al relevante fuera del top 3.
+
+Resumen: tasa de éxito top-3 TF-IDF = 0.8333 | tasa de éxito top-3 LSA-4 = 0.8333
+         MRR TF-IDF = 0.8611 | MRR LSA-4 = 0.7500
+Resultados guardados en resultados.json

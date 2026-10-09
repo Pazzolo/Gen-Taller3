@@ -1,0 +1,30 @@
+T2 — TF-IDF vs LSA (TruncatedSVD, n_components=4, random_state=0)
+Documentos: 10 | Consultas: 6 | Vocabulario TF-IDF: 105
+
+Tabla única de métricas (6 consultas):
+Método                               Hit@1     Hit@3       MRR
+--------------------------------------------------------------
+TF-IDF (coseno)                     0.8333    0.8333    0.8611
+LSA-4 (TruncatedSVD, coseno)        0.6667    0.8333    0.7500
+
+Varianza explicada por componente (LSA): 0.0342, 0.1266, 0.1160, 0.1186
+Varianza explicada acumulada (4 componentes): 0.3953
+
+Por consulta — LSA:
+  q1: relevante=d04 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q2: relevante=d03 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q3: relevante=d08 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q4: relevante=d05 rank=3 Hit@1=0.0000 Hit@3=1.0000 RR=0.3333
+  q5: relevante=d09 rank=6 Hit@1=0.0000 Hit@3=0.0000 RR=0.1667
+  q6: relevante=d02 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+
+Por consulta — TF-IDF (línea base):
+  q1: relevante=d04 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q2: relevante=d03 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q3: relevante=d08 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q4: relevante=d05 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+  q5: relevante=d09 rank=6 Hit@1=0.0000 Hit@3=0.0000 RR=0.1667
+  q6: relevante=d02 rank=1 Hit@1=1.0000 Hit@3=1.0000 RR=1.0000
+
+Diferencias (LSA - TF-IDF): Hit@1=-0.1667 Hit@3=0.0000 MRR=-0.1111
+Resultados guardados en resultados.json

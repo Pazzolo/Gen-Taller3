@@ -1,0 +1,12 @@
+=== T1: Línea base léxica (TF-IDF por defecto + similitud coseno) ===
+Hit@1: 0.8333
+Hit@3: 0.8333
+MRR:   0.8611
+
+Ranking por consulta (top-3) y posición del documento relevante:
+q1: top-3 = [d04, d01, d06] | relevante d04 en rank 1 | RR = 1.0000
+q2: top-3 = [d03, d01, d02] | relevante d03 en rank 1 | RR = 1.0000
+q3: top-3 = [d08, d06, d04] | relevante d08 en rank 1 | RR = 1.0000
+q4: top-3 = [d05, d01, d04] | relevante d05 en rank 1 | RR = 1.0000
+q5: top-3 = [d03, d06, d04] | relevante d09 en rank 6 | RR = 0.1667
+q6: top-3 = [d02, d06, d03] | relevante d02 en rank 1 | RR = 1.0000

@@ -1,0 +1,802 @@
+{
+  "tarea": "T3_analisis_por_consulta_fallos_y_terminos_comunes",
+  "configuracion": {
+    "k_umbral_top3": 3.0,
+    "n_componentes_lsa": 4.0,
+    "random_state_svd": 0.0,
+    "num_documentos": 10.0,
+    "num_consultas": 6.0,
+    "tamano_vocabulario_tfidf": 105.0,
+    "varianza_explicada_acumulada_lsa": 0.39534217090869517
+  },
+  "varianza_explicada_por_componente_lsa": [
+    0.034211619796853256,
+    0.12657480443196817,
+    0.11600387824885838,
+    0.11855186843101542
+  ],
+  "tabla_analisis_por_consulta": [
+    {
+      "consulta_id": "q1",
+      "consulta": "¿Qué función de ranking léxica pondera la frecuencia de términos?",
+      "relevante": "d04",
+      "tokens_consulta_en_vocabulario": [
+        "de",
+        "frecuencia",
+        "función",
+        "la",
+        "léxica",
+        "pondera",
+        "qué",
+        "ranking",
+        "términos"
+      ],
+      "num_tokens_consulta_en_vocabulario": 9.0,
+      "tokens_relevante_en_vocabulario": [
+        "bm25",
+        "de",
+        "del",
+        "documento",
+        "es",
+        "frecuencia",
+        "función",
+        "la",
+        "longitud",
+        "léxica",
+        "pondera",
+        "que",
+        "ranking",
+        "términos",
+        "una"
+      ],
+      "num_tokens_relevante_en_vocabulario": 15.0,
+      "terminos_comunes_consulta_relevante": [
+        "de",
+        "frecuencia",
+        "función",
+        "la",
+        "léxica",
+        "pondera",
+        "ranking",
+        "términos"
+      ],
+      "num_terminos_comunes": 8.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "de": 0.41616626604586404,
+        "frecuencia": 0.3504139910334365,
+        "función": 0.29788390619311367,
+        "la": 0.1881121216397302,
+        "léxica": 0.3504139910334365,
+        "pondera": 0.29788390619311367,
+        "ranking": 0.3504139910334365,
+        "términos": 0.3504139910334365
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d06",
+          "d10",
+          "d02",
+          "d08",
+          "d09",
+          "d05",
+          "d03",
+          "d07"
+        ],
+        "top3": [
+          "d04",
+          "d01",
+          "d06"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.6890762406943802,
+        "similitudes_coseno": {
+          "d01": 0.24104429689047813,
+          "d02": 0.07453421603164366,
+          "d03": 0.030168272064907867,
+          "d04": 0.6890762406943802,
+          "d05": 0.030417830241207696,
+          "d06": 0.17176219526377381,
+          "d07": 0.0,
+          "d08": 0.07361653787213339,
+          "d09": 0.06091203978803966,
+          "d10": 0.1455818977299592
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d06",
+          "d10",
+          "d09",
+          "d05",
+          "d03",
+          "d08",
+          "d07",
+          "d02"
+        ],
+        "top3": [
+          "d04",
+          "d01",
+          "d06"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.9542338764603773,
+        "similitudes_coseno": {
+          "d01": 0.926167364287045,
+          "d02": 0.003022087349673075,
+          "d03": 0.3738878981276879,
+          "d04": 0.9542338764603773,
+          "d05": 0.46575217619466225,
+          "d06": 0.6302861368690816,
+          "d07": 0.1934378078177676,
+          "d08": 0.32452075468016345,
+          "d09": 0.5060238963860794,
+          "d10": 0.5834748914843861
+        }
+      }
+    },
+    {
+      "consulta_id": "q2",
+      "consulta": "¿Cómo se añaden fragmentos recuperados al prompt?",
+      "relevante": "d03",
+      "tokens_consulta_en_vocabulario": [
+        "al",
+        "fragmentos",
+        "prompt"
+      ],
+      "num_tokens_consulta_en_vocabulario": 3.0,
+      "tokens_relevante_en_vocabulario": [
+        "al",
+        "aumentada",
+        "añade",
+        "busca",
+        "con",
+        "del",
+        "fragmentos",
+        "generación",
+        "la",
+        "los",
+        "modelo",
+        "prompt",
+        "recuperación",
+        "relevantes"
+      ],
+      "num_tokens_relevante_en_vocabulario": 14.0,
+      "terminos_comunes_consulta_relevante": [
+        "al",
+        "fragmentos",
+        "prompt"
+      ],
+      "num_terminos_comunes": 3.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "al": 0.5773502691896257,
+        "fragmentos": 0.5773502691896257,
+        "prompt": 0.5773502691896257
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d03",
+          "d01",
+          "d02",
+          "d04",
+          "d05",
+          "d06",
+          "d07",
+          "d08",
+          "d09",
+          "d10"
+        ],
+        "top3": [
+          "d03",
+          "d01",
+          "d02"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.517438736756843,
+        "similitudes_coseno": {
+          "d01": 0.0,
+          "d02": 0.0,
+          "d03": 0.517438736756843,
+          "d04": 0.0,
+          "d05": 0.0,
+          "d06": 0.0,
+          "d07": 0.0,
+          "d08": 0.0,
+          "d09": 0.0,
+          "d10": 0.0
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d03",
+          "d07",
+          "d09",
+          "d02",
+          "d04",
+          "d10",
+          "d08",
+          "d01",
+          "d05",
+          "d06"
+        ],
+        "top3": [
+          "d03",
+          "d07",
+          "d09"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.9753616198616091,
+        "similitudes_coseno": {
+          "d01": 0.033741063891204764,
+          "d02": 0.4022930576302999,
+          "d03": 0.9753616198616091,
+          "d04": 0.3826981299579772,
+          "d05": -0.16002038909686933,
+          "d06": -0.26136569169095347,
+          "d07": 0.8023847351500116,
+          "d08": 0.14626163623898533,
+          "d09": 0.47086791359664704,
+          "d10": 0.29423807632145293
+        }
+      }
+    },
+    {
+      "consulta_id": "q3",
+      "consulta": "¿Qué técnica entrena matrices de bajo rango?",
+      "relevante": "d08",
+      "tokens_consulta_en_vocabulario": [
+        "bajo",
+        "de",
+        "entrena",
+        "matrices",
+        "qué",
+        "rango"
+      ],
+      "num_tokens_consulta_en_vocabulario": 6.0,
+      "tokens_relevante_en_vocabulario": [
+        "ajuste",
+        "bajo",
+        "con",
+        "congela",
+        "de",
+        "el",
+        "entrena",
+        "fino",
+        "lora",
+        "los",
+        "matrices",
+        "originales",
+        "pesos",
+        "rango"
+      ],
+      "num_tokens_relevante_en_vocabulario": 14.0,
+      "terminos_comunes_consulta_relevante": [
+        "bajo",
+        "de",
+        "entrena",
+        "matrices",
+        "rango"
+      ],
+      "num_terminos_comunes": 5.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "bajo": 0.43223174876056586,
+        "de": 0.2566682232316953,
+        "entrena": 0.43223174876056586,
+        "matrices": 0.43223174876056586,
+        "rango": 0.43223174876056586
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d08",
+          "d06",
+          "d04",
+          "d01",
+          "d10",
+          "d02",
+          "d03",
+          "d05",
+          "d07",
+          "d09"
+        ],
+        "top3": [
+          "d08",
+          "d06",
+          "d04"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.560429272422995,
+        "similitudes_coseno": {
+          "d01": 0.06381465584320169,
+          "d02": 0.045968561989839445,
+          "d03": 0.0,
+          "d04": 0.08065431281941934,
+          "d05": 0.0,
+          "d06": 0.12298847552390199,
+          "d07": 0.0,
+          "d08": 0.560429272422995,
+          "d09": 0.0,
+          "d10": 0.049407824941549196
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d08",
+          "d02",
+          "d06",
+          "d10",
+          "d01",
+          "d04",
+          "d03",
+          "d05",
+          "d07",
+          "d09"
+        ],
+        "top3": [
+          "d08",
+          "d02",
+          "d06"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.9746239272656918,
+        "similitudes_coseno": {
+          "d01": 0.35434335823323854,
+          "d02": 0.7665154388303865,
+          "d03": 0.14820782499222893,
+          "d04": 0.2243878585446967,
+          "d05": -0.13297643110943774,
+          "d06": 0.5606217883245773,
+          "d07": -0.1359959095041173,
+          "d08": 0.9746239272656918,
+          "d09": -0.17353933738775634,
+          "d10": 0.41330397888066833
+        }
+      }
+    },
+    {
+      "consulta_id": "q4",
+      "consulta": "¿Cómo se compara la orientación de dos vectores de texto?",
+      "relevante": "d05",
+      "tokens_consulta_en_vocabulario": [
+        "compara",
+        "de",
+        "la",
+        "orientación",
+        "vectores"
+      ],
+      "num_tokens_consulta_en_vocabulario": 5.0,
+      "tokens_relevante_en_vocabulario": [
+        "como",
+        "compara",
+        "coseno",
+        "densos",
+        "embeddings",
+        "la",
+        "los",
+        "orientación",
+        "representan",
+        "similitud",
+        "su",
+        "textos",
+        "vectores"
+      ],
+      "num_tokens_relevante_en_vocabulario": 13.0,
+      "terminos_comunes_consulta_relevante": [
+        "compara",
+        "la",
+        "orientación",
+        "vectores"
+      ],
+      "num_terminos_comunes": 4.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "compara": 0.4613305217177221,
+        "la": 0.24765524618908155,
+        "orientación": 0.4613305217177221,
+        "vectores": 0.4613305217177221
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d05",
+          "d01",
+          "d04",
+          "d10",
+          "d02",
+          "d08",
+          "d09",
+          "d03",
+          "d06",
+          "d07"
+        ],
+        "top3": [
+          "d05",
+          "d01",
+          "d04"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.45692453531459537,
+        "similitudes_coseno": {
+          "d01": 0.24754993848068024,
+          "d02": 0.09812652932690284,
+          "d03": 0.039717434369503,
+          "d04": 0.24252131947498234,
+          "d05": 0.45692453531459537,
+          "d06": 0.0,
+          "d07": 0.0,
+          "d08": 0.09691837852548282,
+          "d09": 0.08019252602167252,
+          "d10": 0.19166293170642723
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d01",
+          "d10",
+          "d05",
+          "d09",
+          "d04",
+          "d03",
+          "d08",
+          "d02",
+          "d06",
+          "d07"
+        ],
+        "top3": [
+          "d01",
+          "d10",
+          "d05"
+        ],
+        "rank_relevante": 3.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.898421713413974,
+        "similitudes_coseno": {
+          "d01": 0.9219618094000089,
+          "d02": 0.12236796902645442,
+          "d03": 0.2875415099375321,
+          "d04": 0.7523786823058928,
+          "d05": 0.898421713413974,
+          "d06": 0.05001260690761722,
+          "d07": -0.25811500569151413,
+          "d08": 0.2695002757697448,
+          "d09": 0.8201270985637538,
+          "d10": 0.9205569108925621
+        }
+      }
+    },
+    {
+      "consulta_id": "q5",
+      "consulta": "¿Qué hace que el modelo sea más determinista al elegir la siguiente palabra?",
+      "relevante": "d09",
+      "tokens_consulta_en_vocabulario": [
+        "al",
+        "el",
+        "la",
+        "modelo",
+        "que",
+        "qué"
+      ],
+      "num_tokens_consulta_en_vocabulario": 6.0,
+      "tokens_relevante_en_vocabulario": [
+        "antes",
+        "bajos",
+        "concentran",
+        "del",
+        "la",
+        "logits",
+        "los",
+        "probabilidad",
+        "reescala",
+        "softmax",
+        "temperatura",
+        "valores"
+      ],
+      "num_tokens_relevante_en_vocabulario": 12.0,
+      "terminos_comunes_consulta_relevante": [
+        "la"
+      ],
+      "num_terminos_comunes": 1.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "la": 0.24397961091537643
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d03",
+          "d06",
+          "d04",
+          "d01",
+          "d10",
+          "d09",
+          "d08",
+          "d05",
+          "d02",
+          "d07"
+        ],
+        "top3": [
+          "d03",
+          "d06",
+          "d04"
+        ],
+        "rank_relevante": 6.0,
+        "fallo_top3": true,
+        "similitud_relevante": 0.07900232923856973,
+        "similitudes_coseno": {
+          "d01": 0.16230333908296432,
+          "d02": 0.0,
+          "d03": 0.3106758887220715,
+          "d04": 0.18955976285205217,
+          "d05": 0.03945163300721819,
+          "d06": 0.2008513459062183,
+          "d07": 0.0,
+          "d08": 0.0748861092010969,
+          "d09": 0.07900232923856973,
+          "d10": 0.08491551831191195
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d04",
+          "d01",
+          "d03",
+          "d06",
+          "d10",
+          "d09",
+          "d07",
+          "d08",
+          "d05",
+          "d02"
+        ],
+        "top3": [
+          "d04",
+          "d01",
+          "d03"
+        ],
+        "rank_relevante": 6.0,
+        "fallo_top3": true,
+        "similitud_relevante": 0.49988551680348314,
+        "similitudes_coseno": {
+          "d01": 0.8066012329018136,
+          "d02": 0.17339640145552682,
+          "d03": 0.6140509840251358,
+          "d04": 0.9427359534682044,
+          "d05": 0.2737753303946181,
+          "d06": 0.5655795641518976,
+          "d07": 0.43375161039146554,
+          "d08": 0.4046979346963305,
+          "d09": 0.49988551680348314,
+          "d10": 0.5629897534965821
+        }
+      }
+    },
+    {
+      "consulta_id": "q6",
+      "consulta": "¿Qué arquitectura combina autoatención con capas feed-forward?",
+      "relevante": "d02",
+      "tokens_consulta_en_vocabulario": [
+        "autoatención",
+        "capas",
+        "con",
+        "feed",
+        "forward",
+        "qué"
+      ],
+      "num_tokens_consulta_en_vocabulario": 6.0,
+      "tokens_relevante_en_vocabulario": [
+        "apilan",
+        "autoatención",
+        "capas",
+        "con",
+        "conexiones",
+        "de",
+        "feed",
+        "forward",
+        "los",
+        "normalización",
+        "redes",
+        "residuales",
+        "transformadores"
+      ],
+      "num_tokens_relevante_en_vocabulario": 13.0,
+      "terminos_comunes_consulta_relevante": [
+        "autoatención",
+        "capas",
+        "con",
+        "feed",
+        "forward"
+      ],
+      "num_terminos_comunes": 5.0,
+      "peso_tfidf_en_consulta_de_terminos_comunes": {
+        "autoatención": 0.43223174876056586,
+        "capas": 0.43223174876056586,
+        "con": 0.2566682232316953,
+        "feed": 0.43223174876056586,
+        "forward": 0.43223174876056586
+      },
+      "tfidf": {
+        "metodo": "TF-IDF (coseno)",
+        "ranking_documentos": [
+          "d02",
+          "d06",
+          "d03",
+          "d08",
+          "d01",
+          "d04",
+          "d05",
+          "d07",
+          "d09",
+          "d10"
+        ],
+        "top3": [
+          "d02",
+          "d06",
+          "d03"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.5674153888326815,
+        "similitudes_coseno": {
+          "d01": 0.03190732792160084,
+          "d02": 0.5674153888326815,
+          "d03": 0.04553295699284448,
+          "d04": 0.0,
+          "d05": 0.0,
+          "d06": 0.16635706514893978,
+          "d07": 0.0,
+          "d08": 0.045402589103718784,
+          "d09": 0.0,
+          "d10": 0.0
+        }
+      },
+      "lsa": {
+        "metodo": "LSA-4 (TruncatedSVD, coseno)",
+        "ranking_documentos": [
+          "d02",
+          "d08",
+          "d10",
+          "d03",
+          "d06",
+          "d01",
+          "d07",
+          "d04",
+          "d09",
+          "d05"
+        ],
+        "top3": [
+          "d02",
+          "d08",
+          "d10"
+        ],
+        "rank_relevante": 1.0,
+        "fallo_top3": false,
+        "similitud_relevante": 0.9530957100505457,
+        "similitudes_coseno": {
+          "d01": 0.04002492044137168,
+          "d02": 0.9530957100505457,
+          "d03": 0.3301561141049808,
+          "d04": -0.01180121930003325,
+          "d05": -0.3256721709816445,
+          "d06": 0.21635859777817937,
+          "d07": 0.005194301093235709,
+          "d08": 0.9523406024377628,
+          "d09": -0.18718419462120145,
+          "d10": 0.3484279929519669
+        }
+      }
+    }
+  ],
+  "fallos_por_metodo": {
+    "TF-IDF (coseno)": [
+      {
+        "consulta_id": "q5",
+        "consulta": "¿Qué hace que el modelo sea más determinista al elegir la siguiente palabra?",
+        "relevante": "d09",
+        "rank_relevante": 6.0,
+        "top3_devuelto": [
+          "d03",
+          "d06",
+          "d04"
+        ],
+        "similitud_relevante": 0.07900232923856973,
+        "terminos_comunes_consulta_relevante": [
+          "la"
+        ],
+        "num_terminos_comunes": 1.0,
+        "tokens_consulta_en_vocabulario": [
+          "al",
+          "el",
+          "la",
+          "modelo",
+          "que",
+          "qué"
+        ],
+        "explicacion": "FALLO de TF-IDF (coseno) en q5: el documento relevante d09 queda en el puesto 6, fuera del top 3 (similitud coseno con la consulta = 0.0790; top 3 devuelto: d03, d06, d04). Consulta y relevante comparten 1 término(s) del vocabulario [la], pero ese solapamiento no basta para situar al relevante en el top 3 con este método."
+      }
+    ],
+    "LSA-4 (TruncatedSVD, coseno)": [
+      {
+        "consulta_id": "q5",
+        "consulta": "¿Qué hace que el modelo sea más determinista al elegir la siguiente palabra?",
+        "relevante": "d09",
+        "rank_relevante": 6.0,
+        "top3_devuelto": [
+          "d04",
+          "d01",
+          "d03"
+        ],
+        "similitud_relevante": 0.49988551680348314,
+        "terminos_comunes_consulta_relevante": [
+          "la"
+        ],
+        "num_terminos_comunes": 1.0,
+        "tokens_consulta_en_vocabulario": [
+          "al",
+          "el",
+          "la",
+          "modelo",
+          "que",
+          "qué"
+        ],
+        "explicacion": "FALLO de LSA-4 (TruncatedSVD, coseno) en q5: el documento relevante d09 queda en el puesto 6, fuera del top 3 (similitud coseno con la consulta = 0.4999; top 3 devuelto: d04, d01, d03). Consulta y relevante comparten 1 término(s) del vocabulario [la], pero ese solapamiento no basta para situar al relevante en el top 3 con este método. En el espacio latente de 4 componentes (varianza explicada acumulada = 0.3953), la consulta proyecta más cerca de otros documentos, lo que desplaza al relevante fuera del top 3."
+      }
+    ]
+  },
+  "resumen_fallos": {
+    "k_umbral_top3": 3.0,
+    "num_consultas": 6.0,
+    "num_fallos_tfidf": 1.0,
+    "num_fallos_lsa": 1.0,
+    "consultas_con_fallo_tfidf": [
+      "q5"
+    ],
+    "consultas_con_fallo_lsa": [
+      "q5"
+    ],
+    "consultas_con_fallo_en_ambos_metodos": [
+      "q5"
+    ],
+    "consultas_sin_fallo_en_ningun_metodo": [
+      "q1",
+      "q2",
+      "q3",
+      "q4",
+      "q6"
+    ],
+    "tasa_exito_top3_tfidf": 0.8333333333333334,
+    "tasa_exito_top3_lsa": 0.8333333333333334,
+    "metricas_tfidf": {
+      "hit_at_1": 0.8333333333333334,
+      "hit_at_3": 0.8333333333333334,
+      "mrr": 0.8611111111111112
+    },
+    "metricas_lsa": {
+      "hit_at_1": 0.6666666666666666,
+      "hit_at_3": 0.8333333333333334,
+      "mrr": 0.75
+    },
+    "num_terminos_comunes_por_consulta": {
+      "q1": 8.0,
+      "q2": 3.0,
+      "q3": 5.0,
+      "q4": 4.0,
+      "q5": 1.0,
+      "q6": 5.0
+    }
+  }
+}

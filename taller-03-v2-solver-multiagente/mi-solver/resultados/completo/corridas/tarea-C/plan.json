@@ -1,0 +1,81 @@
+{
+  "entregable": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 2
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S0",
+        "S1"
+      ],
+      "descripcion": "Cargar el corpus de 10 documentos (d01–d10) y las 6 consultas (q1–q6 con relevantes d04, d03, d08, d05, d09, d02) tal como aparecen en el enunciado; vectorizar con TfidfVectorizer (parámetros por defecto), calcular similitud coseno consulta-documento, ordenar los 10 documentos por consulta y computar Hit@1, Hit@3 y MRR sobre las 6 consultas.",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Con la misma matriz TF-IDF y los mismos juicios, proyectar a 4 dimensiones con TruncatedSVD(n_components=4, random_state=0) (LSA), repetir la evaluación (Hit@1, Hit@3, MRR) y construir una sola tabla con las tres métricas de los dos métodos (TF-IDF y LSA).",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Por consulta y por método, identificar los fallos (documento relevante fuera del top 3) y calcular los términos que comparten cada consulta y su documento relevante (intersección de tokens de la vectorización) para explicar cada fallo; generar la tabla del análisis por consulta.",
+      "depende_de": [
+        "T1",
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Responder la pregunta conceptual: por qué un recuperador denso (embeddings de un modelo entrenado) resolvería q5 mejor que TF-IDF y LSA (q5 comparte pocos términos léxicos con d09) y qué costo tiene frente a TF-IDF, apoyándose en las cifras y el análisis de términos ya calculados.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Redactar reporte.pdf de máximo 2 páginas con las secciones Objetivo, Método, Resultados (tabla de la Parte 2 y tabla de la Parte 3) y Discusión, incluyendo el código y usando únicamente cifras provenientes de la ejecución de T1–T3 y la discusión de T4.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}
