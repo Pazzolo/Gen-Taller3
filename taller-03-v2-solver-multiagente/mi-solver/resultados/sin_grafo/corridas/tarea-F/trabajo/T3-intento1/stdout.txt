@@ -1,0 +1,12 @@
+=== T3: ARI entre clustering KMeans y clases reales de Wine ===
+Datos: 178 ejemplos, 13 atributos, 3 clases reales
+k elegido por silueta (recalculado como en T2, sin usar etiquetas): k=3 (silueta=0.2849)
+Indice de Rand ajustado (ARI) clustering vs wine.target: 0.8975
+Pureza del clustering (cifra complementaria): 0.9663
+Tabla de contingencia (filas = cluster, columnas = clase real):
+  cluster | clase 0 | clase 1 | clase 2 | total
+        0 |       0 |      65 |       0 |    65
+        1 |       0 |       3 |      48 |    51
+        2 |      59 |       3 |       0 |    62
+Tamanos de clases reales: clase 0: 59, clase 1: 71, clase 2: 48
+Cifras guardadas en resultados.json

@@ -1,0 +1,129 @@
+== completo A 00:48:42
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  A A01  archivo         ✓  1 archivo(s) con reporte.md
+  A A02  archivo         ✓  2 archivo(s) con **/*.png
+  A A03  secciones       ✓  todas, en orden
+  A A04  palabras_max    ✓  965 palabras
+  A A05  cifra_presente  ✓  verdad=569.0000 ±0; hallada
+  A A06  cifra           ✓  verdad=0.9474 ±0.006; hallada
+  A A07  cifra           ✓  verdad=0.9883 ±0.012; hallada
+  A A08  procedencia     ✓  40/40 cifras respaldadas (1.00)
+Tarea A: 8/8 · status=completado · 279.3 s
+
+Comprobaciones aprobadas: 8/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/parciales/resultados_solver_A.csv
+== completo B 00:53:26
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  B B01  archivo         ✓  1 archivo(s) con *.ipynb
+  B B02  ipynb_ejecutado ✓  3 celdas de código, 0 sin ejecutar, 0 con error
+  B B03  cifra_presente  ✓  verdad=0.9147 ±0.00051; hallada
+  B B04  cifra_presente  ✓  verdad=1.7998 ±0.00051; hallada
+  B B05  cifra_presente  ✓  verdad=2.2888 ±0.00051; hallada
+  B B06  cifra_presente  ✓  verdad=0.5694 ±0.00051; hallada
+  B B07  contiene        ✓  todos presentes
+  B B08  archivo         ✓  3 archivo(s) con **/*.png
+  B B09  procedencia     ✓  38/38 cifras respaldadas (1.00)
+Tarea B: 9/9 · status=completado · 130.8 s
+
+Comprobaciones aprobadas: 9/9 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/parciales/resultados_solver_B.csv
+== completo C 00:55:38
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  C C01  archivo         ✓  1 archivo(s) con reporte.pdf
+  C C02  paginas_max     ✓  2 páginas
+  C C03  secciones       ✓  todas, en orden
+  C C04  cifra           ✓  verdad=0.8611 ±0.006; hallada
+  C C05  cifra           ✓  verdad=0.8333 ±0.006; hallada
+  C C06  cifra           ✓  verdad=0.7500 ±0.006; hallada
+  C C07  contiene        ✓  todos presentes
+  C C08  procedencia     ✓  27/27 cifras respaldadas (1.00)
+Tarea C: 8/8 · status=completado · 439.9 s
+
+Comprobaciones aprobadas: 8/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/parciales/resultados_solver_C.csv
+== completo E 01:03:00
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  E E01  archivo         ✓  1 archivo(s) con *.ipynb
+  E E02  ipynb_ejecutado ✓  4 celdas de código, 0 sin ejecutar, 0 con error
+  E E03  secciones       ✓  todas, en orden
+  E E04  cifra           ✓  verdad=0.3162 ±0.002; hallada
+  E E05  cifra           ✓  verdad=0.5037 ±0.003; hallada
+  E E06  cifra_presente  ✓  verdad=54.3838 ±0.006; hallada
+  E E07  archivo         ✓  4 archivo(s) con **/*.png
+  E E08  procedencia     ✓  24/24 cifras respaldadas (1.00)
+Tarea E: 8/8 · status=completado · 910.9 s
+
+Comprobaciones aprobadas: 8/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/parciales/resultados_solver_E.csv
+== completo F 01:18:13
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  F F01  archivo         ✓  1 archivo(s) con reporte.pdf
+  F F02  paginas_max     ✓  1 páginas
+  F F03  secciones       ✓  todas, en orden
+  F F04  cifra           ✓  verdad=0.8975 ±0.006; hallada
+  F F05  cifra           ✓  verdad=0.2849 ±0.002; hallada
+  F F06  procedencia     ✓  21/21 cifras respaldadas (1.00)
+Tarea F: 6/6 · status=completado · 128.9 s
+
+Comprobaciones aprobadas: 6/6 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/completo/parciales/resultados_solver_F.csv
+== sin_grafo A 01:20:25
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  A A01  archivo         ✓  1 archivo(s) con reporte.md
+  A A02  archivo         ✓  2 archivo(s) con **/*.png
+  A A03  secciones       ✓  todas, en orden
+  A A04  palabras_max    ✓  837 palabras
+  A A05  cifra_presente  ✓  verdad=569.0000 ±0; hallada
+  A A06  cifra           ✓  verdad=0.9474 ±0.006; hallada
+  A A07  cifra           ✓  verdad=0.9883 ±0.012; hallada
+  A A08  procedencia     ✓  48/48 cifras respaldadas (1.00)
+Tarea A: 8/8 · status=completado · 192.9 s
+
+Comprobaciones aprobadas: 8/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/parciales/resultados_solver_A.csv
+== sin_grafo B 01:23:41
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  B B01  archivo         ✓  1 archivo(s) con *.ipynb
+  B B02  ipynb_ejecutado ✓  3 celdas de código, 0 sin ejecutar, 0 con error
+  B B03  cifra_presente  ✓  verdad=0.9147 ±0.00051; hallada
+  B B04  cifra_presente  ✓  verdad=1.7998 ±0.00051; hallada
+  B B05  cifra_presente  ✓  verdad=2.2888 ±0.00051; hallada
+  B B06  cifra_presente  ✓  verdad=0.5694 ±0.00051; hallada
+  B B07  contiene        ✓  todos presentes
+  B B08  archivo         ✓  3 archivo(s) con **/*.png
+  B B09  procedencia     ✓  35/35 cifras respaldadas (1.00)
+Tarea B: 9/9 · status=completado · 138.6 s
+
+Comprobaciones aprobadas: 9/9 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/parciales/resultados_solver_B.csv
+== sin_grafo C 01:26:00
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  C C01  archivo         ✓  1 archivo(s) con reporte.pdf
+  C C02  paginas_max     ✓  2 páginas
+  C C03  secciones       ✓  todas, en orden
+  C C04  cifra           ✗  verdad=0.8611 ±0.006; no hallada
+  C C05  cifra           ✓  verdad=0.8333 ±0.006; hallada
+  C C06  cifra           ✗  verdad=0.7500 ±0.006; no hallada
+  C C07  contiene        ✓  todos presentes
+  C C08  procedencia     ✗  18/24 cifras respaldadas (0.75)
+Tarea C: 5/8 · status=parcial · 2331.2 s
+
+Comprobaciones aprobadas: 5/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/parciales/resultados_solver_C.csv
+== sin_grafo E 02:06:47
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  E E01  archivo         ✓  1 archivo(s) con *.ipynb
+  E E02  ipynb_ejecutado ✓  3 celdas de código, 0 sin ejecutar, 0 con error
+  E E03  secciones       ✓  todas, en orden
+  E E04  cifra           ✓  verdad=0.3162 ±0.002; hallada
+  E E05  cifra           ✓  verdad=0.5037 ±0.003; hallada
+  E E06  cifra_presente  ✓  verdad=54.3838 ±0.006; hallada
+  E E07  archivo         ✓  2 archivo(s) con **/*.png
+  E E08  procedencia     ✓  39/39 cifras respaldadas (1.00)
+Tarea E: 8/8 · status=parcial · 267.9 s
+
+Comprobaciones aprobadas: 8/8 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/parciales/resultados_solver_E.csv
+== sin_grafo F 02:11:17
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+  F F01  archivo         ✓  1 archivo(s) con reporte.pdf
+  F F02  paginas_max     ✓  1 páginas
+  F F03  secciones       ✓  todas, en orden
+  F F04  cifra           ✓  verdad=0.8975 ±0.006; hallada
+  F F05  cifra           ✓  verdad=0.2849 ±0.002; hallada
+  F F06  procedencia     ✓  22/22 cifras respaldadas (1.00)
+Tarea F: 6/6 · status=completado · 89.7 s
+
+Comprobaciones aprobadas: 6/6 → /Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/parciales/resultados_solver_F.csv
+== FIN 02:12:49

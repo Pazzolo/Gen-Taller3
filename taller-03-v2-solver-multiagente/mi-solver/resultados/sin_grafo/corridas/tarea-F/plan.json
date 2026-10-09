@@ -1,0 +1,78 @@
+{
+  "entregable": {
+    "formato": "pdf",
+    "archivo": "reporte.pdf",
+    "secciones": [
+      "Objetivo",
+      "Método",
+      "Resultados",
+      "Discusión"
+    ],
+    "max_palabras": null,
+    "max_paginas": 1
+  },
+  "subtareas": [
+    {
+      "id": "T1",
+      "tipo": "calculo",
+      "secciones": [
+        "S1"
+      ],
+      "descripcion": "Cargar el conjunto Wine con sklearn.datasets.load_wine; reportar número de ejemplos, atributos y clases; estandarizar los atributos con StandardScaler (sin usar las etiquetas para nada).",
+      "depende_de": [],
+      "figura": false
+    },
+    {
+      "id": "T2",
+      "tipo": "calculo",
+      "secciones": [
+        "S2"
+      ],
+      "descripcion": "Sobre los datos estandarizados de T1, para cada k entre 2 y 8 ajustar KMeans(n_clusters=k, n_init=10, random_state=0) y calcular el coeficiente de silueta; construir la tabla silueta por k y elegir el k con silueta más alta (las etiquetas reales no se usan para elegir k).",
+      "depende_de": [
+        "T1"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T3",
+      "tipo": "calculo",
+      "secciones": [
+        "S3"
+      ],
+      "descripcion": "Con el k elegido en T2, comparar los grupos con las clases reales de Wine calculando el índice de Rand ajustado (adjusted_rand_score) entre etiquetas del clustering y wine.target.",
+      "depende_de": [
+        "T2"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T4",
+      "tipo": "redaccion",
+      "secciones": [
+        "S4"
+      ],
+      "descripcion": "Redactar la discusión: qué pasaría con la elección de k (silueta) y con el ARI si no se estandarizaran los atributos, y por qué (atributos de gran escala como proline dominan la distancia euclídea); apoyarse en las cifras de T2 y T3.",
+      "depende_de": [
+        "T2",
+        "T3"
+      ],
+      "figura": false
+    },
+    {
+      "id": "T5",
+      "tipo": "redaccion",
+      "secciones": [
+        "S5"
+      ],
+      "descripcion": "Redactar y ensamblar reporte.pdf de una página como máximo con las secciones Objetivo, Método, Resultados (tabla con la silueta de cada k, el k elegido y el ARI) y Discusión, incluyendo el código; toda cifra proviene de las ejecuciones de T1–T3.",
+      "depende_de": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "figura": false
+    }
+  ]
+}

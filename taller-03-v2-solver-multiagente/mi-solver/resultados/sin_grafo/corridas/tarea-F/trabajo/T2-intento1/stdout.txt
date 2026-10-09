@@ -1,0 +1,13 @@
+=== T2: KMeans + coeficiente de silueta por k (Wine estandarizado) ===
+Ejemplos: 178 | Atributos: 13 | Clases reales: 3 (no usadas para elegir k)
+Tabla silueta por k:
+  k=2: silueta=0.2683 (inercia=1659.0080)
+  k=3: silueta=0.2849 (inercia=1277.9285)
+  k=4: silueta=0.2457 (inercia=1180.7376)
+  k=5: silueta=0.2026 (inercia=1110.3654)
+  k=6: silueta=0.1960 (inercia=1044.4698)
+  k=7: silueta=0.1386 (inercia=995.9946)
+  k=8: silueta=0.1581 (inercia=944.5589)
+k optimo (silueta mas alta): k=3 con silueta=0.2849
+Referencia (no usada para elegir k): silueta con etiquetas reales = 0.2798
+Cifras guardadas en resultados.json
