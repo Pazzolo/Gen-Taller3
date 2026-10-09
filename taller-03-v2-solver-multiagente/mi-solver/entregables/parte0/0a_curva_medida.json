@@ -1,0 +1,32 @@
+[
+  {
+    "fraccion": 0.05,
+    "n": 19,
+    "nb_accuracy": 0.9415,
+    "lr_accuracy": 0.9298
+  },
+  {
+    "fraccion": 0.1,
+    "n": 39,
+    "nb_accuracy": 0.9474,
+    "lr_accuracy": 0.9357
+  },
+  {
+    "fraccion": 0.25,
+    "n": 99,
+    "nb_accuracy": 0.9474,
+    "lr_accuracy": 0.9415
+  },
+  {
+    "fraccion": 0.5,
+    "n": 199,
+    "nb_accuracy": 0.9357,
+    "lr_accuracy": 0.9766
+  },
+  {
+    "fraccion": 1.0,
+    "n": 398,
+    "nb_accuracy": 0.9474,
+    "lr_accuracy": 0.9883
+  }
+]

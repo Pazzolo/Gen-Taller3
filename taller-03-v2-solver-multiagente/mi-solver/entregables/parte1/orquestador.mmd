@@ -1,0 +1,58 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	leer(leer)
+	indexar(indexar)
+	planificar(planificar)
+	validar(validar)
+	elegir(elegir)
+	investigar(investigar)
+	programar(programar)
+	revisar_codigo(revisar_codigo)
+	aprobar_red(aprobar_red)
+	ejecutar(ejecutar)
+	revisar(revisar)
+	fallida(fallida)
+	redactar(redactar)
+	comprobar(comprobar)
+	publicar(publicar)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> leer;
+	aprobar_red -.-> ejecutar;
+	aprobar_red -.-> fallida;
+	aprobar_red -.-> programar;
+	comprobar -.-> publicar;
+	comprobar -.-> redactar;
+	ejecutar --> revisar;
+	elegir -.-> investigar;
+	elegir -.-> redactar;
+	fallida --> elegir;
+	indexar --> planificar;
+	investigar --> programar;
+	leer --> indexar;
+	planificar --> validar;
+	programar -.-> fallida;
+	programar -.-> redactar;
+	programar -.-> revisar_codigo;
+	redactar -.-> comprobar;
+	redactar -.-> publicar;
+	revisar -.-> elegir;
+	revisar -.-> fallida;
+	revisar -.-> programar;
+	revisar -.-> redactar;
+	revisar_codigo -.-> aprobar_red;
+	revisar_codigo -.-> ejecutar;
+	revisar_codigo -.-> fallida;
+	revisar_codigo -.-> programar;
+	validar -.-> elegir;
+	validar -.-> planificar;
+	validar -.-> publicar;
+	publicar --> __end__;
+	programar -.-> programar;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

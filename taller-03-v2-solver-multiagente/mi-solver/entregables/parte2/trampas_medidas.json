@@ -1,0 +1,28 @@
+{
+  "E_bien": {
+    "alpha": 0.3162,
+    "r2_prueba": 0.5037,
+    "rmse_prueba": 54.3838
+  },
+  "E_trampa": {
+    "alpha": 100.0,
+    "r2_prueba": 0.5159
+  },
+  "E_sin_regularizar": {
+    "r2_prueba": 0.5028,
+    "rmse_prueba": 54.4331
+  },
+  "F_bien": {
+    "k": 3,
+    "silueta": 0.2849,
+    "ari": 0.8975
+  },
+  "F_trampa_sin_estandarizar": {
+    "k": 2,
+    "silueta": 0.6569,
+    "ari": 0.3694
+  },
+  "F_descartada_k_por_etiquetas": {
+    "k": 3
+  }
+}
