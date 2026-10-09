@@ -1,0 +1,11 @@
+=== T1: Carga y división del conjunto Diabetes ===
+Ejemplos totales: 442
+Atributos: 10
+Entrenamiento: 331 ejemplos (74.8869 %)
+Prueba: 111 ejemplos (25.1131 %)
+Media del objetivo (total): 152.1335
+Desv. est. del objetivo (total): 77.0057
+Media del objetivo (entrenamiento): 152.4290
+Desv. est. del objetivo (entrenamiento): 76.9385
+Resultados guardados en resultados.json
+El conjunto de prueba queda reservado para la Parte 3.

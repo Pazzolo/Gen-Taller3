@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/corridas/tarea-E/trabajo/T4-intento3/script.py", line 152, in cargar_datos_t2
+    with open(ARCHIVO_RESULTADOS, "r", encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'resultados.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/corridas/tarea-E/trabajo/T4-intento3/script.py", line 284, in <module>
+    main()
+    ~~~~^^
+  File "/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/corridas/tarea-E/trabajo/T4-intento3/script.py", line 180, in main
+    contenido_previo, t2 = cargar_datos_t2()
+                           ~~~~~~~~~~~~~~~^^
+  File "/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/corridas/tarea-E/trabajo/T4-intento3/script.py", line 155, in cargar_datos_t2
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: No se encontró 'resultados.json' con los resultados de T2 en la carpeta actual. Ejecuta primero la subtarea T2; esta subtarea no usa valores de respaldo.

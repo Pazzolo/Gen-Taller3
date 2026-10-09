@@ -1,0 +1,25 @@
+=== T4: Figura R2 medio de validación cruzada frente a alpha ===
+Entrenamiento: 331 ejemplos | Prueba reservada (no usada): 111
+CV: KFold(n_splits=5, shuffle=True, random_state=7) | scoring: r2
+Eje x de la figura en escala logarítmica
+--------------------------------------------------
+       Alpha   R2 medio CV
+      0.0010        0.4695
+      0.0032        0.4695
+      0.0100        0.4695
+      0.0316        0.4696
+      0.1000        0.4697
+      0.3162        0.4699
+      1.0000        0.4701
+      3.1623        0.4697
+     10.0000        0.4690
+     31.6228        0.4680
+    100.0000        0.4569
+    316.2278        0.4028
+   1000.0000        0.2811
+--------------------------------------------------
+Alpha elegido: 1.0000
+R2 medio de validación cruzada: 0.4701
+Desv. est. del R2 en CV (alpha elegido): 0.0833
+Figura guardada en: t4_r2_cv_vs_alpha.png
+Resultados guardados en: resultados.json

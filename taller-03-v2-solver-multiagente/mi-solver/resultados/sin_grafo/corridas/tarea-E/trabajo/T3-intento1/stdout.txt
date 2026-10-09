@@ -1,0 +1,19 @@
+=== T3: Evaluación única sobre el conjunto de prueba ===
+Entrenamiento: 331 ejemplos | Prueba: 111 ejemplos (test_size=0.25, random_state=7)
+La prueba se usa una sola vez, con el alpha ya elegido en T2 (solo entrenamiento/CV).
+----------------------------------------------------
+Alpha elegido en T2: 0.3162
+Alpha reproducido con GridSearchCV: 0.3162 (coincide: True)
+R2 medio de validación cruzada (alpha elegido): 0.4724
+----------------------------------------------------
+Modelo 1) StandardScaler + Ridge (alpha elegido):
+  R2 prueba  = 0.5037
+  RMSE prueba = 54.3838
+Modelo 2) StandardScaler + LinearRegression (sin regularizar):
+  R2 prueba  = 0.5028
+  RMSE prueba = 54.4331
+----------------------------------------------------
+Diferencia R2 (Ridge - Lineal): 0.0009
+Diferencia RMSE (Ridge - Lineal): -0.0493
+Mejor modelo en prueba (por R2): Ridge
+Resultados guardados en resultados.json

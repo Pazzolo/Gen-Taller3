@@ -1,0 +1,16 @@
+{
+  "subtarea": "T1_carga_y_division_diabetes",
+  "dataset": "sklearn.datasets.load_diabetes",
+  "n_ejemplos_total": 442,
+  "n_atributos": 10,
+  "n_ejemplos_entrenamiento": 331,
+  "n_ejemplos_prueba": 111,
+  "proporcion_entrenamiento": 0.748868778280543,
+  "proporcion_prueba": 0.251131221719457,
+  "test_size": 0.25,
+  "random_state": 7,
+  "media_objetivo_total": 152.13348416289594,
+  "desv_est_objetivo_total": 77.00574586945044,
+  "media_objetivo_entrenamiento": 152.42900302114805,
+  "desv_est_objetivo_entrenamiento": 76.9385339786801
+}

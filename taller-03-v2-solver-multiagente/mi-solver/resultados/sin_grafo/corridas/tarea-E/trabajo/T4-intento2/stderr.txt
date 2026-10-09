@@ -1,0 +1,2 @@
+/Users/paolo/Documents/USFQ/Generativa/Gen-Taller3/taller-03-v2-solver-multiagente/mi-solver/resultados/sin_grafo/corridas/tarea-E/trabajo/T4-intento2/script.py:182: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
