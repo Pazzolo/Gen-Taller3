@@ -7,3 +7,5 @@ reports/evaluation_report.json
 .env
 .venv/
 __pycache__/
+# traza.json local de MiAgente (Taller 3): lo que se entrega son los spans exportados de Langfuse
+traces/
