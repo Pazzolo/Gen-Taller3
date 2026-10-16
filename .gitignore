@@ -1,6 +1,8 @@
 # Course reference material (professor's notebooks, mini-opencode): read-only, not ours to commit
 202610.*/
 202610.*.zip
+# Kit del Taller 4 tal como se repartió: se copia a taller-04-llmops/ lo que se usa
+Taller4/Referencias/
 # Original downloads
 *.zip
 .DS_Store
