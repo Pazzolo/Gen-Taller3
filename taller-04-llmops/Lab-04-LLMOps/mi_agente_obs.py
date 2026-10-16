@@ -106,6 +106,12 @@ class MiAgenteObs(MiAgente):
         kw.setdefault("trace_dir", str(AQUI / "traces"))
         super().__init__(**kw)
         self.prompt_version = prompt_version or PROMPT_VERSION
+        if system_prompt is None and os.getenv("PROMPT_LANGFUSE") == "1":
+            # La versión registrada en Langfuse (prompts.py registrar): «v2» → versión 2.
+            import prompts
+            langfuse_prompt = get_client().get_prompt(
+                prompts.NOMBRE, version=int(self.prompt_version.lstrip("v")), cache_ttl_seconds=0)
+            system_prompt = langfuse_prompt.prompt
         self.system_prompt = system_prompt or mi_agente.SYSTEM_PROMPT
         self.langfuse_prompt = langfuse_prompt
         self.sesion = sesion or SESION
