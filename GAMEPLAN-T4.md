@@ -77,9 +77,12 @@ El T3 ya entregado queda congelado; el agente instrumentado importa `MiAgente` d
    (`langfuse.openai` + `openai==3.22.1` ya probado por el kit.) Crear
    `fuentes/modelos/modelos-2026-1.json` con el anexo de precios del PDF.
 2. `python ../Lab-03-Agentes/crear_base.py` (la base ya existe en el T3, pero `data/` no se versiona).
-3. **Langfuse:** el daemon de Docker está roto (`docker info` hace *panic*). Opciones: reiniciar
-   Docker Desktop y `./levantar_langfuse.sh` (~4 GB), o **Langfuse Cloud plan Hobby** (más
-   rápido). Claves en `Lab-04-LLMOps/.env`; `auth_check()`; `hola_langfuse.py`.
+3. **Langfuse local (hecho el 2026-10-16):** `./levantar_langfuse.sh` con Docker Desktop 4.12 /
+   Compose 2.10.2. Ese Compose no entiende `!reset` de `sin-puertos-internos.yml`, y el Postgres
+   local ocupa el 5432: se quitaron a mano los `ports:` de worker, clickhouse, redis y postgres en
+   `.langfuse/docker-compose.yml` (generado, fuera de git) y se volvió a correr. Interfaz en
+   http://localhost:3000 (usuario y contraseña en `langfuse/.langfuse/.env`). Claves copiadas a
+   `Lab-04-LLMOps/.env`; `auth_check()` → True. Falta `hola_langfuse.py` (pide la H200).
 4. `.env`: agente en vLLM `:12555`, juez **gemma3** en Ollama `:11434` (otra familia; ya lo
    usamos en el v2). Leer los ids de `/v1/models`, anotar ids y fecha para el informe.
 
