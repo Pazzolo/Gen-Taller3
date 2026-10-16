@@ -1,0 +1,9 @@
+# resultados*.csv, guardrails*.csv y spans*.jsonl SÍ se versionan: son entregables del Taller 4
+# (el enunciado los pide en el repositorio al cierre de la sesión). El kit los excluía.
+# Lo que escribe el andamiaje de la Parte 0 (guion.py) sí se queda fuera:
+reports/traces.jsonl
+reports/answers.json
+reports/evaluation_report.json
+.env
+.venv/
+__pycache__/
