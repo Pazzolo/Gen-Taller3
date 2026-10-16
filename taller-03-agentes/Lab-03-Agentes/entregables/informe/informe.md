@@ -2,7 +2,7 @@
 
 **MMIA 6013 · IA Generativa y Agentes · USFQ**
 
-**Integrantes:** _[completar]_ · **Fecha de las corridas:** 2026-10-05
+**Integrantes:** Paolo Arrata · **Fecha de las corridas:** 2026-10-05
 
 | Dato | Valor |
 |---|---|
