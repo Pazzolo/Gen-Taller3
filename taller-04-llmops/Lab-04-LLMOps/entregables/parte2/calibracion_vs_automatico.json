@@ -1,0 +1,13 @@
+{
+  "pares": 28,
+  "acuerdo": 0.964,
+  "kappa": 0.0,
+  "discrepancias": [
+    "A05"
+  ],
+  "excluidos_sin_parsear": [],
+  "juez_por_veredicto": {
+    "aprueba": 32
+  },
+  "nota": "Etiquetas = columna acierto del verificador automático (True→aprueba), en respondibles, negativas y adversariales; ambiguas excluidas."
+}
