@@ -62,4 +62,26 @@ legítima y hasta el total hipotético, el patrón de A01 en el Taller 3.
 Ver `CHANGELOG_prompt.md` y `prompt_v1_v2.diff`. Corrida con los 32 casos: `resultados_v2.csv`
 (sesión `paolo-v2`, cada generation ligada a `mi-agente-sistema` versión 2).
 
-_(Antes/después y repeticiones: se completan cuando terminen las repeticiones.)_
+## Antes / después, separando la mejora del azar
+
+La corrida de 32 casos se hizo una vez con cada prompt; como el modelo muestrea, los cinco casos que
+cambiaron o que v2 buscaba cambiar se repitieron **3 veces más con cada versión** (las mismas
+sesiones de Langfuse `paolo-rep-v1` y `paolo-rep-v2`; la v1 repetida también toma su texto de
+Langfuse). Total: 4 corridas por caso y prompt. Tabla: `tabla_repeticiones.md`
+(`python entregables/parte2c/tabla_repeticiones.py`).
+
+| caso | qué se mira | v1 | v2 | lectura |
+|---|---|---|---|---|
+| AM03 | declara qué lectura de «mejor» usa | 0/4 | **4/4** | **lo que buscaba v2**; Fisher exacta, una cola: p ≈ 0,014 |
+| A05 | frase de abstención al inicio | 0/4 | 0/4 | v2 no lo arregla: la negativa se pierde en el bucle (§1), y un prompt no llega ahí |
+| A04 | frase de abstención al inicio | 4/4 | 2/4 | **efecto lateral posible, no demostrado** (p ≈ 0,21): dos veces empezó con «Resumen:». Hipótesis: «di al inicio qué lectura usas» compite con «empieza con la frase» |
+| G04, G07 | juez aprueba (respuestas correctas, casi iguales) | 4/4 y 4/4 | 3/4 y 3/4 | **ruido del juez**: el verificador automático da 4/4 en las dos versiones |
+
+Qué se puede afirmar con esto y qué no: con 4 corridas por lado, solo el cambio de AM03 es
+difícil de atribuir al azar. La caída de A04 puede ser real o no; haría falta repetir más. Y en el
+golden set completo cada caso vale 3,1 %: una diferencia de uno o dos casos entre v1 y v2 (como la
+de A04 en la corrida de 32) no alcanza para decir que una versión es mejor.
+
+**Decisión:** v2 queda como `candidata`, no pasa a `production`: arregla AM03 pero puede haber
+introducido el problema de A04. El arreglo de A05 es de código (devolver la abstención de un paso
+intermedio, como el supervisor del Taller 3), no de prompt.

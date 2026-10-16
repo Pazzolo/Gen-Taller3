@@ -20,3 +20,15 @@ cambió es la velocidad del servidor: mediana de tokens de salida por segundo en
 **180,9 → 99,8**, y el percentil 5 **92,6 → 15,9**. La llamada más lenta tardó 43,9 s para 135
 tokens. O sea: no fue el prompt, fue la H200. Sin los spans `llm` con sus tokens y su duración,
 esta alerta habría llevado a revertir el prompt v2 por una causa que no era suya.
+
+## 4.a — ¿Hace falta ajuste fino? (borrador, 225 palabras; límite 150–250)
+
+No, con estas cifras no hace falta. En el árbol de la sesión 19 (mejor prompt → recuperar lo que falta → ajustar pesos) los tres peores casos se quedan antes del último escalón. AM03 se arregló con el prompt: con v2 declaró la lectura en 4 de 4 corridas, contra 0 de 4 con v1. A05 es del código: la negativa aparece, pero en un mensaje intermedio que el bucle descarta. A04 es un hueco del guardrail, y el modelo igual se abstuvo. Nada falta por recuperar: las 19 respondibles salen bien en las dos versiones.
+
+Si se ajustara, sería para que la frase de abstención salga siempre primero, porque con v2 A04 la perdió en 2 de 4 corridas. Se usaría llama3.1:8b (fila open_weight_local) con preferencias: pares aceptada/rechazada sacados de las trazas, la respuesta que abre con la frase contra la que no. Los 32 casos no alcanzan; harían falta cientos de pares, variando las adversariales. Hu et al. (2021, Tabla 5, §7.1) adaptan solo Wq y Wv con r = 4, pero Dettmers et al. (2023, §4) muestran que en LLaMA eso no iguala el ajuste completo y que LoRA tiene que ir en todas las capas lineales, con r poco relevante; se seguiría QLoRA en NF4. Se sabría que mejoró corriendo el mismo golden set: más abstenciones correctas sin perder respondibles.
+
+Fuentes verificadas en los PDF de `papers/`: Hu et al. (2021), §7.1 y Tabla 5 (presupuesto de 18M
+parámetros en GPT-3 175B; Wq y Wv con r = 4 da el mejor resultado en conjunto); Dettmers et al.
+(2023), §4, «Default LoRA hyperparameters do not match 16-bit performance» (en LLaMA 7B, LoRA en
+query y value no iguala el ajuste completo; hace falta en todas las capas lineales; r casi no
+influye) y su apéndice B, p. 23 (NF4 con doble cuantización, r = 64, α = 16 en todas las capas lineales).
