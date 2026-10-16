@@ -1,0 +1,54 @@
+{
+ "spans_base.jsonl": {
+  "corridas": 32,
+  "duracion_s": {
+   "p50": 1.77,
+   "p95": 2.76,
+   "max": 4.72
+  },
+  "tokens_por_corrida": {
+   "p50": 5188.0,
+   "p95": 7547.6,
+   "max": 8017
+  },
+  "llamadas_llm_por_corrida": {
+   "p50": 3.0,
+   "max": 4
+  },
+  "tokens_salida_por_s_llm": {
+   "p50": 180.9,
+   "p5": 92.6
+  }
+ },
+ "spans_v2.jsonl": {
+  "corridas": 32,
+  "duracion_s": {
+   "p50": 4.37,
+   "p95": 42.24,
+   "max": 48.31
+  },
+  "tokens_por_corrida": {
+   "p50": 5593.5,
+   "p95": 8165.2,
+   "max": 8476
+  },
+  "llamadas_llm_por_corrida": {
+   "p50": 3.0,
+   "max": 4
+  },
+  "tokens_salida_por_s_llm": {
+   "p50": 99.8,
+   "p5": 15.9
+  }
+ },
+ "resultados_base.csv": {
+  "bloqueadas_entrada": 3,
+  "redactadas_entrada": 2,
+  "casos": 32
+ },
+ "resultados_v2.csv": {
+  "bloqueadas_entrada": 3,
+  "redactadas_entrada": 2,
+  "casos": 32
+ }
+}
