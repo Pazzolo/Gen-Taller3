@@ -1,0 +1,49 @@
+{
+  "question": "En el mes de 2026 con más ventas (número de transacciones), ¿cuál fue el importe medio por venta?",
+  "answer": "No puedo responder la pregunta porque no tengo acceso a los datos: intenté usar las tools 'read_data' y 'leer_datos' y ambas devolvieron el error 'Tool no registrada'. No dispongo de ninguna tool funcional para leer datos, calcular estadísticas ni generar gráficos, y no voy a inventar cifras.\n\nLo que necesito para responder:\n- El nombre correcto de las tools disponibles (o que se registren en el entorno), o bien\n- Que me proporciones directamente los datos de ventas de 2026 (fecha e importe de cada transacción, o al menos agregados mensuales: número de transacciones e importe total por mes).\n\nUna vez con los datos, el cálculo sería: (1) contar transacciones por mes de 2026, (2) identificar el mes con mayor número de transacciones, y (3) importe medio = importe total de ese mes / número de transacciones de ese mes. Limitación a tener en cuenta: si solo se aportan agregados mensuales, el importe medio se calcularía con precisión solo para el mes ganador; no podría verificar distribuciones internas.",
+  "trace": [
+    {
+      "step": 1,
+      "thought": "Necesito leer los datos de ventas de 2026 para agrupar por mes, contar el número de transacciones e identificar el mes con más ventas antes de calcular el importe medio.",
+      "action": {
+        "name": "read_data",
+        "args": {
+          "source": "ventas",
+          "filters": {
+            "year": 2026
+          },
+          "group_by": "month",
+          "aggregations": {
+            "transactions": "count",
+            "amount": "sum"
+          }
+        }
+      },
+      "observation": {
+        "error": "Tool no registrada: read_data"
+      }
+    },
+    {
+      "step": 2,
+      "thought": "La tool 'read_data' no está registrada. El prompt está en español, así que probaré con el nombre en español 'leer_datos' para obtener los datos de ventas de 2026.",
+      "action": {
+        "name": "leer_datos",
+        "args": {
+          "fuente": "ventas",
+          "filtros": {
+            "anio": 2026
+          },
+          "agrupar_por": "mes",
+          "agregaciones": {
+            "transacciones": "count",
+            "importe": "sum"
+          }
+        }
+      },
+      "observation": {
+        "error": "Tool no registrada: leer_datos"
+      }
+    }
+  ],
+  "status": "completed"
+}

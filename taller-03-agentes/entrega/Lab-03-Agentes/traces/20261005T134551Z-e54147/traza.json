@@ -1,0 +1,165 @@
+{
+  "question": "Cuenta las ventas de cada mes de 2025, una consulta por mes.",
+  "answer": "[INCOMPLETO — límite de 4 pasos alcanzado]\nCon lo que alcancé a consultar no tengo la respuesta completa.",
+  "trace": [
+    {
+      "step": 1,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 980,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2025-01%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 264
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.024,
+      "error": null
+    },
+    {
+      "step": 2,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1060,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2025-02%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds2",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 255
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 3,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1140,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2025-03%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds3",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 373
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 4,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1220,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2025-04%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds4",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 273
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 4,
+      "tipo": "freno",
+      "motivo": "límite de 4 pasos alcanzado",
+      "action": null,
+      "observation": null
+    },
+    {
+      "step": 5,
+      "tipo": "cierre",
+      "model": "guion",
+      "tokens_entrada": 1340,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "fin": "stop",
+      "error": null,
+      "thought": "Con lo que alcancé a consultar no tengo la respuesta completa.",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "max_steps_reached",
+  "model": "guion",
+  "usage": {
+    "tokens_entrada": 5740,
+    "tokens_salida": 600
+  },
+  "totales": {
+    "model": "guion",
+    "llamadas_llm": 5,
+    "llamadas_herramienta": 4,
+    "errores_herramienta": 0,
+    "tokens_entrada": 5740,
+    "tokens_salida": 600,
+    "latencia_llm_s": 0.0,
+    "segundos": 0.028
+  },
+  "error": null,
+  "trace_path": "traces/20261005T134551Z-e54147/traza.json"
+}

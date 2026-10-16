@@ -1,0 +1,6 @@
+{
+  "question": "¿Qué región tuvo el mayor importe medio por venta en 2026, y cuál fue ese importe medio?",
+  "answer": "No puedo responder a esta pregunta con la evidencia disponible: en este momento no tengo acceso a ninguna fuente de datos de ventas (ni un dataset cargado ni una herramienta de lectura configurada) que contenga información de importes por venta y región para 2026. Para calcular el importe medio por venta por región necesito que proporciones los datos (por ejemplo, un archivo CSV/Excel con columnas como 'región', 'fecha' e 'importe') o que indiques la fuente concreta a consultar. Limitación: sin esos datos, cualquier cifra o región que mencionara sería inventada, y no lo haré.",
+  "trace": [],
+  "status": "completed"
+}

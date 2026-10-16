@@ -1,0 +1,36 @@
+✓ 1_max_pasos: status=max_steps_reached (esperado max_steps_reached)
+   freno: límite de 4 pasos alcanzado
+   modelo=guion llamadas_llm=5 herramientas=4 tokens=5740→600
+   tokens de entrada por llamada: [980, 1060, 1140, 1220, 1340]  acumulado: [980, 2040, 3180, 4400, 5740]
+   respuesta: '[INCOMPLETO — límite de 4 pasos alcanzado]\nCon lo que alcancé a consultar no tengo la respuesta completa.'
+   traza: entregables/parte3/1_max_pasos/traza.json
+✓ 2_presupuesto: status=budget_exceeded (esperado budget_exceeded)
+   freno: presupuesto de tokens: 10,000 gastados + ~2,615 de la próxima llamada > 12,000
+   modelo=guion llamadas_llm=4 herramientas=4 tokens=8800→1200
+   tokens de entrada por llamada: [2080, 2160, 2240, 2320]  acumulado: [2080, 4240, 6480, 8800]
+   respuesta: '[INCOMPLETO — presupuesto de tokens: 10,000 gastados + ~2,615 de la próxima llamada > 12,000] No pude completar la tarea con los recursos asignados. No puedo responder con los datos disponibles.'
+   traza: entregables/parte3/2_presupuesto/traza.json
+✓ 3_repeticion: status=repetition_detected (esperado repetition_detected)
+   freno: repetición: consultar_sql con los mismos argumentos 3 veces (k = 2)
+   modelo=guion llamadas_llm=4 herramientas=3 tokens=4440→480
+   tokens de entrada por llamada: [980, 1060, 1140, 1260]  acumulado: [980, 2040, 3180, 4440]
+   respuesta: '[INCOMPLETO — repetición: consultar_sql con los mismos argumentos 3 veces (k = 2)]\nCon lo que alcancé a consultar no tengo la respuesta completa.'
+   traza: entregables/parte3/3_repeticion/traza.json
+✓ 4_bucle_no_detectado: status=max_steps_reached (esperado max_steps_reached)
+   freno: límite de 5 pasos alcanzado
+   modelo=guion llamadas_llm=6 herramientas=5 tokens=7120→720
+   tokens de entrada por llamada: [980, 1060, 1140, 1220, 1300, 1420]  acumulado: [980, 2040, 3180, 4400, 5700, 7120]
+   respuesta: '[INCOMPLETO — límite de 5 pasos alcanzado]\nCon lo que alcancé a consultar no tengo la respuesta completa.'
+   traza: entregables/parte3/4_bucle_no_detectado/traza.json
+✓ real_1_max_pasos: status=max_steps_reached (esperado max_steps_reached)
+   freno: límite de 2 pasos alcanzado
+   modelo=zai-org/GLM-5.3-Flash llamadas_llm=3 herramientas=2 tokens=4373→909
+   tokens de entrada por llamada: [1139, 1789, 1445]  acumulado: [1139, 2928, 4373]
+   respuesta: '[INCOMPLETO — límite de 2 pasos alcanzado]\nLa mediana del importe facturado por mes en 2026 fue de 650732.53.\n\nDetalle: agrupé las ventas de 2026 por mes y calculé el importe de cada mes como SUM(cantidad * precio_unitar'
+   traza: entregables/parte3/real_1_max_pasos/traza.json
+✓ real_2_presupuesto: status=budget_exceeded (esperado budget_exceeded)
+   freno: presupuesto de tokens: 1,186 gastados + ~1,927 de la próxima llamada > 3,000
+   modelo=zai-org/GLM-5.3-Flash llamadas_llm=1 herramientas=1 tokens=1136→50
+   tokens de entrada por llamada: [1136]  acumulado: [1136]
+   respuesta: '[INCOMPLETO — presupuesto de tokens: 1,186 gastados + ~1,927 de la próxima llamada > 3,000] No pude completar la tarea con los recursos asignados. No puedo responder con los datos disponibles.'
+   traza: entregables/parte3/real_2_presupuesto/traza.json

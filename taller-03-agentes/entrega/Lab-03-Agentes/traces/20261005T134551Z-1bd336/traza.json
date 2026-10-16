@@ -1,0 +1,195 @@
+{
+  "question": "¿Cuántas ventas hubo en marzo de 2026?",
+  "answer": "[INCOMPLETO — límite de 5 pasos alcanzado]\nCon lo que alcancé a consultar no tengo la respuesta completa.",
+  "trace": [
+    {
+      "step": 1,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 980,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2026-03%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 360
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 2,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1060,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) AS n FROM ventas WHERE fecha LIKE '2026-03%'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds2",
+        "columnas": [
+          "n"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "n": 360
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 3,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1140,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha BETWEEN '2026-03-01' AND '2026-03-31'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds3",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 360
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 4,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1220,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(venta_id) FROM ventas WHERE substr(fecha, 1, 7) = '2026-03'"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds4",
+        "columnas": [
+          "COUNT(venta_id)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(venta_id)": 360
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 5,
+      "tipo": "herramienta",
+      "model": "guion",
+      "tokens_entrada": 1300,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT COUNT(*) FROM ventas WHERE fecha LIKE '2026-03%' LIMIT 1"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds5",
+        "columnas": [
+          "COUNT(*)"
+        ],
+        "filas": 1,
+        "vista": [
+          {
+            "COUNT(*)": 360
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.001,
+      "error": null
+    },
+    {
+      "step": 5,
+      "tipo": "freno",
+      "motivo": "límite de 5 pasos alcanzado",
+      "action": null,
+      "observation": null
+    },
+    {
+      "step": 6,
+      "tipo": "cierre",
+      "model": "guion",
+      "tokens_entrada": 1420,
+      "tokens_salida": 120,
+      "latencia_s": 0.0,
+      "razonamiento_chars": 0,
+      "fin": "stop",
+      "error": null,
+      "thought": "Con lo que alcancé a consultar no tengo la respuesta completa.",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "max_steps_reached",
+  "model": "guion",
+  "usage": {
+    "tokens_entrada": 7120,
+    "tokens_salida": 720
+  },
+  "totales": {
+    "model": "guion",
+    "llamadas_llm": 6,
+    "llamadas_herramienta": 5,
+    "errores_herramienta": 0,
+    "tokens_entrada": 7120,
+    "tokens_salida": 720,
+    "latencia_llm_s": 0.0,
+    "segundos": 0.005
+  },
+  "error": null,
+  "trace_path": "traces/20261005T134551Z-1bd336/traza.json"
+}

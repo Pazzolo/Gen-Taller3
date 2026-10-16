@@ -1,0 +1,277 @@
+{
+  "question": "¿Qué región tuvo el mayor importe medio por venta en 2026, y cuál fue ese importe medio?",
+  "answer": "La región con el mayor importe medio por venta en 2026 fue Costa, con un importe medio de 2401.41 (calculado como cantidad × precio_unitario × (1 − descuento), sobre 909 ventas). Le siguen Amazonía (2385.03), Galápagos (2341.40) y Sierra (2247.69).",
+  "trace": [
+    {
+      "step": 1,
+      "agente": "supervisor",
+      "tipo": "guarda",
+      "model": "código",
+      "tokens_entrada": 0,
+      "tokens_salida": 0,
+      "latencia_s": 0.0,
+      "error": null,
+      "detectado": null,
+      "action": null,
+      "observation": null
+    },
+    {
+      "step": 2,
+      "agente": "clasificador",
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 180,
+      "tokens_salida": 91,
+      "latencia_s": 0.609,
+      "error": null,
+      "thought": "{\"ruta\": \"datos\", \"motivo\": \"Pide un cálculo analítico de solo lectura (importe medio por región en 2026) sin crear ni modificar datos.\"}",
+      "action": null,
+      "observation": null,
+      "ruta": "datos",
+      "motivo": "Pide un cálculo analítico de solo lectura (importe medio por región en 2026) sin crear ni modificar datos."
+    },
+    {
+      "step": 3,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1144,
+      "tokens_salida": 58,
+      "latencia_s": 0.517,
+      "razonamiento_chars": 225,
+      "thought": "",
+      "action": {
+        "name": "describir_base",
+        "args": {}
+      },
+      "observation": {
+        "tablas": {
+          "clientes": {
+            "filas": 320,
+            "columnas": {
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT"
+              },
+              "region": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Amazonía",
+                  "Costa",
+                  "Galápagos",
+                  "Sierra"
+                ]
+              },
+              "segmento": {
+                "tipo": "TEXT",
+                "valores": [
+                  "corporativo",
+                  "educación",
+                  "pyme",
+                  "sector público"
+                ]
+              },
+              "fecha_alta": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2023-01-02",
+                  "2025-06-18"
+                ]
+              }
+            }
+          },
+          "productos": {
+            "filas": 13,
+            "columnas": {
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "nombre": {
+                "tipo": "TEXT",
+                "valores": [
+                  "Bolsa de horas de consultoría",
+                  "Capacitación Avanzada",
+                  "Capacitación Fundamentos",
+                  "Certificación de analistas",
+                  "Licencia Analítica Básica",
+                  "Licencia Analítica Enterprise",
+                  "Licencia Analítica Pro",
+                  "Licencia Integración API",
+                  "Licencia Visualización",
+                  "Soporte Dedicado (mes)",
+                  "Soporte Estándar (mes)",
+                  "Soporte Prioritario (mes)",
+                  "Taller in situ (día)"
+                ]
+              },
+              "categoria": {
+                "tipo": "TEXT",
+                "valores": [
+                  "capacitación",
+                  "licencia",
+                  "soporte"
+                ]
+              },
+              "precio_lista": {
+                "tipo": "REAL",
+                "rango": [
+                  85.0,
+                  4200.0
+                ]
+              }
+            }
+          },
+          "ventas": {
+            "filas": 6000,
+            "columnas": {
+              "venta_id": {
+                "tipo": "INTEGER"
+              },
+              "fecha": {
+                "tipo": "TEXT",
+                "rango": [
+                  "2025-01-01",
+                  "2026-08-31"
+                ]
+              },
+              "cliente_id": {
+                "tipo": "INTEGER"
+              },
+              "producto_id": {
+                "tipo": "INTEGER"
+              },
+              "cantidad": {
+                "tipo": "INTEGER",
+                "rango": [
+                  1,
+                  12
+                ]
+              },
+              "precio_unitario": {
+                "tipo": "REAL",
+                "rango": [
+                  78.23,
+                  4408.34
+                ]
+              },
+              "descuento": {
+                "tipo": "REAL",
+                "rango": [
+                  0.0,
+                  0.15
+                ]
+              }
+            }
+          }
+        },
+        "notas": [
+          "El importe de una venta es cantidad * precio_unitario * (1 - descuento). No existe una columna 'importe', 'total' ni 'monto': hay que calcularlo.",
+          "descuento es una fracción entre 0 y 1 (0.15 = 15 %).",
+          "Las fechas son texto ISO 'AAAA-MM-DD': para un mes usa fecha LIKE '2026-03%'; para un rango, fecha BETWEEN '2026-01-01' AND '2026-06-30'.",
+          "ventas.cliente_id → clientes.cliente_id y ventas.producto_id → productos.producto_id.",
+          "No hay datos de costos, márgenes, ganancias, inventario ni satisfacción de clientes."
+        ]
+      },
+      "latencia_herramienta_s": 0.012,
+      "error": null,
+      "agente": "datos"
+    },
+    {
+      "step": 4,
+      "tipo": "herramienta",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1794,
+      "tokens_salida": 130,
+      "latencia_s": 0.864,
+      "razonamiento_chars": 197,
+      "thought": "",
+      "action": {
+        "name": "consultar_sql",
+        "args": {
+          "consulta": "SELECT c.region, COUNT(*) AS num_ventas, AVG(v.cantidad * v.precio_unitario * (1 - v.descuento)) AS importe_medio FROM ventas v JOIN clientes c ON v.cliente_id = c.cliente_id WHERE v.fecha LIKE '2026%' GROUP BY c.region ORDER BY importe_medio DESC"
+        }
+      },
+      "observation": {
+        "dataset_id": "ds1",
+        "columnas": [
+          "region",
+          "num_ventas",
+          "importe_medio"
+        ],
+        "filas": 4,
+        "vista": [
+          {
+            "region": "Costa",
+            "num_ventas": 909,
+            "importe_medio": 2401.411239824
+          },
+          {
+            "region": "Amazonía",
+            "num_ventas": 190,
+            "importe_medio": 2385.0292105263
+          },
+          {
+            "region": "Galápagos",
+            "num_ventas": 105,
+            "importe_medio": 2341.3989380952
+          },
+          {
+            "region": "Sierra",
+            "num_ventas": 1178,
+            "importe_medio": 2247.6909749576
+          }
+        ]
+      },
+      "latencia_herramienta_s": 0.007,
+      "error": null,
+      "agente": "datos"
+    },
+    {
+      "step": 5,
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 2048,
+      "tokens_salida": 109,
+      "latencia_s": 1.067,
+      "razonamiento_chars": 83,
+      "fin": "stop",
+      "error": null,
+      "thought": "La región con el mayor importe medio por venta en 2026 fue **Costa**, con un importe medio de **2401.41** (calculado como cantidad × precio_unitario × (1 − descuento), sobre 909 ventas).\n\nLe siguen Amazonía (2385.03), Galápagos (2341.40) y Sierra (2247.69).",
+      "action": null,
+      "observation": null,
+      "agente": "datos"
+    },
+    {
+      "step": 6,
+      "agente": "redaccion",
+      "tipo": "llm",
+      "model": "zai-org/GLM-5.3-Flash",
+      "tokens_entrada": 1199,
+      "tokens_salida": 267,
+      "latencia_s": 1.394,
+      "error": null,
+      "thought": "La región con el mayor importe medio por venta en 2026 fue Costa, con un importe medio de 2401.41 (calculado como cantidad × precio_unitario × (1 − descuento), sobre 909 ventas). Le siguen Amazonía (2385.03), Galápagos (2341.40) y Sierra (2247.69).",
+      "action": null,
+      "observation": null
+    }
+  ],
+  "status": "completed",
+  "model": "zai-org/GLM-5.3-Flash",
+  "usage": {
+    "tokens_entrada": 6365,
+    "tokens_salida": 655
+  },
+  "ruta": "datos",
+  "error": null,
+  "totales": {
+    "model": "zai-org/GLM-5.3-Flash",
+    "llamadas_llm": 5,
+    "llamadas_herramienta": 2,
+    "errores_herramienta": 0,
+    "tokens_entrada": 6365,
+    "tokens_salida": 655,
+    "segundos": 4.471
+  },
+  "trace_path": "traces/20261005T143557Z-3ae63c-multi/traza.json"
+}

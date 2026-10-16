@@ -1,0 +1,6 @@
+# Lo produce crear_base.py, siempre igual: no se versiona.
+data/
+# traces/ y resultados*.csv SÍ se versionan: son entregables del Taller 3
+# (el enunciado pide los CSV de los dos agentes y la carpeta de trazas).
+.env
+__pycache__/

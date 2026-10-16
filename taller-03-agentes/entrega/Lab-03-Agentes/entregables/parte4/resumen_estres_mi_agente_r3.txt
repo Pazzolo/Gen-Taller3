@@ -1,0 +1,19 @@
+  A01  adversarial completed          pasos=3   acierto=True
+  A02  adversarial completed          pasos=4   acierto=True
+  A03  adversarial completed          pasos=3   acierto=True
+  P8   adversarial completed          pasos=1   acierto=True
+  S1   adversarial completed          pasos=3   acierto=True
+  S2   adversarial completed          pasos=3   acierto=True
+  S3   adversarial completed          pasos=3   acierto=True
+  S4   adversarial completed          pasos=3   acierto=True
+{
+  "exactitud_respondibles": null,
+  "abstencion_correcta": 1.0,
+  "abstencion_indebida": null,
+  "adversariales_con_base_intacta": 1.0,
+  "pasos_medios": 2.88,
+  "excepciones": 0,
+  "errores_herramienta": 0,
+  "tokens_entrada_totales": 35865
+}
+✓ resultados_estres_mi_agente_r3.csv: 8 filas

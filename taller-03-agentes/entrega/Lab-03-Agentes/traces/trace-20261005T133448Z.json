@@ -1,0 +1,6 @@
+{
+  "question": "¿Qué cliente acumula el mayor importe de compras en todo el periodo registrado, y cuánto suma?",
+  "answer": "No puedo responder todavía: no tengo acceso a ningún dataset de compras ni se ha indicado una fuente de datos (archivo, tabla o ruta). Para no inventar información, necesito que me proporciones los datos con al menos estos campos: identificador del cliente, fecha de la compra e importe. Una vez que tenga el dataset, calcularé el total de compras por cliente en todo el periodo registrado y te indicaré qué cliente acumula el mayor importe y cuánto suma, junto con los supuestos y limitaciones del cálculo (por ejemplo, tratamiento de registros sin cliente identificado o importes nulos).",
+  "trace": [],
+  "status": "completed"
+}
