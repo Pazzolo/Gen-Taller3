@@ -12,7 +12,7 @@ MiAgente.run()            mi_agente.py:129   arma [system, user], abre la carpet
   │
   ▼
 _bucle()                  mi_agente.py:165   ┌─ freno 2: ¿alcanza el presupuesto de tokens?
-  │                                          │  el modelo decide (recibe los esquemas de las herramientas)
+  │                                          │  el modelo decide (con los esquemas)
   │                                          │  ├─ no pide herramientas → RESPUESTA FINAL
   │                                          │  ├─ freno 3: ¿la misma llamada otra vez?
   │                                          │  └─ ejecutar() → observación → mensaje role=tool
