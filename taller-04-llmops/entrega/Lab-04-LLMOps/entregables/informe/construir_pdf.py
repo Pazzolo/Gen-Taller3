@@ -1,6 +1,6 @@
 """Convierte informe.md en informe.html (con estilos de impresión) para imprimirlo a PDF con Chrome.
 
-    ../../../Lab-03-Agentes/.venv/bin/python construir_pdf.py   # el venv del Lab 03 trae `markdown`; Chrome headless imprime el PDF
+    .venv/bin/python entregables/informe/construir_pdf.py   # desde Lab-04-LLMOps/, con `pip install markdown`; Chrome headless imprime el PDF
 """
 from pathlib import Path
 import markdown
