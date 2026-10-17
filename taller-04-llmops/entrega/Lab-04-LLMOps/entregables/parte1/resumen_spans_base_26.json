@@ -1,0 +1,76 @@
+{
+  "corridas": 26,
+  "corridas_sin_span_corrida": [],
+  "latencia_p50_ms": 2435.5,
+  "latencia_p95_ms": 3463.25,
+  "tokens_entrada": 112284,
+  "tokens_salida": 7728,
+  "costo_usd": 0.021479,
+  "precio": "fila propietario_economico (gpt-4o-mini), verificada el 2026-08-26",
+  "errores": 0,
+  "por_span": {
+    "llm:llm": {
+      "n": 68,
+      "ms_total": 56454.0,
+      "ms_medio": 830.2,
+      "parte_del_total": 0.991,
+      "errores": 0
+    },
+    "herramienta:describir_base": {
+      "n": 23,
+      "ms_total": 236.0,
+      "ms_medio": 10.3,
+      "parte_del_total": 0.004,
+      "errores": 0
+    },
+    "herramienta:consultar_sql": {
+      "n": 20,
+      "ms_total": 206.0,
+      "ms_medio": 10.3,
+      "parte_del_total": 0.004,
+      "errores": 0
+    },
+    "herramienta:estadisticas": {
+      "n": 2,
+      "ms_total": 34.0,
+      "ms_medio": 17.0,
+      "parte_del_total": 0.001,
+      "errores": 0
+    },
+    "guardrail:datos_personales_salida": {
+      "n": 23,
+      "ms_total": 21.0,
+      "ms_medio": 0.9,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:inyeccion_entrada": {
+      "n": 26,
+      "ms_total": 12.0,
+      "ms_medio": 0.5,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:presupuesto_tokens": {
+      "n": 68,
+      "ms_total": 11.0,
+      "ms_medio": 0.2,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:datos_personales_entrada": {
+      "n": 26,
+      "ms_total": 6.0,
+      "ms_medio": 0.2,
+      "parte_del_total": 0.0,
+      "errores": 0
+    },
+    "guardrail:claves_salida": {
+      "n": 23,
+      "ms_total": 5.0,
+      "ms_medio": 0.2,
+      "parte_del_total": 0.0,
+      "errores": 0
+    }
+  }
+}
